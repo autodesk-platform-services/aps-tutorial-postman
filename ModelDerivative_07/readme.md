@@ -13,13 +13,13 @@
 
 This folder contains a Postman Collection corresponding to the Model Derivative Step-by-Step Tutorial [Translate a Revit File, Generating Room and Space Information](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/).
 
-In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
+In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the APS portal.
 
-![Forge portal menu to Postman](images/tutorial_07_forge_postman_menu_01.png "Forge portal task to Postman mapping")
+![APS portal menu to Postman](images/tutorial_07_aps_postman_menu_01.png "APS portal task to Postman mapping")
 
-Individual requests in Postman have been named such that the corresponding step in the tutorial (on the Forge portal) can be figured out easily.
+Individual requests in Postman have been named such that the corresponding step in the tutorial (on the APS portal) can be figured out easily.
 
-![Forge portal steps to Postman](images/tutorial_07_forge_postman_menu_02.png "Forge portal task to Postman mapping")
+![APS portal steps to Postman](images/tutorial_07_aps_postman_menu_02.png "APS portal task to Postman mapping")
 
 Instructions to run the Postman collection are as follows:
 

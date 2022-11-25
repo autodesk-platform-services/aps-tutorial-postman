@@ -11,15 +11,15 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Derivative Step-by-Step Tutorial [Prepare a File for the Viewer](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/), which is published on the Forge portal.
+This folder contains a Postman Collection that contains the requests used in the Model Derivative Step-by-Step Tutorial [Prepare a File for the Viewer](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/), which is published on the APS portal.
 
-In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
+In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the APS portal.
 
-![Forge portal menu to Postman](images/tutorial_04_forge_postman_menu_01.png "Forge portal task to Postman mapping")
+![APS portal menu to Postman](images/tutorial_04_aps_postman_menu_01.png "APS portal task to Postman mapping")
 
-Individual requests in Postman have been named such that the corresponding step in the tutorial (on the Forge Portal) can be figured out easily.
+Individual requests in Postman have been named such that the corresponding step in the tutorial (on the APS Portal) can be figured out easily.
 
-![Forge portal steps to Postman](images/tutorial_04_forge_postman_menu_02.png "Forge portal task to Postman mapping")
+![APS portal steps to Postman](images/tutorial_04_aps_postman_menu_02.png "APS portal task to Postman mapping")
 
 Instructions to run the Postman collection are as follows:
 
