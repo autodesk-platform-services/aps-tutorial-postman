@@ -71,7 +71,7 @@
 								"authenticate"
 							]
 						},
-						"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
 					},
 					"response": []
 				}
@@ -121,7 +121,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
 					},
 					"response": []
 				}
@@ -177,7 +177,7 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
 					},
 					"response": []
 				},
@@ -217,7 +217,7 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
 					},
 					"response": []
 				}
@@ -273,7 +273,7 @@
 								"buckets"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
 					},
 					"response": []
 				},
@@ -321,7 +321,7 @@
 								"{{$guid}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				},
@@ -369,7 +369,7 @@
 								"{{$guid}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				},
@@ -424,7 +424,7 @@
 								"signed"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -478,7 +478,7 @@
 								"signed"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -549,7 +549,7 @@
 								}
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				}
@@ -606,7 +606,7 @@
 								"workitems"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
 					},
 					"response": []
 				}
@@ -647,7 +647,7 @@
 								"{{dasWorkItemId}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
 					},
 					"response": []
 				},
@@ -690,7 +690,7 @@
 								"{{ossOutputFileObjectKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
 					},
 					"response": []
 				}
@@ -701,7 +701,7 @@
 			"name": "Clean up HTTP Requests",
 			"item": [
 				{
-					"name": "Delete Forge App Data in Design Automation",
+					"name": "Delete App Data in Design Automation",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -735,7 +735,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
 					},
 					"response": []
 				},

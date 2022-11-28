@@ -71,7 +71,7 @@
 								"authenticate"
 							]
 						},
-						"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
 					},
 					"response": []
 				}
@@ -121,7 +121,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
 					},
 					"response": []
 				}
@@ -188,7 +188,7 @@
 								"appbundles"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
 					},
 					"response": []
 				},
@@ -295,7 +295,7 @@
 								"{{ListLayersAppUrl}}"
 							]
 						},
-						"description": "This request to the Design Automation API uploads an AppBundle to Forge.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *ListLayers.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4ACAD/tutorial_data).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *ListLayers.zip*, which you downloaded in step 1."
+						"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *ListLayers.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/DA4ACAD/tutorial_data).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *ListLayers.zip*, which you downloaded in step 1."
 					},
 					"response": []
 				},
@@ -353,7 +353,7 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
 					},
 					"response": []
 				}
@@ -409,7 +409,7 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
 					},
 					"response": []
 				},
@@ -462,7 +462,7 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-id-aliases-POST/)"
 					},
 					"response": []
 				}
@@ -540,7 +540,7 @@
 								"buckets"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
 					},
 					"response": []
 				},
@@ -589,7 +589,7 @@
 								"{{ossDwgFileObjectKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				},
@@ -644,7 +644,7 @@
 								"signed"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -715,7 +715,7 @@
 								}
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				}
@@ -804,7 +804,7 @@
 								"workitems"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
 					},
 					"response": []
 				},
@@ -839,7 +839,7 @@
 								"{{dasWorkItemId}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
 					},
 					"response": []
 				}
@@ -910,7 +910,7 @@
 								"{{ossOutputFileObjectKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
 					},
 					"response": []
 				}
@@ -943,7 +943,7 @@
 			"name": "Extras",
 			"item": [
 				{
-					"name": "Delete Forge App Data in Design Automation",
+					"name": "Delete App Data in Design Automation",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -977,7 +977,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
 					},
 					"response": []
 				},
@@ -1027,7 +1027,7 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
 					},
 					"response": []
 				},
@@ -1107,7 +1107,7 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
 					},
 					"response": []
 				},
@@ -1139,7 +1139,7 @@
 								"{{dasActivityName}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
 					},
 					"response": []
 				},
@@ -1171,7 +1171,7 @@
 								"objects"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)"
 					},
 					"response": []
 				},
@@ -1201,7 +1201,7 @@
 								"buckets"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)"
 					},
 					"response": []
 				},
@@ -1233,7 +1233,7 @@
 								"details"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				}

@@ -4,7 +4,7 @@ Before you download the results from from your WorkItem, it must must complete e
 
 In this tutorial, you will periodically check the status of the WorkItem. 
 
-For information on how to specify a callback URL instead, see the [Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
+For information on how to specify a callback URL instead, see the [APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
 
 ## Check Status of a WorkItem
 

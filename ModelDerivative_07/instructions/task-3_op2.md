@@ -13,7 +13,7 @@ The translation job produces a manifest, which lists all the files that are gene
 
     ![Create Translation Job JSON Payload](../images/tutorial_07_task_3_svf2_start_a_translation_job_01.png "Create Translation Job JSON Payload")
 
-    Note the use of the `generateMasterViews` attribute to instruct Forge that it must generate master views for each phase of the Revit model.
+    Note the use of the `generateMasterViews` attribute to instruct APS that it must generate master views for each phase of the Revit model.
 
 3. Click the **Headers** tab and take note of the options that are specified.
 
@@ -35,7 +35,7 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For this tutorial, check the status of the translation job, and wait for the `progress` parameter to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this tutorial, check the status of the translation job, and wait for the `progress` parameter to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click Task 3 - Translate Source File > Option 2 - Translate to SVF2 > Check Status of Job**. The request loads.
 

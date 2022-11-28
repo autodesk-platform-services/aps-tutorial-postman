@@ -12,7 +12,7 @@ An Activity is an action that can be executed in Design Automation.
 
 **Notes:**
  - `id` is the name given to the new Activity. The id is picked up from the Postman Environment Variable `dasActivityName`.
- - `commandLine` is the command run by this Activity. It consists of several variables. These variables are replaced by actual values at the time the Activity is executed. This mechanism provides the ability to test the command line locally with file paths that are applicable to Design Automation. For more information, see the [Forge portal documentation on command lines](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
+ - `commandLine` is the command run by this Activity. It consists of several variables. These variables are replaced by actual values at the time the Activity is executed. This mechanism provides the ability to test the command line locally with file paths that are applicable to Design Automation. For more information, see the [documentation on command lines](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 
     - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine. The version of AutoCAD to be used is defined in the request body as `"engine": "Autodesk.AutoCAD+22"`.  
 

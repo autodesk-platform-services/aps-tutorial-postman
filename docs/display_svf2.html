@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
     <meta charset="utf-8">
-    <!-- Autodesk APS Viewer files -->
+    <!-- Autodesk Viewer files -->
     <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
     <!--Styling to make the page look presentable-->
@@ -12,8 +12,8 @@
         body {
             margin: 10;
         }
-        
-        #apsViewer {
+
+        #forgeViewer {
             width: 90%;
             height: 100%;
             margin: 0;
@@ -48,8 +48,8 @@
         <br>
         <br>
     </div>
-    <!-- This is where the APS Viewer will be displayed-->
-    <div id="apsViewer"></div>
+    <!-- This is where the Viewer will be displayed-->
+    <div id="forgeViewer"></div>
 
     <script>
         var viewer;
@@ -66,7 +66,7 @@
                 getAccessToken: function(onTokenReady) {
                     var x = document.getElementById("access_token")
                     var token = x.value;
-                    var timeInSeconds = 3600; // Use value provided by APS Authentication (OAuth) API
+                    var timeInSeconds = 3600; // Use value provided by Authentication (OAuth) API
                     onTokenReady(token, timeInSeconds);
                 }
             }
@@ -74,10 +74,10 @@
             <!-- This is called when the page is loaded-->
             Autodesk.Viewing.Initializer(options, function() {
 
-                var htmlDiv = document.getElementById('apsViewer');
+                var htmlDiv = document.getElementById('forgeViewer');
                 viewer = new Autodesk.Viewing.GuiViewer3D(htmlDiv);
                 var startedCode = viewer.start();
-				
+
                 if (startedCode > 0) {
                     console.error('Failed to create a Viewer: WebGL not supported.');
                     return;
@@ -91,12 +91,12 @@
             var documentId = 'urn:' + x.value; // Add the string 'urn:' to the actual URN value
             Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
 
-            
+
         };
 
         <!--This is called when an option is selected from the Choose viewables drop-down -->
         function selectViewable() {
-            
+
             var indexViewable = document.getElementById("viewables").selectedIndex;
             // Load another viewable from selectedIndex of drop-down.
             viewer.loadDocumentNode(md_ViewerDocument, md_viewables[indexViewable]);
@@ -105,8 +105,8 @@
         function onDocumentLoadSuccess(viewerDocument) {
 
             var viewerapp = viewerDocument.getRoot();
-            
-            md_ViewerDocument=viewerDocument; // Hold the viewerDocument in a global variable so that we can access it within SelectViewable() 
+
+            md_ViewerDocument=viewerDocument; // Hold the viewerDocument in a global variable so that we can access it within SelectViewable()
             md_viewables = viewerapp.search({'type':'geometry'});
 
             if (md_viewables.length === 0) {
@@ -138,7 +138,7 @@
         }
 
         function onDocumentLoadFailure() {
-            console.error('Failed fetching APS manifest');
+            console.error('Failed fetching manifest');
         }
     </script>
 
