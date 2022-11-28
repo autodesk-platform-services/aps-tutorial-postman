@@ -1,6 +1,6 @@
 # Task 3 – Translate Source File
 
-You can translate the source file to many different formats (see [Supported Translations](https://forge.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). For the purpose of this tutorial, you will translate the source file to the STL format.
+You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). For the purpose of this tutorial, you will translate the source file to the STL format.
 
 To translate a file, you must kick off a translation job. However, before you kick off the translation job, you must link the source file to its references, so that Model Derivative can fetch the referenced files from OSS for translation.
 
@@ -30,7 +30,7 @@ The assembly file *scissors.iam* expects its part files to be placed in a sub-fo
 
     ![Create Translation Job JSON Payload](../images/tutorial_03_task_03_start_translation_01.png "Create Translation Job JSON Payload")
 
-    Note the use of the `checkReferences` attribute to instruct Forge that the source file contains references that must be downloaded at translation time.
+    Note the use of the `checkReferences` attribute to instruct APS that the source file contains references that must be downloaded at translation time.
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
@@ -46,7 +46,7 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For the purpose of this tutorial you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For the purpose of this tutorial you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Translation Job**. The request loads.
 

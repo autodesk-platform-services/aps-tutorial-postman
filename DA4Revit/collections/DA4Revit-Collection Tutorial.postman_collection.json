@@ -70,7 +70,7 @@
 								"authenticate"
 							]
 						},
-						"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
 					},
 					"response": []
 				}
@@ -145,7 +145,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
 					},
 					"response": []
 				}
@@ -226,7 +226,7 @@
 								"appbundles"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
 					},
 					"response": []
 				},
@@ -333,7 +333,7 @@
 								"{{deleteWallsAppUrl}}"
 							]
 						},
-						"description": "This request to the Design Automation API uploads an AppBundle to Forge.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *DeletWallsApp.zip* from the [*tutorial_data* folder of this repository](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data)\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Close any boxes that appear against **File**.\n  4. Click **Select** and pick the file *DeletWallsApp.zip*, which you downloaded in step 1."
+						"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *DeletWallsApp.zip* from the [*tutorial_data* folder of this repository](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/DA4Revit/tutorial_data)\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Close any boxes that appear against **File**.\n  4. Click **Select** and pick the file *DeletWallsApp.zip*, which you downloaded in step 1."
 					},
 					"response": []
 				},
@@ -371,7 +371,7 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
 					},
 					"response": []
 				},
@@ -425,7 +425,7 @@
 								"versions"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-versions-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-versions-POST/)"
 					},
 					"response": []
 				},
@@ -532,7 +532,7 @@
 								"{{deleteWallsAppUrl}}"
 							]
 						},
-						"description": "This request to the Design Automation API uploads an AppBundle as version 2 of the AppBundle.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *DeletWallsApp.zip* from the [*tutorial_data* folder of this repository](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data)\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Close any boxes that appear against **File**.\n  4. Click **Select** and pick the file *DeletWallsApp.zip*, which you downloaded in step 1."
+						"description": "This request to the Design Automation API uploads an AppBundle as version 2 of the AppBundle.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *DeletWallsApp.zip* from the [*tutorial_data* folder of this repository](https://github.com/autodesk-platform-services/aps-tutorial-postman/tree/master/DA4Revit/tutorial_data)\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Close any boxes that appear against **File**.\n  4. Click **Select** and pick the file *DeletWallsApp.zip*, which you downloaded in step 1."
 					},
 					"response": []
 				},
@@ -571,7 +571,7 @@
 								"test"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-aliasId-PATCH/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-aliasId-PATCH/)"
 					},
 					"response": []
 				}
@@ -644,7 +644,7 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
 					},
 					"response": []
 				},
@@ -677,7 +677,7 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
 					},
 					"response": []
 				},
@@ -724,7 +724,7 @@
 								"versions"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-id-versions-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-id-versions-POST/)"
 					},
 					"response": []
 				},
@@ -763,7 +763,7 @@
 								"test"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-id-aliases-aliasId-PATCH/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-id-aliases-aliasId-PATCH/)"
 					},
 					"response": []
 				}
@@ -826,7 +826,7 @@
 								"buckets"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
 					},
 					"response": []
 				},
@@ -876,7 +876,7 @@
 								}
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				},
@@ -938,7 +938,7 @@
 								}
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -1006,7 +1006,7 @@
 								}
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				}
@@ -1057,7 +1057,7 @@
 								"workitems"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
 					},
 					"response": []
 				},
@@ -1085,7 +1085,7 @@
 								"{{deleteWallsWorkitemId}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
 					},
 					"response": []
 				}
@@ -1115,7 +1115,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Delete Forge App",
+			"name": "Delete App",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -1143,7 +1143,7 @@
 						"me"
 					]
 				},
-				"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
+				"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
 			},
 			"response": []
 		}

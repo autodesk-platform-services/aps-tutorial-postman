@@ -13,7 +13,7 @@ When you submit a *WorkItem* to Design Automation, you are instructing Design Au
 
     The main attributes on the JSON payload are:
 
-    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id made up of three parts. They start with the Nickname of the Forge App (or the Client Id of the Forge App), followed by the '.' character, then the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [Forge portal documentation on ids](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
+    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id made up of three parts. They start with the Nickname of the app (or the Client Id of the app), followed by the '.' character, then the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [documentation on ids](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
 
     - `arguments` - Contains all the parameters needed by the Activity specified by `activityId`. They must match the parameters you specified in Task 3, when you created the Activity.
 

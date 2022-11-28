@@ -73,7 +73,7 @@
 										"authenticate"
 									]
 								},
-								"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+								"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
 							},
 							"response": []
 						}
@@ -146,7 +146,7 @@
 										"buckets"
 									]
 								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
+								"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
 							},
 							"response": []
 						},
@@ -377,7 +377,7 @@
 												"job"
 											]
 										},
-										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
+										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
 									},
 									"response": []
 								},
@@ -436,7 +436,7 @@
 												"manifest"
 											]
 										},
-										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
+										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
 									},
 									"response": []
 								}
@@ -504,7 +504,7 @@
 												"job"
 											]
 										},
-										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
+										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
 									},
 									"response": []
 								},
@@ -563,7 +563,7 @@
 												"manifest"
 											]
 										},
-										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
+										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
 									},
 									"response": []
 								}
@@ -644,7 +644,7 @@
 								"details"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				},
@@ -676,7 +676,7 @@
 								"objects"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				},
@@ -718,7 +718,7 @@
 								"manifest"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-DELETE/)"
 					},
 					"response": []
 				},
@@ -767,7 +767,7 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
 					},
 					"response": []
 				},
@@ -820,7 +820,7 @@
 								"metadata"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/)"
 					},
 					"response": []
 				},
@@ -873,7 +873,7 @@
 								"{{ossSourceFileObjectKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				},
@@ -904,7 +904,7 @@
 								"formats"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
 					},
 					"response": []
 				}

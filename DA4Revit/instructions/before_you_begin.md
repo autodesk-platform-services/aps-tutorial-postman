@@ -2,7 +2,7 @@
 
 ## 1. Import Postman Environment for the tutorial
 
-Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, Forge's Base URL is stored in the environment variable `baseUrl`. To import the environment you need for this tutorial:
+Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, APS's Base URL is stored in the environment variable `baseUrl`. To import the environment you need for this tutorial:
 
 1. Download the file *DA4Revit-Environment.postman_environment.json* from the [*collections* folder of this repository](../collections).
 

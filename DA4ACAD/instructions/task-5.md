@@ -1,6 +1,6 @@
 # Task 5 - Prepare cloud storage
 
-The Activity ListLayersActivity takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API.
+The Activity ListLayersActivity takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Data Management API.
 
 There are three Postman Environment Variables you must specify for this task. They are
 - `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.

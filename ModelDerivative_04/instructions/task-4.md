@@ -4,11 +4,11 @@ There are two ways by which you can display the model in the Viewer.
 
 ## Option 1: Embed the source file URN in an HTML page you create
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following Viewer documentation topics on the Forge portal:
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following Viewer documentation topics on the APS developer portal:
 
-    a. [Add Viewer to an HTML Page](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
+    a. [Add Viewer to an HTML Page](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
 
-    b. [Intialize Viewer](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
+    b. [Intialize Viewer](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
 
     **Note:**
 
@@ -24,7 +24,7 @@ There are two ways by which you can display the model in the Viewer.
 
 
 
-2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
+2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
 
 Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
 
@@ -39,7 +39,7 @@ We have created two web pages based on the instructions provided in Option 1. On
 
 | SVF                                                                                      | SVF2                                                                                      |
 |:----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
-| [Show Web page](https://autodesk-forge.github.io/forge-tutorial-postman/display_svf.html)|[Show Web page](https://autodesk-forge.github.io/forge-tutorial-postman/display_svf2.html) |
+| [Show Web page](https://autodesk-platform-services.github.io/aps-tutorial-postman/display_svf.html)|[Show Web page](https://autodesk-platform-services.github.io/aps-tutorial-postman/display_svf2.html) |
 | ![SVF Web Page](../images//tutorial_4_urn_in_html_page.png)                              | ![SVF2 Web Page](../images//tutorial_4_urn_in_html_page_svf2.png)                         |
 | [Show Source](../../docs/display_svf.html)                                               |[Show Source](../../docs/display_svf2.html)                                                |
 

@@ -15,14 +15,14 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the [Design Automation for Inventor Step-by-Step tutorial](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/) on the APS Portal. 
+This folder contains a Postman Collection that contains the requests used in the [Design Automation for Inventor Step-by-Step tutorial](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/) on the APS developer portal. 
 
-On the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the APS portal.
-![APS portal menu to Postman](images/forge_portal_2_inventor_postman_menu_01.png "APS portal task to Postman mapping")
+On the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the APS developer portal.
+![APS developer portal menu to Postman](images/aps_portal_2_inventor_postman_menu_01.png "APS developer portal task to Postman mapping")
 
-Individual requests in Postman have the same names as the corresponding step in the APS portal.
+Individual requests in Postman have the same names as the corresponding step in the APS developer portal.
 
-![APS portal steps to Postman](images/forge_portal_2_inventor_postman_menu_02.png "APS portal task to Postman mapping")
+![APS developer portal steps to Postman](images/aps_portal_2_inventor_postman_menu_02.png "APS developer portal task to Postman mapping")
 
 Instructions to run the Postman tutorial are as below:
 

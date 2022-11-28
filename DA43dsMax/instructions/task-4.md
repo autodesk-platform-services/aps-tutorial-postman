@@ -1,6 +1,6 @@
 # Task 4 - Prepare cloud storage
 
-When Design Automation executes the Activity you created in Task 3, it must access the 3ds Max scene file to process and the MAXScript file to run. Design Automation also needs to upload the output of the Activity. You can use any cloud storage service for this purpose. However, in this task, you will use the Data Management API to access the Forge *Object Storage Service* (*OSS*). You will also generate temporary *signed URLs* (URLs that contain authentication information) to let Design Automation download the input files and upload the output file.
+When Design Automation executes the Activity you created in Task 3, it must access the 3ds Max scene file to process and the MAXScript file to run. Design Automation also needs to upload the output of the Activity. You can use any cloud storage service for this purpose. However, in this task, you will use the Data Management API to access the *Object Storage Service* (*OSS*). You will also generate temporary *signed URLs* (URLs that contain authentication information) to let Design Automation download the input files and upload the output file.
 
 ## Create a Bucket
 

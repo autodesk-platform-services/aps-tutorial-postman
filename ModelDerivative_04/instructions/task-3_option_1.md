@@ -34,7 +34,7 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For this tutorial you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this tutorial you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
