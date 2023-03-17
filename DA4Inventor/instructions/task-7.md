@@ -22,6 +22,6 @@ Once the WorkItem has completed executing the Activity, Design Automation upload
 
     ![Download Result](../images/task7-download_step_3.png "Download Result")
 
-3. In the response area, click **Save Response > Save to a file**. The output file downloads. Save the file as a *.ipt* file.
+3. In the response area, click **Save Response > Save to a file**. The output file downloads. Save the file as a *.bmp* file.
 
     ![Download Result](../images/task7-download_step_4.png "Download Result")
