@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "ab3c8a37-4e26-4449-b481-ffa91fd141b9",
+		"_postman_id": "ac9d05b2-167f-4c1c-a987-446430c33d6d",
 		"name": "Model Derivative",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3021021"
 	},
 	"item": [
 		{
@@ -15,11 +16,22 @@
 							"name": "Get an Access Token",
 							"event": [
 								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"const clientId =  pm.environment.get(\"client_id\");",
+											"const clientSecret =  pm.environment.get(\"client_secret\");",
+											"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
 									"listen": "test",
 									"script": {
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
+											"pm.environment.set(\"access_token\", body.access_token);"
 										],
 										"type": "text/javascript"
 									}
@@ -30,22 +42,23 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded"
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic {{client_auth_keys}}",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "urlencoded",
 									"urlencoded": [
-										{
-											"key": "client_id",
-											"value": "{{client_id}}",
-											"type": "text"
-										},
-										{
-											"key": "client_secret",
-											"value": "{{client_secret}}",
-											"type": "text"
-										},
 										{
 											"key": "grant_type",
 											"value": "client_credentials",
@@ -59,7 +72,7 @@
 									]
 								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+									"raw": "https://developer.api.autodesk.com/authentication/v2/token",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -69,8 +82,8 @@
 									],
 									"path": [
 										"authentication",
-										"v1",
-										"authenticate"
+										"v2",
+										"token"
 									]
 								}
 							},
