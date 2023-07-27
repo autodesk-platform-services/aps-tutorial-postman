@@ -35,17 +35,21 @@ To send the authenticate request to APS:
 
 1. In the Postman sidebar, click **Task 1 - Obtain an Access Token > POST Get an Access Token**. The request loads.
 
-2. Click the **Body** tab.
+Before you request an access token, you must encode your Client ID and Client Secret to ensure the integrity of the data you send. To do this, first, concatenate your Client ID with your Client Secret using the colon character as a separator. After that, you must convert the concatenated string to a Base64 encoded string. A pre-request script in Postman handles this conversion for you when it sends the next request to APS.
 
-3. Move the cursor over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
+To request an Access Token from APS:
 
-   ![Preview Client Id and Client Secret](../images/tutorial_07_task_1_client_id_view_in_body.png "Preview Client Id and Client Secret")
+1. In the Postman sidebar, click **Task 1 - Obtain an Access Token > POST Get an Access Token**. The request loads.
+
+2. Click the **Pre-request Script** tab. Examine the script that encrypts your Client ID and Client Secret.
+
+   ![Pre-request Script](../images/tutorial_07_task_1_client_id_view_in_body.png "Pre-request Script")
 
 4. Click **Send**. Postman sends the HTTP request to APS. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
 
     ![Successful authentication](../images/tutorial_07_task_1_access_token_authentication.png "Successful authentication")
 
-A script defined in the **Tests** tab saves the Access Token in the Postman environment variable `access_token`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to APS once again.
+A script defined in the **Tests** tab saves the Access Token in the Postman environment variable `access_token`. Postman picks up the Access Token from this variable for all subsequent requests. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to APS once again.
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task") [:arrow_forward:](task-2.md "Next task")

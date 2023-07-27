@@ -9,11 +9,11 @@
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
-In the Model_Derivative environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to APS. 
+In the Model_Derivative environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to APS.
 
 To set the environment variables:
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
    ![Environment quick look icon](../images/tutorial_04_before_you_begin.png "Environment quick look icon")
 
@@ -25,27 +25,25 @@ To set the environment variables:
 
 4. Similarly, enter the *Client Secret* you jotted down earlier, in the **CURRENT VALUE** column on the **client_secret** row.
 
-5. Click the **Environment quick look** icon again to close it. 
+5. Click the **Environment quick look** icon again to close it.
 
 ## Get an Access Token
 
-To get an Access Token, you must send an `authenticate` request to APS. The Postman Collection has a prepopulated authenticate request that you can send. 
+Before you request an access token, you must encode your Client ID and Client Secret to ensure the integrity of the data you send. To do this, first, concatenate your Client ID with your Client Secret using the colon character as a separator. After that, you must convert the concatenated string to a Base64 encoded string. A pre-request script in Postman handles this conversion for you when it sends the next request to APS.
 
-To send the authenticate request to APS:
+To request an Access Token from APS:
 
 1. In the Postman sidebar, click **Task 1 - Obtain an Access Token > POST Get an Access Token**. The request loads.
 
-2. Click the **Body** tab.
+2. Click the **Pre-request Script** tab. Examine the script that encrypts your Client ID and Client Secret.
 
-3. Move the cursor over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
-
-   ![Preview Client Id and Client Secret](../images/tutorial_04_task_1_client_id.png "Preview Client Id and Client Secret") 
+   ![Pre-request Script](../images/tutorial_04_task_1_client_id.png "Pre-request Script")
 
 4. Click **Send**. This sends the HTTP request to APS. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
 
-    ![Successful authentication](../images/tutorial_04_task_1_access_token_authentication.png "Successful authentication") 
+    ![Successful authentication](../images/tutorial_04_task_1_access_token_authentication.png "Successful authentication")
 
-Postman saves the Access Token in the Postman environment variable `access_token`. Postman will pick up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to APS once again. 
+Postman saves the Access Token in the Postman environment variable `access_token`. Postman will pick up the Access Token from this variable for all subsequent requests. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to APS once again.
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task") [:arrow_forward:](task-2.md "Next task")
