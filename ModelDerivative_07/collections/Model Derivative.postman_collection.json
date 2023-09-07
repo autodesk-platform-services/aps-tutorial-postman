@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "877f5046-8032-4245-92f6-af79a71cc3df",
+		"_postman_id": "a45eef60-201a-4ba7-ad94-a627eb8d6053",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "3021021"
@@ -22,7 +22,7 @@
 											"const clientId =  pm.environment.get(\"client_id\");",
 											"const clientSecret =  pm.environment.get(\"client_secret\");",
 											"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
-											""
+											"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
 										],
 										"type": "text/javascript"
 									}
