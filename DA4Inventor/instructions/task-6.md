@@ -22,16 +22,15 @@ Like in function calls, optional parameters of the Activity can be skipped and l
 
     - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 4, when you created the Activity.
 
-    - `InventorDoc` - Specifies how to obtain the input Inventor part file for the Activity. The value specified here is the Postman variable `ossInputFileSignedUrl`, which contains the signed download URL you created in Task 5. 
-    
-    **Note** Had you uploaded a zip file instead of a IPT file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the IPT file within the zip file. 
+    - `InventorDoc` - Specifies the URN of the input part file for the Activity. It is constructed by combining the Object ID of the input Inventor part file with the Bucket Key and the statement `urn:adsk.objects:os.object:`.
+
+    **Note** Had you uploaded a zip file instead of a IPT file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the IPT file within the zip file.
 
     - `InventorParams` - Specifies the new height and width of the Inventor part file, as a JSON object.
 
-    - `OutputIpt` - Specifies the signed URL to the location on cloud storage reserved for the resized part file. The value specified here is the Postman variable `ossOutputIptFileSignedUrl`, which contains the signed URL you created for the resized part in Task 5. 
+    - `OutputIpt` - Specifies the URN of the generated part file. It is constructed by combining the Object ID of the generated Inventor part file with the Bucket Key and the statement `urn:adsk.objects:os.object:`.
 
-    - `OutputBmp` - Specifies the signed URL to the location on cloud storage reserved for the generated image file. The value specified here is the Postman variable `ossOutputBmpFileSignedUrl`, which contains the signed URL you created for the image file in Task 5. 
-
+    - `OutputBmp` - Specifies the URN of the generated image file. It is constructed by combining the Object ID of the generated image file with the Bucket Key and the statement `urn:adsk.objects:os.object:`.
 
 
 ## Check Status of a WorkItem
@@ -46,4 +45,4 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
 **Note:** The best practice is to use the `onComplete` argument when submitting a WorkItem. The `onComplete` argument enables you to specify a callback URL, which is invoked when execution completes. For more information on the argument, see the [documentation on Callbacks](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task") 
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task")

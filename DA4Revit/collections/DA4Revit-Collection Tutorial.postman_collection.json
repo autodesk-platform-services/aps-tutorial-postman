@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "acd19def-7581-4d86-8e33-bd46b23fee5e",
-		"name": "Design Automation For Revit Tutorial",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "921baa30-0741-4871-b2cb-24e20ca61783",
+		"name": "Automating Revit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3021021"
 	},
 	"item": [
 		{
@@ -12,13 +13,23 @@
 					"name": "Get an Access Token",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const clientId =  pm.environment.get(\"client_id\");",
+									"const clientSecret =  pm.environment.get(\"client_secret\");",
+									"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
+									"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
-								"id": "ae612db8-104c-48f6-bf94-05f92da6c32b",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);",
-									""
+									"pm.collectionVariables.set(\"dasApiToken\", body.access_token);"
 								],
 								"type": "text/javascript"
 							}
@@ -29,8 +40,17 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"name": "Content-Type",
 								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic {{client_auth_keys}}",
 								"type": "text"
 							}
 						],
@@ -38,39 +58,32 @@
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "client_id",
-									"value": "{{client_id}}",
-									"type": "text"
-								},
-								{
-									"key": "client_secret",
-									"value": "{{client_secret}}",
-									"type": "text"
-								},
-								{
 									"key": "grant_type",
 									"value": "client_credentials",
 									"type": "text"
 								},
 								{
 									"key": "scope",
-									"value": "code:all data:write data:read bucket:create bucket:delete",
+									"value": "code:all data:write data:read bucket:create bucket:delete bucket:read",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/authentication/v1/authenticate",
+							"raw": "https://developer.api.autodesk.com/authentication/v2/token",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"developer",
+								"api",
+								"autodesk",
+								"com"
 							],
 							"path": [
 								"authentication",
-								"v1",
-								"authenticate"
+								"v2",
+								"token"
 							]
-						},
-						"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						}
 					},
 					"response": []
 				}
@@ -80,7 +93,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "52cc1460-3404-491e-a2fe-a99e00f8f89e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -90,15 +102,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e6c89884-7c8f-4891-9e5b-f582dbe59fc9",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 3 - Create a Nickname",
@@ -109,7 +119,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "156f0d70-5542-47e5-a7c5-42eada118102",
 								"exec": [
 									""
 								],
@@ -154,7 +163,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a14d51b0-063d-42eb-ada9-0543d07cd9b0",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -164,15 +172,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "69325a16-c1e6-45b4-ab8f-7b4f92a20fa9",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 4 - Upload AppBundle",
@@ -183,18 +189,17 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "36628175-e2e9-417e-9f3f-a6f25e01e038",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.environment.set(\"deleteWallsAppVersion\", body[\"version\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-									"pm.environment.set(\"deleteWallsAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);",
 									""
 								],
 								"type": "text/javascript"
@@ -215,7 +220,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsApp\",\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"description\": \"Delete Walls app based on Revit 2020\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsApp\",\r\n\t\"engine\": \"Autodesk.Revit+2024\",\r\n\t\"description\": \"Delete Walls app based on Revit 2024\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/appbundles",
@@ -236,7 +241,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "bf4cbf1e-0c91-4eba-bda9-dedf043722d4",
 								"exec": [
 									""
 								],
@@ -246,14 +250,8 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e482ea28-b523-4cb1-80d0-53ea9cae10d7",
 								"exec": [
-									"pm.environment.unset(\"deleteWallsAppFormDataKey\");",
-									"pm.environment.unset(\"deleteWallsAppFormDataPolicy\");",
-									"pm.environment.unset(\"deleteWallsAppFormDataSignature\");",
-									"pm.environment.unset(\"deleteWallsAppFormDataCredential\");",
-									"pm.environment.unset(\"deleteWallsAppFormDataDate\");",
-									"pm.environment.unset(\"deleteWallsAppFormDataToken\");"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -322,8 +320,8 @@
 								},
 								{
 									"key": "file",
-									"value": "",
-									"type": "file"
+									"type": "file",
+									"src": []
 								}
 							]
 						},
@@ -358,7 +356,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{deleteWallsAppVersion}},\r\n  \"id\": \"test\"\r\n}"
+							"raw": "{\r\n  \"version\": 1,\r\n  \"id\": \"test\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/appbundles/DeleteWallsApp/aliases",
@@ -381,17 +379,16 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4f60fcfe-a700-42d7-982b-d6bc40890e50",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.environment.set(\"deleteWallsAppVersion\", body[\"version\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.environment.set(\"deleteWallsAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+									"pm.collectionVariables.set(\"deleteWallsAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
 									""
 								],
 								"type": "text/javascript"
@@ -412,7 +409,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"description\": \"Delete Walls app based on Revit 2020\"\r\n}"
+							"raw": "{\r\n\t\"engine\": \"Autodesk.Revit+2024\",\r\n\t\"description\": \"Delete Walls app based on Revit 2024\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/appbundles/DeleteWallsApp/versions",
@@ -435,7 +432,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8f0a0f29-8b59-42bf-9d08-789f1693ec56",
 								"exec": [
 									""
 								],
@@ -445,7 +441,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "cc9b3ec6-10a1-4013-bcdd-6ed930be50b0",
 								"exec": [
 									"pm.environment.unset(\"deleteWallsAppFormDataKey\");",
 									"pm.environment.unset(\"deleteWallsAppFormDataPolicy\");",
@@ -521,8 +516,8 @@
 								},
 								{
 									"key": "file",
-									"value": "",
-									"type": "file"
+									"type": "file",
+									"src": []
 								}
 							]
 						},
@@ -557,7 +552,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{deleteWallsAppVersion}}\r\n}"
+							"raw": "{\r\n  \"version\": 2\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/appbundles/DeleteWallsApp/aliases/test",
@@ -580,7 +575,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "46ef1ae6-bc89-4dea-b52d-417311c1651f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -590,15 +584,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e3146846-f78a-4bec-98e3-3167ce31d708",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 5 - Publish an Activity",
@@ -609,10 +601,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3239edaa-45cf-4c0e-95d6-59b332532e8d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
 									""
 								],
 								"type": "text/javascript"
@@ -633,7 +624,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i \\\"$(args[rvtFile].path)\\\" /al \\\"$(appbundles[DeleteWallsApp].path)\\\"\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i \\\"$(args[rvtFile].path)\\\" /al \\\"$(appbundles[DeleteWallsApp].path)\\\"\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2024\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities",
@@ -664,7 +655,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"test\",\r\n    \"version\": {{deleteWallsActivityVersion}}\r\n}"
+							"raw": "{\r\n    \"id\": \"test\",\r\n    \"version\": 1\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/aliases",
@@ -687,10 +678,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8be88e70-93a5-42a1-bac3-19e1b9861451",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
 									""
 								],
 								"type": "text/javascript"
@@ -711,7 +701,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"commandLine\": [\"$(engine.path)\\\\\\\\revitcoreconsole.exe /i \\\"$(args[rvtFile].path)\\\" /al \\\"$(appbundles[DeleteWallsApp].path)\\\"\"],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"commandLine\": [\"$(engine.path)\\\\\\\\revitcoreconsole.exe /i \\\"$(args[rvtFile].path)\\\" /al \\\"$(appbundles[DeleteWallsApp].path)\\\"\"],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2024\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/versions",
@@ -749,7 +739,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{deleteWallsActivityVersion}}\r\n}"
+							"raw": "{\r\n  \"version\": 2\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/aliases/test",
@@ -772,7 +762,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "1fae5ad4-7ad1-4f4b-b1ba-65541caa508a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -782,43 +771,57 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "541e1d22-ea6f-478c-b339-b4b76db15890",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
-			"name": "Task 6 - Prepare Cloud Storage",
+			"name": "Task 6 - Prepare Cloud Storage Copy 2",
 			"item": [
 				{
 					"name": "Create a Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}",
-								"type": "text"
+								"key": "Content-Type",
+								"value": "application/json"
 							},
 							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n    \"access\": \"full\",\n    \"policyKey\": \"transient\"\n}"
+							"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"access\": \"full\",\n\t\"policyKey\": \"transient\"\n}\n"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/oss/v2/buckets",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"developer",
+								"api",
+								"autodesk",
+								"com"
 							],
 							"path": [
 								"oss",
@@ -831,19 +834,88 @@
 					"response": []
 				},
 				{
-					"name": "Upload Input File to OSS",
+					"name": "Obtain Signed URL to Upload the Input File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"UploadKey\", body.uploadKey);",
+									"pm.collectionVariables.set(\"ContentUploadSignedURL\", body.urls[0]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
 					"request": {
-						"method": "PUT",
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
 								"value": "Bearer {{dasApiToken}}",
 								"type": "text"
-							},
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}/signeds3upload",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossInputFileObjectKey}}",
+								"signeds3upload"
+							],
+							"query": [
+								{
+									"key": "minutesExpiration",
+									"value": "5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload the Input File to OSS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.request.body.file.src)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
 							{
-								"key": "Accept-Encoding",
-								"value": "gzip, deflate",
-								"type": "text"
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -853,49 +925,35 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/oss/v2/buckets/:BUCKET_KEY/objects/:OBJECT_KEY",
+							"raw": "{{ContentUploadSignedURL}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								":BUCKET_KEY",
-								"objects",
-								":OBJECT_KEY"
-							],
-							"variable": [
-								{
-									"key": "BUCKET_KEY",
-									"value": "{{ossBucketKey}}"
-								},
-								{
-									"key": "OBJECT_KEY",
-									"value": "{{ossInputFileObjectKey}}"
-								}
+								"{{ContentUploadSignedURL}}"
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get Temporary Download URL",
+					"name": "Complete the Upload",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "ab244f6b-d625-4d7a-a5b0-9a30a6ec3211",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossDownloadURL\", body[\"signedUrl\"]);"
+									"pm.collectionVariables.set(\"ossInputFileObjectId\", body.objectId);"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -911,107 +969,51 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{}"
+							"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
 						},
 						"url": {
-							"raw": "{{baseUrl}}/oss/v2/buckets/:BUCKET_KEY/objects/:OBJECT_KEY/signed",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}/signeds3upload",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"developer",
+								"api",
+								"autodesk",
+								"com"
 							],
 							"path": [
 								"oss",
 								"v2",
 								"buckets",
-								":BUCKET_KEY",
+								"{{ossBucketKey}}",
 								"objects",
-								":OBJECT_KEY",
-								"signed"
-							],
-							"variable": [
-								{
-									"key": "BUCKET_KEY",
-									"value": "{{ossBucketKey}}"
-								},
-								{
-									"key": "OBJECT_KEY",
-									"value": "{{ossInputFileObjectKey}}"
-								}
+								"{{ossInputFileObjectKey}}",
+								"signeds3upload"
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Temporary Upload URL",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "17ea8543-3543-42f0-b772-86bd8d7ae2fc",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossUploadURL\", body[\"signedUrl\"]);"
-								],
-								"type": "text/javascript"
-							}
 						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}"
-						},
-						"url": {
-							"raw": "{{baseUrl}}/oss/v2/buckets/:BUCKET_KEY/objects/:OBJECT_KEY/signed?access=readwrite",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								":BUCKET_KEY",
-								"objects",
-								":OBJECT_KEY",
-								"signed"
-							],
-							"query": [
-								{
-									"key": "access",
-									"value": "readwrite"
-								}
-							],
-							"variable": [
-								{
-									"key": "BUCKET_KEY",
-									"value": "{{ossBucketKey}}"
-								},
-								{
-									"key": "OBJECT_KEY",
-									"value": "{{ossOutputFileObjectKey}}"
-								}
-							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				}
 			],
-			"protocolProfileBehavior": {}
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Task 7 - Submit a WorkItem",
@@ -1022,10 +1024,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "332656ee-4d40-49b2-9b71-a8a2762d5a56",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"deleteWallsWorkitemId\", body[\"id\"]);",
+									"pm.collectionVariables.set(\"deleteWallsWorkitemId\", body[\"id\"]);",
 									""
 								],
 								"type": "text/javascript"
@@ -1046,7 +1047,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n    \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n    \"arguments\": {\r\n        \"rvtFile\": {\r\n            \"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossInputFileObjectKey}}\",\r\n            \"verb\": \"get\",\r\n            \"headers\": {\r\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\r\n            }\r\n        },\r\n        \"result\": {\r\n            \"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossOutputFileObjectKey}}\",\r\n            \"verb\": \"put\",\r\n            \"headers\": {\r\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\r\n            }\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/workitems",
@@ -1094,7 +1095,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2f5c25ed-2842-466b-853f-ea0e711c788b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1104,55 +1104,427 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c23cd0be-6895-4644-aebc-02242fde0363",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
-			"name": "Delete App",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{dasApiToken}}",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{dasApiRoot}}/forgeapps/me",
-					"host": [
-						"{{dasApiRoot}}"
+			"name": "Task 8 - Download the Results",
+			"item": [
+				{
+					"name": "Get S3 Download URL for Resulting RVT file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossOutputIptFileDownloadUrl\", body[\"url\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
 					],
-					"path": [
-						"forgeapps",
-						"me"
-					]
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputFileObjectKey}}/signeds3download",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputFileObjectKey}}",
+								"signeds3download"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+					},
+					"response": []
 				},
-				"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
-			},
-			"response": []
+				{
+					"name": "Download Resulting RVT File",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ossOutputIptFileDownloadUrl}}",
+							"host": [
+								"{{ossOutputIptFileDownloadUrl}}"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Extras",
+			"item": [
+				{
+					"name": "My App Nickname",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete App Data in Design Automation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete OSS Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List engines",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/engines",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"engines"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/engines-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List objects in a Bucket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List Buckets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bucket Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/details",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"details"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ece0eb97-aa96-4149-a9e7-04cd98825925",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1162,7 +1534,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "0ae0a341-c29f-4620-8c50-ba17248ad92e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1170,5 +1541,70 @@
 			}
 		}
 	],
-	"protocolProfileBehavior": {}
+	"variable": [
+		{
+			"key": "client_auth_keys",
+			"value": ""
+		},
+		{
+			"key": "dasApiToken",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppUrl",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppVersion",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormDataKey",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormDataPolicy",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormDataSignature",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormDataCredential",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormDataDate",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormDataToken",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsAppFormRedirect",
+			"value": ""
+		},
+		{
+			"key": "deleteWallsActivityVersion",
+			"value": ""
+		},
+		{
+			"key": "UploadKey",
+			"value": ""
+		},
+		{
+			"key": "ContentUploadSignedURL",
+			"value": ""
+		},
+		{
+			"key": "ossInputFileObjectId",
+			"value": ""
+		},
+		{
+			"key": "ossOutputIptFileDownloadUrl",
+			"value": ""
+		}
+	]
 }

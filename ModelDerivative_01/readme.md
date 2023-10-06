@@ -1,11 +1,11 @@
 # Translate a Source File Step-by-Step Tutorial
 
 ![Platforms](https://img.shields.io/badge/Web-Windows|MacOS-lightgray.svg)
-[![oAuth2](https://img.shields.io/badge/Authentication-v1-green.svg)](http://developer.autodesk.com/)
+[![oAuth2](https://img.shields.io/badge/Authentication-v2-green.svg)](http://developer.autodesk.com/)
 [![Data-Management](https://img.shields.io/badge/Data%20Management-v2-green.svg)](http://developer.autodesk.com/)
 [![Model Deivative](https://img.shields.io/badge/Model%20Derivative-v2-green.svg)](http://developer.autodesk.com/)
 
-[![Postman](https://img.shields.io/badge/Postman-v9-orange.svg)](https://www.getpostman.com/)
+[![Postman](https://img.shields.io/badge/Postman-v10-orange.svg)](https://www.getpostman.com/)
 
 
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)

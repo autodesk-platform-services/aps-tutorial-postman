@@ -13,9 +13,9 @@ An Activity is an action that can be executed in Design Automation. You create a
 **Notes**
  - `id` is the name given to the new Activity.
  - `commandLine` is the command run by this Activity
-    - `$(engine.path)\\\\revitcoreconsole.exe` - The full path to the  folder from which the engine for Revit executes.  The engine is defined in the request body as `"engine": "Autodesk.Revit+2018"`. **Do not edit or alter this `commandLine` in the request body of Activity posts.**  
+    - `$(engine.path)\\\\revitcoreconsole.exe` - The full path to the  folder from which the engine for Revit executes.  The engine is defined in the request body as `"engine": "Autodesk.Revit+2024"`. **Do not edit or alter this `commandLine` in the request body of Activity posts.**  
     - `$(args[rvtFile].path)` - The full path to the folder that contains the input Revit model. `rvtFile` is the parameter that represents the Revit model to which the Activity `DeleteWallsActivity` applies the AppBundle. The AppBundle is defined in the request body as `"appbundles": [ "{{dasNickName}}.DeleteWallsApp+test" ]`.
- - `engine` is the Design Automation engine that the Activity (Revit 2018 in this case) runs on.
+ - `engine` is the Design Automation engine that the Activity (Revit 2024 in this case) runs on.
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 

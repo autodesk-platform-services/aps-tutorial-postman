@@ -26,7 +26,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
     ![Successful Bucket Creation](../images/task6-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
-## Upload input file to OSS
+## Obtain Signed URL to Upload the Input File
 
 1. Download the input file, *DeleteWalls.rvt*  from the [*tutorial_data* folder of this repository](../tutorial_data).
 
@@ -36,42 +36,51 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 4. Click the **Environment quick look** icon to hide the variables.
 
-5. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > PUT Upload Input File**. The request loads.
+5. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > GET Obtain Signed URL to Upload the Input File**. The request loads.
 
-6. Click the **Body** tab.
+6. Click **Send**. The signed URL is saved to a Collection Variable named `ContentUploadSignedURL`. The Upload Key is also saved to a variable named `UploadKey`. The Upload Key uniquely identifies the upload session. You use it later to complete the upload session.
 
-7. Click **Select File** and pick *DeleteWalls.rvt* , the file you downloaded in step 1.
-
-    ![Select file button](../images/task6-select_files_button.png "Select file button")
-
-8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
+   If your request is successful, you should see a screen similar to the one below:
 
     ![Successful upload of input file](../images/task6-successful_upload.png "Successful upload of input file")
 
-## Get temporary download URL
 
-Design Automation needs to download the input file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable.
+## Upload input file to OSS
 
-1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Download URL**. The request loads.
+1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > PUT Upload Input File to OSS**. The request loads.
 
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossDownloadURL` Postman Environment Variable.
+2. Click the **Body** tab.
 
-    ![Signed download URL](../images/task6-signed_downloadurl.png "Signed download URL")
+3. Click **Select File** and pick the file you downloaded earlier (*DeleteWalls.rvt*).
 
-## Get temporary upload URL
+    ![Select file button](../images/task6-select_files_button.png "Select file button")
 
-Design Automation needs a signed URL to upload the output that the DeleteWalls add-in creates. This request obtains a temporary signed URL that Design Automation can use to upload the file, and saves it to a Postman Environment Variable.
+4. Click **Send**. If your request is successful, you should see a screen similar to the one below:
+
+    ![Successful upload of input file](../images/task6-upload.png "Successful upload of input file")
+
+## Complete the upload
+
+To make the uploaded file available for download, you must specifically instruct OSS that the upload process has been completed.
+
+1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Complete the upload**. The request loads.
+
+2. Click the **Body** tab and pay attention to how the Upload Key tells OSS what upload session to close.
+
+3. Click **Send**. If your request is successful, you should see a screen similar to the one below:
+
+   ![Signed download URL](../images/task6-signed_downloadurl.png "Signed download URL")
+
+## Define Object Keys for the output file that the add-in produces
+
+The add-in deletes the walls in the input file and produces an *.rvt* file that contains all other objects. Use the Postman Environment Variable  `ossOutputFileObjectKey` to hold the Object Key of this *.rvt* file.
 
 1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
-2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
+2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key for the *.rvt* file that the add-in produces.
 
-3. Click the **Environment quick look** icon to hide the variables.
+   **Tip:** You can use the file name of the *.rvt* file (*result.rvt*) as its Object Key.
 
-4. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Upload URL**. The request loads.
-
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman Environment Variable.
-
-    ![Signed upload URL](../images/task6-signed_uploadurl.png "Signed upload URL")
+3. Click the **Environment quick look** icon.
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task")

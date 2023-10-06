@@ -2,10 +2,10 @@
 
 ## Create an App
 
-1. Follow the instructions on the tutorial [Create an App](https://aps.autodesk.com/en/docs/oauth/v1/tutorials/create-app/).
+1. Follow the instructions on the tutorial [Create an App](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
  When specifying details of the app,  select "Design Automation API" and "Data Management API".
 
-2. Jot down the *Client ID* and *Client Secret* of the app you created. You will need this in the next step.
+2. Note down the *Client ID* and *Client Secret* of the app you created. You will need this in the next step.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
@@ -29,19 +29,19 @@ To set the environment variables:
 
 ## Get an Access Token
 
-To get an Access Token, you must send an `authenticate` request to APS. The Postman Collection has a prepopulated authenticate request that you can send.
+To get an Access Token, you must send an `authenticate` request to APS. The Postman collection has a pre-populated authenticate request that you can send. To send the request to APS:
 
-To send the authenticate request to APS:
+1. On the Postman sidebar, click **Task 1 - Obtain an Access Token > POST Get an Access Token**. The request loads.
 
-1. In the Postman sidebar, click **Task 1 - Obtain an Access Token > POST Get an Access Token**. The request loads.
-
-2. Click the **Body** tab.
-
-3. Move your mouse pointer over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
+2. Click the **Pre-request Script** tab. Notice how a script (written in JavaScript) takes the Client ID and Client Secret, concatenates them, converts to a Base64 encoded string, and saves it back to a Postman Collection Variable named `client_auth_keys`.
 
    ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret")
 
-4. Click **Send**. This sends the HTTP request to APS. If your request authenticates successfully, you should see a return Status of **200 OK**, and the response will be similar to the following:
+3. Click the **Headers** tab. Take note of how `client_auth_keys` is used in the request header.
+
+4. Click the **Body** tab. Take note of how the required scopes are specified.  
+
+5. Click **Send**. The request is sent to APS. If your request authenticates successfully, you should see a response similar to the following:
 
     ![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication")
 
