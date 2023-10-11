@@ -1,6 +1,6 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **LISTLAYERS**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task-3-upload-appbundle/) to learn how to create an AppBundle. 
+An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use an AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **LISTLAYERS**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task-3-upload-appbundle/) to learn how to create an AppBundle.
 
 ## Download the AppBundle
 
@@ -8,7 +8,7 @@ An AppBundle is a package of binaries and supporting files that contains the cus
 
 ## Register the AppBundle
 
-When registering the AppBundle, you provide a name for the AppBundle (the id), and specify that it must run on AutoCAD 2020. The name can be different to the name of the AppBundle zip file.
+When registering the AppBundle, you provide a name for the AppBundle (the id), and specify that it must run on AutoCAD 2023. The name can be different to the name of the AppBundle zip file.
 
 1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
@@ -22,7 +22,7 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
     3. Click the **Environment quick look** icon again.
 
-3. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `Autodesk.AutoCAD+23` (AutoCAD 2020).
+3. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `Autodesk.AutoCAD+24_2` (AutoCAD 2023).
 
     ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body")
 
@@ -30,9 +30,7 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
     ![AppBundel Registered](../images/task3-appbundle_registered.png "AppBundel Registered")
 
-    `uploadParameters` shown in the preceding image contains the information required to upload the AppBundle to APS. This information is saved to a series of Postman Environment variables, so that it can be reused in the next step.
-
-    ![formData](../images/task3-appbundle_form_data.png "formData")
+    `uploadParameters` shown in the preceding image contains the information required to upload the AppBundle to APS. This information is saved to a series of Postman Collection Variables, so that they can be reused in the next step.
 
 ## Upload the AppBundle
 

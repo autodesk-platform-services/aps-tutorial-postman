@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "2a2f89e0-1502-48eb-94a5-41b3f3168405",
-		"name": "DA4Inventor Tutorial",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "679a4e9f-8cd7-440e-8c01-1a1c840028ed",
+		"name": "Automating Inventor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3021021"
 	},
 	"item": [
 		{
@@ -12,12 +13,23 @@
 					"name": "Get an Access Token",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const clientId =  pm.environment.get(\"client_id\");",
+									"const clientSecret =  pm.environment.get(\"client_secret\");",
+									"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
+									"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
-								"id": "8e60b492-16d3-4b35-a68d-f2686c14bc1d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
+									"pm.collectionVariables.set(\"dasApiToken\", body.access_token);"
 								],
 								"type": "text/javascript"
 							}
@@ -28,22 +40,23 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic {{client_auth_keys}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
-								{
-									"key": "client_id",
-									"value": "{{client_id}}",
-									"type": "text"
-								},
-								{
-									"key": "client_secret",
-									"value": "{{client_secret}}",
-									"type": "text"
-								},
 								{
 									"key": "grant_type",
 									"value": "client_credentials",
@@ -57,7 +70,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+							"raw": "https://developer.api.autodesk.com/authentication/v2/token",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -67,16 +80,14 @@
 							],
 							"path": [
 								"authentication",
-								"v1",
-								"authenticate"
+								"v2",
+								"token"
 							]
-						},
-						"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						}
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 2 - Create a Nickname",
@@ -130,7 +141,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "78f13638-330b-43be-9958-27c128ee4c8f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -140,15 +150,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c0033dfa-ecc7-4cad-8a3b-a05c3dbdd9a9",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 3 - Upload AppBundle",
@@ -159,19 +167,18 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5639e57e-7a89-4595-a461-337bb8bbdb3d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasAppBundleId\",body[\"id\"]);",
-									"pm.environment.set(\"ChangeParamAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.environment.set(\"ChangeParamAppVersion\", body[\"version\"]);",
-									"pm.environment.set(\"ChangeParamAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.environment.set(\"ChangeParamAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.environment.set(\"ChangeParamAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.environment.set(\"ChangeParamAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.environment.set(\"ChangeParamAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.environment.set(\"ChangeParamAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-									"pm.environment.set(\"ChangeParamAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
+									"pm.collectionVariables.set(\"dasAppBundleId\",body[\"id\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+									"pm.collectionVariables.set(\"ChangeParamAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -193,7 +200,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": \"ChangeParamApp\",\n  \"engine\": \"Autodesk.Inventor+24\",\n  \"description\": \"Change Parameters AppBundle based on Inventor 2020\"\n}"
+							"raw": "{\n  \"id\": \"ChangeParamApp\",\n  \"engine\": \"Autodesk.Inventor+2024\",\n  \"description\": \"Change Parameters AppBundle based on Inventor 2024\"\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles",
@@ -221,7 +228,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ed69b4ae-cdf1-4258-9434-551125891429",
 								"exec": [
 									""
 								],
@@ -231,7 +237,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2dd14878-68aa-4d3a-b8a5-875da11f78b7",
 								"exec": [
 									""
 								],
@@ -323,10 +328,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "21833cdd-ccfd-4f25-98ff-cbec1e4cd627",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
+									"pm.collectionVariables.set(\"dasAppBundleAlias\", body[\"id\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -380,7 +384,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ccf51ef5-104e-47ef-8ad2-c77243cdf4f5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -390,15 +393,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8c82bdd2-7ebc-40b1-a493-12ce92ff2a8f",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 4 - Publish an Activity",
@@ -409,10 +410,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "73d3859b-9d36-485b-be68-23a7db2be321",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasActivityName\",body[\"id\"]);"
+									"pm.collectionVariables.set(\"dasActivityName\",body[\"id\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -432,7 +432,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"ChangeParamActivity\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\InventorCoreConsole.exe /i \\\"$(args[InventorDoc].path)\\\" /al \\\"$(appbundles[ChangeParamApp].path)\\\" \\\"$(args[InventorParams].path)\\\"\"\n    ],\n    \"parameters\": {\n      \"InventorDoc\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input Inventor part file\",\n        \"localName\": \"Input.ipt\"\n      },\n       \"InventorParams\": {\n       \t\"zip\": false,\n       \t\"ondemand\": false,\n       \t\"verb\": \"get\",\n       \t\"description\" : \"JSON object containing new width and height parameters\",\n        \"localName\": \"params.json\"\n      },\n      \"OutputIpt\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.ipt\",\n        \"verb\": \"post\"\n      },\n      \"OutputIam\": {\n        \"zip\": true,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.zip\",\n        \"verb\": \"post\"\n      },\n      \"OutputBmp\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.bmp\",\n        \"verb\": \"post\"\n      }\n    },\n    \"engine\": \"Autodesk.Inventor+24\",\n    \"appbundles\": [\n        \"{{dasAppBundleId}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {},\n    \"description\": \"Resizes an Inventor part or assembly to the height and width parameters contained in the JSON object specified by the InventorParams parameter. Also produces a BMP file of the result.\"\n}"
+							"raw": "{\n    \"id\": \"ChangeParamActivity\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\InventorCoreConsole.exe /i \\\"$(args[InventorDoc].path)\\\" /al \\\"$(appbundles[ChangeParamApp].path)\\\" \\\"$(args[InventorParams].path)\\\"\"\n    ],\n    \"parameters\": {\n      \"InventorDoc\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input Inventor part file\",\n        \"localName\": \"Input.ipt\"\n      },\n       \"InventorParams\": {\n       \t\"zip\": false,\n       \t\"ondemand\": false,\n       \t\"verb\": \"get\",\n       \t\"description\" : \"JSON object containing new width and height parameters\",\n        \"localName\": \"params.json\"\n      },\n      \"OutputIpt\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.ipt\",\n        \"verb\": \"post\"\n      },\n      \"OutputIam\": {\n        \"zip\": true,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.zip\",\n        \"verb\": \"post\"\n      },\n      \"OutputBmp\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.bmp\",\n        \"verb\": \"post\"\n      }\n    },\n    \"engine\": \"Autodesk.Inventor+2024\",\n    \"appbundles\": [\n        \"{{dasAppBundleId}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {},\n    \"description\": \"Resizes an Inventor part or assembly to the height and width parameters contained in the JSON object specified by the InventorParams parameter. Also produces a BMP file of the result.\"\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -460,10 +460,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0fc0548f-0c6a-40e2-9c2a-bfd216a8a1cf",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
+									"pm.collectionVariables.set(\"dasActivityAlias\", body[\"id\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -507,11 +506,10 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
-			"name": "Task 5 - Prepare Cloud Storage",
+			"name": "Task 5 - Prepare Cloud Storage Copy",
 			"item": [
 				{
 					"name": "Create a Bucket",
@@ -519,16 +517,17 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "535e27cd-14ab-4414-a42d-e9443ae0454d",
 								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
+									""
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -564,88 +563,37 @@
 					"response": []
 				},
 				{
-					"name": "Upload Input File to OSS",
+					"name": "Obtain Signed URL to Upload the Input File",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "59a084a5-acfb-409f-b8f4-5523a3d6233c",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossInputFileObjectKey\", body[\"objectKey\"]);"
+									"pm.collectionVariables.set(\"UploadKey\", body.uploadKey);",
+									"pm.collectionVariables.set(\"ContentUploadSignedURL\", body.urls[0]);"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "file",
-							"file": {}
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{ossInputFileObjectKey}}"
-							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
 					},
-					"response": []
-				},
-				{
-					"name": "Get Temporary Download URL",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "bb1f3f0c-4496-4f44-9f9c-9bd8062a381f",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossInputFileSignedUrl\", body[\"signedUrl\"]);",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
 					"request": {
-						"method": "POST",
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
 								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}\n"
-						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}/signed",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}/signeds3upload",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -660,57 +608,100 @@
 								"{{ossBucketKey}}",
 								"objects",
 								"{{ossInputFileObjectKey}}",
-								"signed"
+								"signeds3upload"
+							],
+							"query": [
+								{
+									"key": "minutesExpiration",
+									"value": "5",
+									"disabled": true
+								}
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get Temporary Upload URL for Output IPT file",
+					"name": "Upload the Input File to OSS",
 					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "67779a2c-7fe0-4479-9d7b-1c3e71ce12da",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "c2653b08-8363-414a-8228-5a1115f4edf3",
 								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"",
-									"pm.environment.set(\"ossOutputIptFileSignedUrl\", body[\"signedUrl\"]);"
+									"console.log(pm.request.body.file.src)"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "{{ContentUploadSignedURL}}",
+							"host": [
+								"{{ContentUploadSignedURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete the Upload",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossInputFileObjectId\", body.objectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
 							},
 							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{}"
+							"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIptFileObjectKey}}/signed?access=readwrite",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}/signeds3upload",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -724,159 +715,10 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{ossOutputIptFileObjectKey}}",
-								"signed"
-							],
-							"query": [
-								{
-									"key": "access",
-									"value": "readwrite"
-								}
+								"{{ossInputFileObjectKey}}",
+								"signeds3upload"
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Temporary Upload URL for Output IAM file",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "91ad28d5-2312-4ec0-8ae4-19df1cff3264",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "cbb259a1-956f-46c7-9483-1201db8bfa91",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"",
-									"pm.environment.set(\"ossOutputIamFileSignedUrl\", body[\"signedUrl\"]);"
-								],
-								"type": "text/javascript"
-							}
 						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}"
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIamFileObjectKey}}/signed?access=readwrite",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{ossOutputIamFileObjectKey}}",
-								"signed"
-							],
-							"query": [
-								{
-									"key": "access",
-									"value": "readwrite"
-								}
-							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Temporary Upload URL for Output BMP FIle",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "6167e2bb-89c8-4069-98e2-20b7cd3ab4b3",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "510f1d36-a156-4c24-be73-e56d6cff0cd1",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"",
-									"pm.environment.set(\"ossOutputBmpFileSignedUrl\", body[\"signedUrl\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}"
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputBmpFileObjectKey}}/signed?access=readwrite",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{ossOutputBmpFileObjectKey}}",
-								"signed"
-							],
-							"query": [
-								{
-									"key": "access",
-									"value": "readwrite"
-								}
-							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				}
@@ -885,7 +727,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a82cfeda-2368-4cc4-9140-aa8e752b0b1b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -895,29 +736,26 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7e0fb04e-4c17-4b3b-b388-4cdabf897c12",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 6 - Submit a WorkItem",
 			"item": [
 				{
-					"name": "Send WorkItem",
+					"name": "Create a WorkItem",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "9048dfc6-1454-4e31-9c75-b968d8c9579c",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
+									"pm.collectionVariables.set(\"dasWorkItemId\", body[\"id\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -925,7 +763,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "eb643247-06d2-4471-abdf-6417d9c9bc85",
 								"exec": [
 									""
 								],
@@ -947,7 +784,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"activityId\": \"{{dasActivityName}}+{{dasActivityAlias}}\",\n\t\"arguments\": {\n\t\t\"InventorDoc\": {\n\t\t\t\"url\": \"{{ossInputFileSignedUrl}}\"\n\t\t},\n\t\t\"InventorParams\": {\n\t\t\t\"url\": \"data:application/json,{\\\"height\\\":\\\"16 in\\\", \\\"width\\\":\\\"10 in\\\"}\"\n\t\t},\n\t\t\"OutputIpt\": {\n\t\t\t\"url\": \"{{ossOutputIptFileSignedUrl}}\",\n\t\t\t\"verb\": \"put\"\n\t\t},\n\t\t\"OutputBmp\": {\n\t\t\t\"url\": \"{{ossOutputBmpFileSignedUrl}}\",\n\t\t\t\"verb\": \"put\"\n\t\t}\n\t}\n}"
+							"raw": "{\n    \"activityId\": \"{{dasActivityName}}+{{dasActivityAlias}}\",\n    \"arguments\": {\n        \"InventorDoc\": {\n            \"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossInputFileObjectKey}}\",\n            \"verb\": \"get\",\n            \"headers\": {\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\n            }\n        },\n        \"InventorParams\": {\n            \"url\": \"data:application/json,{\\\"height\\\":\\\"16 in\\\", \\\"width\\\":\\\"10 in\\\"}\"\n        },\n        \"OutputIpt\": {\n            \"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossOutputIptFileObjectKey}}\",\n            \"verb\": \"put\",\n            \"headers\": {\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\n            }\n        },\n        \"OutputBmp\": {\n            \"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossOutputBmpFileObjectKey}}\",\n            \"verb\": \"put\",\n            \"headers\": {\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\n            }\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems",
@@ -1009,7 +846,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c286b457-2e47-4911-b3d0-22823118ca99",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1019,24 +855,32 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "39b73499-5689-4658-bdd7-b60367106408",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 7 - Download the Results",
 			"item": [
 				{
-					"name": "Download Resized IPT file from OSS",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Get S3 Download URL for Resized IPT file",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossOutputIptFileDownloadUrl\", body[\"url\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1049,12 +893,8 @@
 								"value": "Bearer {{dasApiToken}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}"
-						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIptFileObjectKey}}",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIptFileObjectKey}}/signeds3download",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -1068,7 +908,23 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{ossOutputIptFileObjectKey}}"
+								"{{ossOutputIptFileObjectKey}}",
+								"signeds3download"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Download Resized IPT file from OSS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ossOutputIptFileDownloadUrl}}",
+							"host": [
+								"{{ossOutputIptFileDownloadUrl}}"
 							]
 						},
 						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
@@ -1076,10 +932,20 @@
 					"response": []
 				},
 				{
-					"name": "Download Generated BMP file from OSS",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Get S3 Download URL for Generated BMP",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossOutputBmpFileDownloadUrl\", body[\"url\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1092,12 +958,8 @@
 								"value": "Bearer {{dasApiToken}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}"
-						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputBmpFileObjectKey}}",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputBmpFileObjectKey}}/signeds3download",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -1111,7 +973,23 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{ossOutputBmpFileObjectKey}}"
+								"{{ossOutputBmpFileObjectKey}}",
+								"signeds3download"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Download Generated BMP file from OSS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ossOutputBmpFileDownloadUrl}}",
+							"host": [
+								"{{ossOutputBmpFileDownloadUrl}}"
 							]
 						},
 						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
@@ -1123,7 +1001,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a8259187-b477-4c4b-99f4-85169492e84c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1133,19 +1010,48 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "eb77640a-4dbe-4078-b20d-388c14299c4c",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Extras",
 			"item": [
+				{
+					"name": "My App Nickname",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Delete App Data in Design Automation",
 					"request": {
@@ -1191,7 +1097,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e79d61c8-d66a-45c7-940d-f4ab9bd3ca9c",
 								"exec": [
 									""
 								],
@@ -1414,7 +1319,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "eb00fe7e-0266-4546-bf94-f134c6114802",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1424,16 +1328,87 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "44b20a07-510a-4937-b9fd-702e438dcd41",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
-	"protocolProfileBehavior": {}
+	"variable": [
+		{
+			"key": "client_auth_keys",
+			"value": ""
+		},
+		{
+			"key": "dasApiToken",
+			"value": ""
+		},
+		{
+			"key": "dasAppBundleId",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppUrl",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppVersion",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormDataKey",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormDataPolicy",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormDataSignature",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormDataCredential",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormDataDate",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormDataToken",
+			"value": ""
+		},
+		{
+			"key": "ChangeParamAppFormRedirect",
+			"value": ""
+		},
+		{
+			"key": "dasAppBundleAlias",
+			"value": ""
+		},
+		{
+			"key": "dasActivityName",
+			"value": ""
+		},
+		{
+			"key": "dasActivityAlias",
+			"value": ""
+		},
+		{
+			"key": "UploadKey",
+			"value": ""
+		},
+		{
+			"key": "ContentUploadSignedURL",
+			"value": ""
+		},
+		{
+			"key": "ossInputFileObjectId",
+			"value": ""
+		}
+	]
 }

@@ -1,6 +1,6 @@
 # Task 2 - Create a Nickname
 
-APS uses the Client ID to uniquely identify an app. The Client ID can be long and cryptic, and hence a source of irritation when you reference the data you add to your app.
+APS uses the Client ID to uniquely identify an app. The Client ID can often be lengthy and cryptic, which can be a source of frustration when you reference the data added to your app..
 
 A Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This tutorial uses the `dasNickName` Postman Environment Variable to store the Nickname.
 

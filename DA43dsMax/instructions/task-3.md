@@ -11,19 +11,19 @@ An *Activity* is an action that can be executed using the Design Automation API.
     ![Body tab of Create Activity](../images/task3-create_activity.png "Body tab of Create Activity")
 
 **Notes**
- - `id` is the name given to the new Activity. 
- 
+ - `id` is the name given to the new Activity.
+
  - `commandLine` is the command run by this Activity. The variables used on the command line are replaced with actual values before executing the Activity. This mechanism lets you replace the file path(s) you used while testing the command line locally, with file paths that are applicable to Design Automation. For more information see the [documentation on Command lines](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 
     The variables used on the command line are:
 
-    - `$(engine.path)` - The full path to the folder containing *3dsmaxbatch.exe*. The variable ``$(engine.path)`` will be replaced by the path to where the engine is installed. The engine is defined in the JSON payload as `"engine": "Autodesk.3dsMax+2020"`. **Do not edit or alter this commandLine in the request body of Activity posts.** 
+    - `$(engine.path)` - The full path to the folder containing *3dsmaxbatch.exe*. The variable ``$(engine.path)`` will be replaced by the path to where the engine is installed. The engine is defined in the JSON payload as `"engine": "Autodesk.3dsMax+2023"`. **Do not edit or alter this commandLine in the request body of Activity posts.**
 
     - ` $(args[InputMaxScene].path)` - Will be replaced by the path to a file specified by a parameter named `InputMaxScene`.
 
     -  `$(args[MaxscriptToExecute].path)` - Will be replaced by the path to a file specified by a parameter named `MaxscriptToExecute`.
 
-- `engine` is the Design Automation engine that the Activity must run on (3ds Max 2020 in this case).
+- `engine` is the Design Automation engine that the Activity must run on (3ds Max 2023 in this case).
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 

@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "daf1020e-d6d5-4eb9-aaff-2ec8706ac14e",
-		"name": "DAS Tutorial",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "dad5d249-f329-4a2e-9438-88a9b2bb2f6d",
+		"name": "Automating 3ds Max",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3021021"
 	},
 	"item": [
 		{
@@ -12,12 +13,23 @@
 					"name": "Get an Access Token",
 					"event": [
 						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"const clientId =  pm.environment.get(\"client_id\");",
+									"const clientSecret =  pm.environment.get(\"client_secret\");",
+									"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
+									"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
 							"listen": "test",
 							"script": {
-								"id": "3df16796-5a03-47e5-a63f-00989847157c",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
+									"pm.collectionVariables.set(\"dasApiToken\", body.access_token);"
 								],
 								"type": "text/javascript"
 							}
@@ -28,22 +40,23 @@
 						"header": [
 							{
 								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic {{client_auth_keys}}",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
-								{
-									"key": "client_id",
-									"value": "{{client_id}}",
-									"type": "text"
-								},
-								{
-									"key": "client_secret",
-									"value": "{{client_secret}}",
-									"type": "text"
-								},
 								{
 									"key": "grant_type",
 									"value": "client_credentials",
@@ -51,13 +64,13 @@
 								},
 								{
 									"key": "scope",
-									"value": "code:all data:write data:read bucket:create bucket:delete ",
+									"value": "code:all data:write data:read bucket:create bucket:delete bucket:read",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+							"raw": "https://developer.api.autodesk.com/authentication/v2/token",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -67,16 +80,14 @@
 							],
 							"path": [
 								"authentication",
-								"v1",
-								"authenticate"
+								"v2",
+								"token"
 							]
-						},
-						"description": "[See Documentation](https://aps.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						}
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 2 - Create a Nickname",
@@ -125,8 +136,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 3 - Publish an Activity",
@@ -137,7 +147,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b2642d8f-273b-4601-a1c0-150950b79ae4",
 								"exec": [
 									""
 								],
@@ -159,7 +168,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2021\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
+							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2023\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -221,28 +230,28 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 4 - Prepare Cloud Storage",
 			"item": [
 				{
-					"name": "Create Bucket",
+					"name": "Create a Bucket",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
 								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
+									""
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -278,135 +287,37 @@
 					"response": []
 				},
 				{
-					"name": "Upload Input Zip File to OSS",
+					"name": "Obtain Signed URL to Upload the Input Zip File",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossZipFileObjectKey\", body[\"objectKey\"]);"
+									"pm.collectionVariables.set(\"UploadKey\", body.uploadKey);",
+									"pm.collectionVariables.set(\"ContentUploadSignedURL\", body.urls[0]);"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "file"
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{$guid}}"
-							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
 					},
-					"response": []
-				},
-				{
-					"name": "Upload Input MAXScript file to OSS",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7d594927-c8cd-4a81-a867-f1dce464d1da",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossScriptFileObjectKey\", body[\"objectKey\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
 					"request": {
-						"method": "PUT",
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "file"
-						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{$guid}}"
-							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Temporary Download URL for the Input Zip",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossZipFileSignedUrl\", body[\"signedUrl\"]);",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}\n"
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossZipFileObjectKey}}/signed",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossZipFileObjectKey}}/signeds3upload",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -421,46 +332,152 @@
 								"{{ossBucketKey}}",
 								"objects",
 								"{{ossZipFileObjectKey}}",
-								"signed"
+								"signeds3upload"
+							],
+							"query": [
+								{
+									"key": "minutesExpiration",
+									"value": "5",
+									"disabled": true
+								}
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get Temporary Download URL for the Input Script",
+					"name": "Upload the Input Zip File to OSS",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "334bc99a-0dec-4266-a1ea-1f162fcd1097",
 								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossScriptFileSignedUrl\", body[\"signedUrl\"]);"
+									"console.log(pm.request.body.file.src)"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "{{ContentUploadSignedURL}}",
+							"host": [
+								"{{ContentUploadSignedURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Uploading the Input Zip File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossInputZipFileObjectId\", body.objectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
 							},
 							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{}\n"
+							"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossScriptFileObjectKey}}/signed",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossZipFileObjectKey}}/signeds3upload",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossZipFileObjectKey}}",
+								"signeds3upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtain Signed URL to Upload the Input MaxScript File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"UploadKey\", body.uploadKey);",
+									"pm.collectionVariables.set(\"ContentUploadSignedURL\", body.urls[0]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossScriptFileObjectKey}}/signeds3upload",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -475,57 +492,100 @@
 								"{{ossBucketKey}}",
 								"objects",
 								"{{ossScriptFileObjectKey}}",
-								"signed"
+								"signeds3upload"
+							],
+							"query": [
+								{
+									"key": "minutesExpiration",
+									"value": "5",
+									"disabled": true
+								}
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get Temporary Upload URL for the Output Zip",
+					"name": "Upload the Input MaxScript File",
 					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
 								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"",
-									"pm.environment.set(\"ossOutputFileSignedUrl\", body[\"signedUrl\"]);"
+									"console.log(pm.request.body.file.src)"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "{{ContentUploadSignedURL}}",
+							"host": [
+								"{{ContentUploadSignedURL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Uploading the MaxScript File",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossInputScriptFileObjectId\", body.objectId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
 							},
 							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{}"
+							"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputFileObjectKey}}/signed?access=readwrite",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossScriptFileObjectKey}}/signeds3upload",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -539,22 +599,34 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{ossOutputFileObjectKey}}",
-								"signed"
-							],
-							"query": [
-								{
-									"key": "access",
-									"value": "readwrite"
-								}
+								"{{ossScriptFileObjectKey}}",
+								"signeds3upload"
 							]
-						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						}
 					},
 					"response": []
 				}
 			],
-			"protocolProfileBehavior": {}
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Task 5 - Submit a WorkItem",
@@ -565,10 +637,9 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7cf9c997-7d7a-4f98-aadb-6880aa58e299",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
+									"pm.collectionVariables.set(\"dasWorkItemId\", body[\"id\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -588,7 +659,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"activityId\": \"{{dasNickName}}.executeScript+tutorial\",\n\t\"arguments\": {\n\t\t\"InputMaxScene\": {\n            \"url\": \"{{ossZipFileSignedUrl}}\",\n            \"verb\": \"get\",\n            \"pathInZip\": \"sceneName.max\"\n        },\n        \"MaxscriptToExecute\": {\n        \t\"url\": \"{{ossScriptFileSignedUrl}}\",\n            \"verb\": \"get\"\n        },\n        \"OutputZip\": {\n        \t\"url\": \"{{ossOutputFileSignedUrl}}\",\n            \"verb\": \"put\"\n        }\n\t}\n}"
+							"raw": "{\n\t\"activityId\": \"{{dasNickName}}.executeScript+tutorial\",\n\t\"arguments\": {\n\t\t\"InputMaxScene\": {\n            \"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossZipFileObjectKey}}\",\n            \"verb\": \"get\",\n            \"pathInZip\": \"sceneName.max\",\n            \"headers\": {\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\n            }\n        },\n        \"MaxscriptToExecute\": {\n        \t\"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossScriptFileObjectKey}}\",\n            \"verb\": \"get\",\n            \"headers\": {\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\n            }\n        },\n        \"OutputZip\": {\n        \t\"url\": \"urn:adsk.objects:os.object:{{ossBucketKey}}/{{ossOutputFileObjectKey}}\",\n            \"verb\": \"put\",\n            \"headers\": {\n                \"Authorization\": \"Bearer {{dasApiToken}}\"\n            }\n        }\n\t}\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems",
@@ -609,9 +680,43 @@
 						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
 					},
 					"response": []
+				},
+				{
+					"name": "Check Status of a  WorkItem Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems/{{dasWorkItemId}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"workitems",
+								"{{dasWorkItemId}}"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
+					},
+					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Task 6 - Download the Results ",
@@ -652,10 +757,20 @@
 					"response": []
 				},
 				{
-					"name": "Download Output from OSS",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "Get S3 Download URL for Output",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.collectionVariables.set(\"ossOutputFileDownloadUrl\", body[\"url\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -668,12 +783,8 @@
 								"value": "Bearer {{dasApiToken}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}"
-						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputFileObjectKey}}",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputFileObjectKey}}/signeds3download",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -687,19 +798,72 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{ossOutputFileObjectKey}}"
+								"{{ossOutputFileObjectKey}}",
+								"signeds3download"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Download Output from OSS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{ossOutputFileDownloadUrl}}",
+							"host": [
+								"{{ossOutputFileDownloadUrl}}"
 							]
 						},
 						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
-			"name": "Clean up HTTP Requests",
+			"name": "Extras",
 			"item": [
+				{
+					"name": "My App Nickname",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Delete App Data in Design Automation",
 					"request": {
@@ -745,7 +909,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
 								"exec": [
 									""
 								],
@@ -785,13 +948,263 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "This request to the Data Management API will delete the bucket that you created in Task 4, and every file that it contains."
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List engines",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/engines",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"engines"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/engines-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List objects in a Bucket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "List Buckets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bucket Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/details",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"details"
+							]
+						},
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				}
 			],
-			"protocolProfileBehavior": {}
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	],
-	"protocolProfileBehavior": {}
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "client_auth_keys",
+			"value": ""
+		},
+		{
+			"key": "dasApiToken",
+			"value": ""
+		},
+		{
+			"key": "UploadKey",
+			"value": ""
+		},
+		{
+			"key": "ContentUploadSignedURL",
+			"value": ""
+		},
+		{
+			"key": "ossBucketKey",
+			"value": ""
+		},
+		{
+			"key": "ossInputZipFileObjectId",
+			"value": ""
+		},
+		{
+			"key": "ossInputScriptFileObjectId",
+			"value": ""
+		},
+		{
+			"key": "dasWorkItemId",
+			"value": ""
+		},
+		{
+			"key": "ossOutputFileDownloadUrl",
+			"value": ""
+		}
+	]
 }

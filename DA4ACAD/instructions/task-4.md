@@ -2,7 +2,7 @@
 
 An Activity is an action that can be executed in Design Automation.
 
-## Create a New Activity
+## Create a new Activity
 
 1. On the Postman sidebar, click **Task 4 - Publish an Activity > POST Create a New Activity**. The request loads.
 

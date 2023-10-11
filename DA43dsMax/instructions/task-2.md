@@ -6,13 +6,11 @@ A *Nickname* lets you map a Client ID to an easy-to-use name that you can use in
 
 **Notes:**
 
-- As long as your app doesn't have any data, you can map the app to a different Nickname. Once you add data to an App, you cannot set a Nickname for it, or change an existing Nickname.
-
-- The only way you can assign a Nickname to an app with data is by first calling `[DELETE] /forgeapps/me`. This deletes all data associated with that app, including the Nickname. At the end of this tutorial, the HTTP request **Clean up HTTP Requests > DEL Delete App Data in Design Automation** calls this endpoint and clears the app of all data.
+- Once you add data to an App, you are not allowed to set a nickname for the app. The only way you can assign a nickname to an app with data is by first calling the `[DELETE] /forgeapps/me`. This action deletes all data associated with that app, including any existing nickname. The request **Extras > Delete App Data in Design Automation** in this Postman Collection calls (`[DELETE] /forgeapps/me`) and clears the app of all data.
 
     ![Delete App Data](../images/task2-delete_forge_app.png "Delete app")
 
-- If you get stuck while working on this tutorial, you can use **DEL Delete App Data in Design Automation** to clear all data from the app, and restart from Task 1.
+- If you get stuck while working on this tutorial, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.
 
 - Nicknames cannot contain spaces, and must be globally unique.  If the nickname is already in use, even by someone else, APS returns a `409 Conflict` error when you try to set the Nickname.
 

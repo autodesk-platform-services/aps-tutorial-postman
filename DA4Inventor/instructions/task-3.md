@@ -1,6 +1,6 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *samplePlugin.bundle*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an Inventor plug-in that takes in an Inventor part or assembly file, and resizes it to a size you specify. It also generates an image (BMP file) of the part or assembly. See the corresponding [task in the Step-by-Step tutorial on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task6-post-workitem/) for more information on AppBundles. 
+An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use an AppBundle named *samplePlugin.bundle*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an Inventor plug-in that takes an Inventor part or assembly file, and resizes it to a size you specify. It also generates an image (BMP file) of the part or assembly. See the corresponding [task in the Step-by-Step tutorial on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task6-post-workitem/) for more information on AppBundles.
 
 ## Download the AppBundle
 
@@ -12,17 +12,16 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
 1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
-3. Click the **Body** tab, and verify that the `id`, is set to the `ChangeParamApp` variable and `engine` is set to `Autodesk.Inventor+24` (Inventor 2020).
+2. Click the **Body** tab, and verify that the `id`, is set to the `ChangeParamApp` variable and `engine` is set to `Autodesk.Inventor+2024` (Inventor 2024).
 
     ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body")
 
-4. Click **Send**. If the request is successful, you see a screen similar to the following image:
+3. Click **Send**. If the request is successful, you see a screen similar to the following image:
 
     ![AppBundle Registered](../images/task3-appbundle_registered.png "AppBundle Registered")
 
-    `uploadParameters` shown in the response section of the preceding image contains the information required to upload the AppBundle to APS. This information is saved to a series of Postman Environment variables, so that it can be reused in the next step.
+    `uploadParameters` shown in the response section of the preceding image contains the information required to upload the AppBundle to APS. This information is saved to a series of Postman Collection variables, so that they can be reused in the next step.
 
-    ![formData](../images/task3-appbundle_form_data.png "formData")
 
 ## Upload the AppBundle
 
