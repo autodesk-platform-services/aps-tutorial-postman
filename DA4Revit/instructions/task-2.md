@@ -2,7 +2,7 @@
 
 ## Create an App
 
-1. Follow the instructions on the tutorial [Create an App](https://aps-stg.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
+1. Follow the instructions on the tutorial [Create an App](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
  When specifying **API Access**, ensure that "Design Automation API" and "Data Management API" are selected.
 
 2. Note down the Client ID and Client Secret of the app you created.
