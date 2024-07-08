@@ -1,17 +1,17 @@
-# API Documentation Postman Collection Git Repo
+# Postman Collections for Tutorials on APS Developer Portal
 
-This repository contains Postman Collections for the HTTP requests used in some Step-by-Step tutorials published on the [Autodesk Platform Services (APS) Portal](https://aps.autodesk.com/).  The tutorials on the APS Portal use [cURL](https://curl.haxx.se/) to send HTTP requests to APS, while the Postman Collections in this repository use the [Postman](https://www.getpostman.com/) User Interface. They differ only by the tool used to send HTTP requests.
+This repository provides Postman Collections for example workflows available with the API documentation on the [Autodesk Platform Services (APS) Portal](https://aps.autodesk.com/).  These collections offer a user-friendly alternative to the cURL commands used in the tutorials, simplifying the workflow and enabling easy experimentation.
 
-Currently, this repository contains Postman Collections for the following tutorials:
+Currently, this repository contains Postman Collections for the following example workflows:
 
 ## Design Automation:
 
-   | Tutorial                             | Postman Collection                   | Tutorial on APS Portal                                                    |
+   | Example Workflow                     | Postman Collection                   | Tutorial on APS Portal                                                    |
    |--------------------------------------|--------------------------------------|-----------------------------------------------------------------------------|
-   | Design Automation API for 3ds Max    | [DA43dsMax](DA43dsMax)               | https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/   |
-   | Design Automation API for AutoCAD    | [DA4ACAD](DA4ACAD)                   | http://https://aps.autodesk.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/   |
-   | Design Automation API for Inventor   | [DA4Inventor](DA4Inventor)           | https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/ |
-   | Design Automation API for Revit      | [DA4Revit](DA4Revit)                 | https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/    |
+   | Execute a MaxScript                  | [DA43dsMax](DA43dsMax)               | https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/   |
+   | Execute an AutoCAD Plug-in           | [DA4ACAD](DA4ACAD)                   | http://https://aps.autodesk.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/   |
+   | Execute an Inventor Add-in           | [DA4Inventor](DA4Inventor)           | https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/ |
+   | Execute a Revit Add-in               | [DA4Revit](DA4Revit)                 | https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/    |
 
 
 ## Model Derivative:
@@ -29,7 +29,7 @@ Currently, this repository contains Postman Collections for the following tutori
 
 ## What's Postman?
 
-Postman is a popular tool that provides an easy-to-use interface to send HTTP requests. Postman is able to parse the responses that APS sends you and save response parameter values to variables. These parameters can then be reused in subsequent requests through these variables. The Postman collections in this repository use this ability to provide pre-populated HTTP requests to help you follow the tutorial workflow with minimal effort. You can also modify the requests and experiment without having to write a single line of code.
+Postman is a widely used tool that provides a Visual UI for sending HTTP requests to services providing REST APIs, like those offered by Autodesk Platform Services (APS). The Postman collections provided in this repository contain pre-populated requests specifically designed for tutorials provided on the APS portal. Scripts within each collection parse the responses you receive and save relevant data to Postman Variables. This allows response data to be automatically fed into subsequent requests, minimizing effort when following tutorial workflows. You can also modify the requests and experiment with APS APIs directly within Postman's interface, all without writing a single line of code.
 
 - You can learn how to install and use Postman from [here](https://learning.getpostman.com/docs/postman/launching_postman/installation_and_updates).
 

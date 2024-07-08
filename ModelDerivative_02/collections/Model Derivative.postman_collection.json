@@ -24,17 +24,19 @@
 											"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
 											"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var body = JSON.parse(responseBody);",
+											"var body = pm.response.json();",
 											"pm.environment.set(\"access_token\", body.access_token);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -122,9 +124,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"if (pm.response.code==200){",
+											"    var body = pm.response.json();",
+											"    pm.environment.set(\"ossBucketKey\", body.bucketKey);",
+											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -138,6 +144,11 @@
 									{
 										"key": "Authorization",
 										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "x-ads-region",
+										"value": "US",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -483,9 +494,9 @@
 											"var j=1;",
 											"for (let i=0; responseHeader.length, i < responseHeader.length; i++){",
 											"    console.log(responseHeader[i].key);",
-											"    if (responseHeader[i].key==\"Set-Cookie\"){",
+											"    if (responseHeader[i].key==\"set-cookie\"){",
 											"        let envariable='set-cookie-header_'+ j++;",
-											"        postman.setEnvironmentVariable(envariable, responseHeader[i].value);",
+											"        pm.collectionVariables.set(envariable, responseHeader[i].value);",
 											"    } ",
 											"}"
 										],
