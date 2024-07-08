@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4ef00b8c-4b58-487e-898f-4accaaa3b8ab",
+		"_postman_id": "41856ba2-b0f9-4286-87e5-534bef6ccfaa",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "3021021"
@@ -24,17 +24,19 @@
 											"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
 											"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var body = JSON.parse(responseBody);",
+											"var body = pm.response.json();",
 											"pm.environment.set(\"access_token\", body.access_token);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -43,18 +45,15 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"value": "application/x-www-form-urlencoded",
-										"type": "text"
+										"value": "application/x-www-form-urlencoded"
 									},
 									{
 										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
+										"value": "application/json"
 									},
 									{
 										"key": "Authorization",
-										"value": "Basic {{client_auth_keys}}",
-										"type": "text"
+										"value": "Basic {{client_auth_keys}}"
 									}
 								],
 								"body": {
@@ -122,9 +121,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"if (pm.response.code==200){",
+											"    var body = pm.response.json();",
+											"    pm.environment.set(\"ossBucketKey\", body.bucketKey);",
+											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -138,6 +141,11 @@
 									{
 										"key": "Authorization",
 										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "x-ads-region",
+										"value": "US",
+										"type": "text"
 									}
 								],
 								"body": {
@@ -186,8 +194,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
+										"value": "Bearer {{access_token}}"
 									}
 								],
 								"url": {
@@ -274,13 +281,11 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
+										"value": "Bearer {{access_token}}"
 									},
 									{
 										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"value": "application/json"
 									}
 								],
 								"body": {
@@ -333,24 +338,19 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"value": "application/json"
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
+										"value": "Bearer {{access_token}}"
 									},
 									{
 										"key": "x-ads-force-all",
-										"value": "true",
-										"type": "text"
+										"value": "true"
 									},
 									{
 										"key": "",
 										"value": "",
-										"type": "text",
 										"disabled": true
 									}
 								],
@@ -480,13 +480,14 @@
 											"var j=1;",
 											"for (let i=0; responseHeader.length, i < responseHeader.length; i++){",
 											"    console.log(responseHeader[i].key);",
-											"    if (responseHeader[i].key==\"Set-Cookie\"){",
+											"    if (responseHeader[i].key==\"set-cookie\"){",
 											"        let envariable='set-cookie-header_'+ j++;",
-											"        postman.setEnvironmentVariable(envariable, responseHeader[i].value);",
+											"        pm.collectionVariables.set(envariable, responseHeader[i].value);",
 											"    } ",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -495,8 +496,12 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
+										"value": "Bearer {{access_token}}"
+									},
+									{
+										"key": "cookie",
+										"value": "{{",
+										"disabled": true
 									}
 								],
 								"url": {
@@ -530,8 +535,7 @@
 									{
 										"key": "Cookie",
 										"value": "{{set-cookie-header_1}};{{set-cookie-header_2}};{{set-cookie-header_3}}",
-										"description": "CloudFront-Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLmRlcml2YXRpdmUuYXV0b2Rlc2suY29tL2RYSnVPbUZrYzJzdWIySnFaV04wY3pwdmN5NXZZbXBsWTNRNmFuQXRNakF5TWkwd05TMHhOeTlDYjNndWFYQjAvb3V0cHV0L2ZlYzEwMTQ0LTgxYjYtNGNmZi05NmRmLTdhOTgwNDkxNmQyNS9Cb3gub2JqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUyODc4MDM3fX19XX0_; Path=/; Domain=cdn.derivative.autodesk.com; HTTPOnly",
-										"type": "text"
+										"description": "CloudFront-Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLmRlcml2YXRpdmUuYXV0b2Rlc2suY29tL2RYSnVPbUZrYzJzdWIySnFaV04wY3pwdmN5NXZZbXBsWTNRNmFuQXRNakF5TWkwd05TMHhOeTlDYjNndWFYQjAvb3V0cHV0L2ZlYzEwMTQ0LTgxYjYtNGNmZi05NmRmLTdhOTgwNDkxNmQyNS9Cb3gub2JqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUyODc4MDM3fX19XX0_; Path=/; Domain=cdn.derivative.autodesk.com; HTTPOnly"
 									}
 								],
 								"url": {
@@ -577,8 +581,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{access_token}}",
-								"type": "text"
+								"value": "Bearer {{access_token}}"
 							}
 						],
 						"url": {
@@ -609,7 +612,6 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"type": "text",
 								"value": "Bearer {{access_token}}"
 							}
 						],
@@ -641,8 +643,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{access_token}}",
-								"type": "text"
+								"value": "Bearer {{access_token}}"
 							}
 						],
 						"url": {
@@ -765,8 +766,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer {{access_token}}",
-								"type": "text"
+								"value": "Bearer {{access_token}}"
 							}
 						],
 						"url": {
@@ -790,6 +790,24 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "client_auth_keys",
+			"value": ""
+		},
+		{
+			"key": "set-cookie-header_1",
+			"value": ""
+		},
+		{
+			"key": "set-cookie-header_2",
+			"value": ""
+		},
+		{
+			"key": "set-cookie-header_3",
+			"value": ""
 		}
 	]
 }
