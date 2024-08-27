@@ -4,7 +4,7 @@ When Design Automation executes the Activity you created in Task 3, it must acce
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud.
+In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -29,7 +29,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 ## Obtain Signed URL to upload 3ds Max scene file to OSS
 
-1. Download the zip file containing the 3ds Max scene file *input.zip* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the zip file containing the 3ds Max scene file *input.zip* from the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman.
 
@@ -69,7 +69,7 @@ To make the uploaded file available for download, you must specifically instruct
 
 ## Obtain Signed URL to Upload MAXScript file to OSS
 
-1. Download the file *Twistit.ms*, containing the 3ds Max scene file, from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the file *Twistit.ms*, containing the 3ds Max scene file, from the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman.
 
