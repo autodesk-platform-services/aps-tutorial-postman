@@ -1,8 +1,8 @@
 # Before you begin...
 
-## 1. Import Postman Collections for the tutorial
+## 1. Import Postman Collections for the walkthrough
 
-Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, APS's Base URL is stored in the environment variable `baseUrl`. To import the environment you need for this tutorial:
+Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, APS's Base URL is stored in the environment variable `baseUrl`. To import the environment you need for this walkthrough:
 
 1. Download the following zip file from the [*collections* folder](../collections) and expand it on your local machine.
 
