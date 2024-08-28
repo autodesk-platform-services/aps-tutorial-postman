@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "921baa30-0741-4871-b2cb-24e20ca61783",
-		"name": "Automating Revit",
+		"name": "Execute a Revit Add-in",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "3021021"
 	},
@@ -808,6 +808,10 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{dasApiToken}}"
+							},
+							{
+								"key": "x-ads-region",
+								"value": "US"
 							}
 						],
 						"body": {
@@ -885,7 +889,7 @@
 								{
 									"key": "minutesExpiration",
 									"value": "5",
-									"disabled": true
+									"disabled": false
 								}
 							]
 						}

@@ -2,14 +2,14 @@
 
 ## Create an App
 
-1. Follow the instructions on the tutorial [Create an App](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
+1. Follow the instructions on the walkthrough [Create an App](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
  When specifying details of the app,  select "Design Automation API" and "Data Management API".
 
 2. Note down the *Client ID* and *Client Secret* of the app you created. You will need this in the next step.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
-In the DA43dsMax Tutorial environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to APS.
+In the DA43dsMax Walkthrough environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to APS.
 
 To set the environment variables:
 

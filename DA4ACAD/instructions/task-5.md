@@ -1,6 +1,6 @@
 # Task 5 - Prepare Cloud Storage
 
-The Activity `ListLayersActivity` takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Data Management API.
+The Activity `ListLayersActivity` takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this walkthrough uses the Object Storage Service (OSS) through the Data Management API.
 
 There are two Postman Environment Variables you must specify for this task. They are
 - `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.
@@ -28,7 +28,7 @@ There are two Postman Environment Variables you must specify for this task. They
 
 ## Obtain Signed URL to upload the Input File
 
-1. Download the input file, *Mechanical - Multileaders.dwg* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the input file, *Mechanical - Multileaders.dwg* from the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman.
 
@@ -81,4 +81,4 @@ To make the uploaded file available for download, you must specifically instruct
    **Tip:** You can use the file name of the text file (*layers.txt*) as its Object Key.
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-5.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")

@@ -1,14 +1,14 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use an AppBundle named *samplePlugin.bundle*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an Inventor plug-in that takes an Inventor part or assembly file, and resizes it to a size you specify. It also generates an image (BMP file) of the part or assembly. See the corresponding [task in the Step-by-Step tutorial on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task6-post-workitem/) for more information on AppBundles.
+An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this walkthrough, you will use an AppBundle named *samplePlugin.bundle*  that is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data). This AppBundle contains an Inventor plug-in that takes an Inventor part or assembly file, and resizes it to a size you specify. It also generates an image (BMP file) of the part or assembly. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task6-post-workitem/) for more information on AppBundles.
 
 ## Download the AppBundle
 
-- Download *samplePlugin.bundle.zip* from the [*tutorial_data* folder of this repository](../tutorial_data).
+- Download *samplePlugin.bundle.zip* from the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 ## Register the AppBundle
 
-When registering the AppBundle, you provide a name for the AppBundle (the id), and specify that it must run on Inventor 2020. The name can be different to the name of the AppBundle zip file. For sake of this tutorial, use the name `ChangeParamApp`.
+When registering the AppBundle, you provide a name for the AppBundle (the id), and specify that it must run on Inventor 2020. The name can be different to the name of the AppBundle zip file. For sake of this walkthrough, use the name `ChangeParamApp`.
 
 1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 

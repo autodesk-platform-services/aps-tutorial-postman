@@ -2,7 +2,7 @@
 
 Before you download the results from from your WorkItem, it must must complete execution. You can periodically check the status of the WorkItem and download the results once execution is complete. Alternatively, you can get Design Automation to send a POST request to a callback URL you specify, once execution is done.
 
-In this tutorial, you will periodically check the status of the WorkItem.
+In this walkthrough, you will periodically check the status of the WorkItem.
 
 For information on how to specify a callback URL instead, see the [APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
 
@@ -40,6 +40,6 @@ Design Automation queues WorkItems before processing them. Processing itself can
 
     ![Download Result](../images/task6-download_step_2.png "Download Result")
 
-Congratulations! You have completed this tutorial.
+Congratulations! You have completed this walkthrough.
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task")

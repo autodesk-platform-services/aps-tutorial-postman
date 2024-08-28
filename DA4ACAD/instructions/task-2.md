@@ -2,7 +2,7 @@
 
 APS uses the Client ID to uniquely identify an app. The Client ID can often be lengthy and cryptic, which can be a source of frustration when you reference the data added to your app..
 
-A Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This tutorial uses the `dasNickName` Postman Environment Variable to store the Nickname.
+A Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This walkthrough uses the `dasNickName` Postman Environment Variable to store the Nickname.
 
 **Notes:**
 
@@ -10,7 +10,7 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 
     ![Delete App Data](../images/task2-delete_forge_app.png "Delete app")
 
-- If you get stuck while working on this tutorial, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.
+- If you get stuck while working on this walkthrough, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.
 
 
 - Nicknames must be globally unique.  If the nickname is already in use, even by someone else, APS returns a `409 Conflict` error when you try to set the Nickname.

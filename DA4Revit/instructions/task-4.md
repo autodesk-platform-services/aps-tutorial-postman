@@ -1,6 +1,6 @@
 # Task 4 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the Step-by-Step tutorial on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *DeleteWallsApp.zip*, which is stored in the [*tutorial_data* folder of this repository](../tutorial_data). The file *DeleteWalls.dll* that is contained within this AppBundle runs on Revit 2024.
+An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *DeleteWallsApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data). The file *DeleteWalls.dll* that is contained within this AppBundle runs on Revit 2024.
 
 ## Register the AppBundle
 

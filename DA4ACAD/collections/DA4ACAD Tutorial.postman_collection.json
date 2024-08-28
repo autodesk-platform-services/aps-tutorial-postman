@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "9d0a89a6-5463-4d92-a4f2-2a15a1d5a8c7",
-		"name": "Automating AutoCAD",
+		"name": "Execute an AutoCAD Plug-in",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "3021021"
 	},
@@ -515,6 +515,10 @@
 							{
 								"key": "Authorization",
 								"value": "Bearer {{dasApiToken}}"
+							},
+							{
+								"key": "x-ads-region",
+								"value": "US"
 							}
 						],
 						"body": {
@@ -592,7 +596,7 @@
 								{
 									"key": "minutesExpiration",
 									"value": "5",
-									"disabled": true
+									"disabled": false
 								}
 							]
 						}

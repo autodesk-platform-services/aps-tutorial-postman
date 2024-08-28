@@ -1,8 +1,8 @@
 # Task 5 - Prepare cloud storage
 
-The Activity `ChangeParamActivity` resizes an Inventor part or assembly to a height and width you specify (as a JSON object). It also produces an image of the resized part or assembly. In this task, you prepare a cloud storage service to hold the input Inventor files, and the output (resized) Inventor files and image file. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Data Management API.
+The Activity `ChangeParamActivity` resizes an Inventor part or assembly to a height and width you specify (as a JSON object). It also produces an image of the resized part or assembly. In this task, you prepare a cloud storage service to hold the input Inventor files, and the output (resized) Inventor files and image file. While you can use any cloud storage service for this purpose, this walkthrough uses the Object Storage Service (OSS) through the Data Management API.
 
-This tutorial provides instructions to assist you resize an Inventor part. We encourage you to try resizing an Inventor Assembly on your own, later.
+This walkthrough provides instructions to assist you resize an Inventor part. We encourage you to try resizing an Inventor Assembly on your own, later.
 
 There are five Postman Environment Variables you must specify for this task. They are
 - `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.
@@ -36,7 +36,7 @@ If you are using an Inventor Assembly file as an input, you must specify the fol
 
 ## Obtain Signed URL to Upload the Input File
 
-1. Download the input file, *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the input file, *box.ipt* from the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman.
 
