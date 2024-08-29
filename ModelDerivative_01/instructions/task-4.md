@@ -41,7 +41,7 @@ Now you have obtained the download URL and signed cookie, you can download the O
     ![Download Result](../images/tutorial01_download_obj_file_02.png "Download Result")
 
 
-Congratulations! You have completed this tutorial.
+Congratulations! You have completed this walkthrough.
 
 To display the saved file:
 

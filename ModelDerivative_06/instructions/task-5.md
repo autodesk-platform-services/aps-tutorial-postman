@@ -22,7 +22,7 @@ Once the object tree has been retrieved, you can pick objects by their ID, and t
 
    ![list objects](../images/tutorial_06_task_5_check_status_of_job_01.png "list objects")
 
-   Note the similarity of the request that you sent when you orginally translated the file to SVF.
+   Note the similarity of the request that you sent when you orginally translated the file to SVF2.
 
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image. 
 
@@ -70,7 +70,7 @@ Now you have obtained the download URL and signed cookie, you can download the e
 
     ![Download Result](../images/tutorial06_download_geometry_02.png "Download Result")
 
-Congratulations! You have completed this tutorial.
+Congratulations! You have completed this walkthrough.
 
 To display the saved file:
 

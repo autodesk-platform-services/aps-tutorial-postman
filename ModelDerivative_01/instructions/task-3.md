@@ -1,6 +1,6 @@
 # Task 3 – Translate Source File
 
-You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). For the purpose of this tutorial, you will translate the source file to the OBJ format.
+You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). For the purpose of this walkthrough, you will translate the source file to the OBJ format.
 
 To translate a file, you must kick off a translation job. The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each file listed in the manifest.
 
@@ -40,7 +40,7 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For the purpose of this tutorial you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For the purpose of this walkthrough you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
@@ -56,7 +56,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 
-   Notice that the translation job has produced two derivatives; an OBJ file and an MTL file. For this tutorial we are only interested in the OBJ file. The MTL file is an auxiliary file containing material definitions, which can be accessed by the OBJ file. If the source file contained textures, you would have seen a third child in the list of derivatives.
+   Notice that the translation job has produced two derivatives; an OBJ file and an MTL file. For this walkthrough we are only interested in the OBJ file. The MTL file is an auxiliary file containing material definitions, which can be accessed by the OBJ file. If the source file contained textures, you would have seen a third child in the list of derivatives.
 
    A script in the **Tests** tab, saves the URN of the OBJ file to a variable named `dv_urn_0`.
 

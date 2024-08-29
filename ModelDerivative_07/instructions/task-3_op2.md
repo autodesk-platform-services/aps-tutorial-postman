@@ -1,4 +1,4 @@
-# Task 3, Option 2 – Translate to SVF2
+# Task 3 – Translate to SVF2
 
 To generate zone and space information while translating, you must set a few specific options in the request header and the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information.
 
@@ -7,7 +7,7 @@ The translation job produces a manifest, which lists all the files that are gene
 
 ## Start a translation job
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Option 2 - Translate to SVF2 > Start a Translation Job**. The request loads.
+1. In the Postman sidebar, click **Task 3 - Translate to SVF2 > Start a Translation Job**. The request loads.
 
 2. Click the **Body** tab and take note of the JSON payload.
 
@@ -35,9 +35,9 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For this tutorial, check the status of the translation job, and wait for the `progress` parameter to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, check the status of the translation job, and wait for the `progress` parameter to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
-1. In the Postman sidebar, click Task 3 - Translate Source File > Option 2 - Translate to SVF2 > Check Status of Job**. The request loads.
+1. In the Postman sidebar, click **Task 3 - Translate to SVF2 > Check Status of Job**. The request loads.
 
    ![Check Status of Job](../images/tutorial_07_task_3_svf2_check_status_of_translation_job_01.png "Check Status of Job")
 
@@ -49,4 +49,4 @@ For this tutorial, check the status of the translation job, and wait for the `pr
 
    Repeat this step until the `progress` attribute becomes `complete`.
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-4.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")

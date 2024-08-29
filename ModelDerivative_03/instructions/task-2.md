@@ -4,11 +4,11 @@ The Object Storage Service (OSS) is a generic Cloud Storage Service that is part
 
 ![Inventor Assembly and Part Files](../images/tutorial_03_scissors_files.png "Inventor Assembly and Part Files")
 
-These files are available in the [*tutorial_data*](../tutorial_data) folder.
+These files are available in the [*walkthrough_data*](../walkthrough_data) folder.
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
+In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -62,7 +62,7 @@ You should see a screen similar to the following image:
 
 Now that you have obtained a signed upload URL, you can go ahead and upload the zip file to OSS.
 
-1. Download the file *scissors.iam* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *scissors.iam* from the [*walkthrough_data* folder of this walkthrough](../walkthrough_data).
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Assembly File**. The request loads.
 
@@ -108,7 +108,7 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
 ## Upload part files to OSS
 
-The [*tutorial_data*](../tutorial_data) folder contains another folder named [*Components*](../tutorial_data/Components). This folder contains three part files, which you must upload to OSS. The instructions in this sections walk you through the process of uploading the first part file, *blade_main.ipt*. Use the same process to upload the other two part files to OSS.
+The [*walkthrough_data*](../walkthrough_data) folder contains another folder named [*Components*](../walkthrough_data/Components). This folder contains three part files, which you must upload to OSS. The instructions in this sections walk you through the process of uploading the first part file, *blade_main.ipt*. Use the same process to upload the other two part files to OSS.
 
 ## Obtain Signed URL for First Part File
 
@@ -133,7 +133,7 @@ You should see a screen similar to the following image:
    
 ## Upload First Part File
 
-1. Download the file *blade_main.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *blade_main.ipt* from the [*walkthrough_data* folder of this walkthrough](../walkthrough_data).
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload First Part File**. The request loads.
 
@@ -194,7 +194,7 @@ You should see a screen similar to the following image:
    
 ## Upload Second Part File
 
-1. Download the file *blade_top.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *blade_top.ipt* from the [*walkthrough_data* folder of this walkthrough](../walkthrough_data).
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Second Part File**. The request loads.
 
@@ -254,7 +254,7 @@ You should see a screen similar to the following image:
    
 ## Upload Third Part File
 
-1. Download the file *scissor_spring.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *scissor_spring.ipt* from the [*walkthrough_data* folder of this walkthrough](../walkthrough_data).
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Third Part File**. The request loads.
 

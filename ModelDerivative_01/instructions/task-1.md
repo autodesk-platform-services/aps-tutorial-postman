@@ -2,7 +2,7 @@
 
 ## Create an App
 
-1. Follow the instructions on the tutorial [Create an App](https://aps.autodesk.com/en/docs/oauth/v1/tutorials/create-app/).
+1. Follow the instructions on the walkthrough [Create an App](https://aps.autodesk.com/en/docs/oauth/v1/tutorials/create-app/).
  When specifying details of the app,  select "Model Derivative API" and "Data Management API".
 
 2. Jot down the *Client ID* and *Client Secret* of the app you created. You will need this in the next step.
