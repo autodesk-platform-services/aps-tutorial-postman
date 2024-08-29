@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Tutorial 6 - Extract Geometry from a Source File",
+			"name": "Extract Geometry from a Source File",
 			"item": [
 				{
 					"name": "Task 1 - Obtain an Access Token",
@@ -337,7 +337,7 @@
 					]
 				},
 				{
-					"name": "Task 3 - Translate to SVF",
+					"name": "Task 3 - Translate to SVF2",
 					"item": [
 						{
 							"name": "Start a Translation Job",
@@ -375,7 +375,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t6_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Stapler.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ]\n            }\n        ]\n    }\n}",
+									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t6_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Stapler.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf2\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ]\n            }\n        ]\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"

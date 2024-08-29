@@ -8,7 +8,7 @@ SVF is the format originally designed for the viewer. SVF2 format is an improved
 
 For details refer [Displaying Models in a Browser](https://aps.autodesk.com) in the Model Derivative API Developer's Guide.
 
-To continue with this tutorial, pick one of the following options:
+To continue with this walkthrough, pick one of the following options:
 
 - [Option 1: Translate to SVF](task-3_option_1.md)
 

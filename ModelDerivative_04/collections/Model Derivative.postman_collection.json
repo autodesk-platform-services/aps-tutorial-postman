@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Tutorial 4 - Prepare a File for the Viewer",
+			"name": "Prepare a File for the Viewer",
 			"item": [
 				{
 					"name": "Task 1 - Obtain an Access Token",
@@ -337,143 +337,70 @@
 					]
 				},
 				{
-					"name": "Task 3 - Translate Source File",
+					"name": "Task 3 - Translate to SVF2",
 					"item": [
 						{
-							"name": "Option 1 - Translate to SVF",
-							"item": [
+							"name": "Start a Translation Job",
+							"event": [
 								{
-									"name": "Start a Translation Job",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var body = JSON.parse(responseBody);",
-													"pm.environment.set(\"t4_url_safe_urn_of_source\", body[\"urn\"]);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "x-ads-force",
-												"value": "true",
-												"type": "text"
-											}
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t4_url_safe_urn_of_source\", body[\"urn\"]);"
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"input\": {\n        \"urn\": \"{{t4_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Suspension.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ]\n            }\n        ]\n    }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
-											"protocol": "https",
-											"host": [
-												"developer",
-												"api",
-												"autodesk",
-												"com"
-											],
-											"path": [
-												"modelderivative",
-												"v2",
-												"designdata",
-												"job"
-											]
-										},
-										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
-									},
-									"response": []
+										"type": "text/javascript"
+									}
 								}
-							]
-						},
-						{
-							"name": "Option 2 - Translate to SVF2",
-							"item": [
-								{
-									"name": "Start a Translation Job",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var body = JSON.parse(responseBody);",
-													"pm.environment.set(\"t4_url_safe_urn_of_source\", body[\"urn\"]);"
-												],
-												"type": "text/javascript"
-											}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-ads-force",
+										"value": "true",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t4_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Suspension.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf2\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ]\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
+									}
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
 									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "x-ads-force",
-												"value": "true",
-												"type": "text"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"input\": {\n        \"urn\": \"{{t4_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Suspension.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf2\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ]\n            }\n        ]\n    }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
-											"protocol": "https",
-											"host": [
-												"developer",
-												"api",
-												"autodesk",
-												"com"
-											],
-											"path": [
-												"modelderivative",
-												"v2",
-												"designdata",
-												"job"
-											]
-										},
-										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
-									},
-									"response": []
-								}
-							]
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"job"
+									]
+								},
+								"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
+							},
+							"response": []
 						},
 						{
 							"name": "Check Status of Job",

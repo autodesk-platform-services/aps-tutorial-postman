@@ -1,10 +1,10 @@
 # Task 2 - Upload Source FIle to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a zip file containing the model to translate to OSS. While you can use any zip file containing a model, for the purpose of this tutorial we recommend that you use the file *Tuner.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a zip file containing the model to translate to OSS. While you can use any zip file containing a model, for the purpose of this walkthrough we recommend that you use the file *Tuner.zip*, which is available in the [*walkthrough_data*](../walkthrough_data) folder.
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
+In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), carry out step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -58,7 +58,7 @@ You should see a screen similar to the following image,
 
 Now that you have obtained a signed upload URL, you can go ahead and upload the zip file to OSS.
 
-1. Download the file *Tuner.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *Tuner.zip* from the [*walkthrough_data* folder of this walkthrough](../walkthrough_data).
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload the File**. The request loads.
 

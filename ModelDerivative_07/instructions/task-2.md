@@ -1,10 +1,10 @@
 # Task 2 - Upload Source File to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a Revit file (*rme_advanced_sample_project.rvt*) to OSS. This file is an MEP file that contains space and zone information. This file is available in the [*tutorial_data*](../tutorial_data) folder.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a Revit file (*rme_advanced_sample_project.rvt*) to OSS. This file is an MEP file that contains space and zone information. This file is available in the [*walkthrough_data*](../walkthrough_data) folder.
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
+In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -58,7 +58,7 @@ You should see a screen similar to the following image:
 
 Now that you have obtained a signed upload URL, you can go ahead and upload the zip file to OSS.
 
-1. Download the file *rme_advanced_sample_project.rvt* from the [*tutorial_data* folder of GitHub repository containing this tutorial](../tutorial_data).
+1. Download the file *rme_advanced_sample_project.rvt* from the [*walkthrough_data* folder of GitHub repository containing this tutorial](../walkthrough_data).
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload the File**. The request loads.
 
@@ -102,4 +102,4 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
     ![Finalize upload](../images/tutorial_07_task_2_finalize_upload_03.png "Finalize upload")
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3_op2.md "Next task")

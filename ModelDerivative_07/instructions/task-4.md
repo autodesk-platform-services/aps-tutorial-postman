@@ -9,13 +9,13 @@
     **Note:**
 
     SVF and SVF2 require different settings for the `api` and `env` parameters at initialization. 
-    See the following table for the values to use for this tutorial:
+    See the following table for the values to use for this walkthrough:
 
 
-    | Parameter       | SVF                   | SVF2                   |
-    |-----------------|-----------------------|------------------------|  
-    | `api`           | derivativeV2          | streamingV2            |
-    | `env`           | AutodeskProduction    | AutodeskProduction2    |
+    | Parameter       | SVF2                   |
+    |-----------------|------------------------|  
+    | `api`           | streamingV2            |
+    | `env`           | AutodeskProduction2    |
 
 
 
@@ -28,20 +28,20 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
 ## Option 2: Provide source file URN as an input to an existing HTML page
 
-We have created two web pages based on the instructions provided in Option 1. One page is for SVF, and the other for SVF2. You can use them to verify the SVF/SVF2 file you just generated. 
+We have created a web page based on the instructions provided in Option 1. You can use it to verify the SVF2 file you just generated. 
 
 
-1. Display the webpage by clicking the link in the relevant column from the following table:
+1. Display the webpage by clicking the link in the following table:
 
-| SVF                                                                                      | SVF2                                                                                      |
-|:----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
-| [Show Web page](https://autodesk-platform-services.github.io/aps-tutorial-postman/display_svf.html)|[Show Web page](https://autodesk-platform-services.github.io/aps-tutorial-postman/display_svf2.html) |
-| ![SVF Web Page](../../ModelDerivative_04/images/tutorial_4_urn_in_html_page.png)                              | ![SVF2 Web Page](../../ModelDerivative_04/images/tutorial_4_urn_in_html_page_svf2.png)                         |
-| [Show Source](../../docs/display_svf.html)                                               |[Show Source](../../docs/display_svf2.html)                                                |
+| SVF2                                                                                      |
+|:-----------------------------------------------------------------------------------------:|
+|[Show Web page](https://autodesk-platform-services.github.io/aps-tutorial-postman/display_svf2.html) |
+| ![SVF2 Web Page](../../ModelDerivative_04/images/tutorial_4_urn_in_html_page_svf2.png)                         |
+|[Show Source](../../docs/display_svf2.html)                                                |
 
 
 
-2. In the **Access Token** box, specify the access token you obtained in task 1 of this tutorial.
+2. In the **Access Token** box, specify the access token you obtained in task 1 of this walkthrough.
 
 3. In the **Source File URN (encoded)** box, specify the URL safe Base64-encoded URN of the source file, which you obtained in task 3.
 
@@ -60,4 +60,4 @@ We have created two web pages based on the instructions provided in Option 1. On
   ![Spaces](../images/tutorial_7_spaces.png "Spaces")
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3_op2.md "Previous task")
