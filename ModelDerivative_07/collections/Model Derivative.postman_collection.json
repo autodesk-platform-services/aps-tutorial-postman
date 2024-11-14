@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Tutorial 7 - Translate a Revit File Generating Room and Space  Information",
+			"name": "Translate a Revit File Generating Room and Space Information",
 			"item": [
 				{
 					"name": "Task 1 - Obtain an Access Token",
@@ -337,261 +337,112 @@
 					]
 				},
 				{
-					"name": "Task 3 - Translate Source File",
+					"name": "Task 3 - Translate to SVF2",
 					"item": [
 						{
-							"name": "Option 1 - Translate to SVF",
-							"item": [
+							"name": "Start a Translation Job",
+							"event": [
 								{
-									"name": "Start a Translation Job",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var body = JSON.parse(responseBody);",
-													"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"value": "application/json",
-												"type": "text"
-											},
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}",
-												"type": "text"
-											},
-											{
-												"key": "x-ads-force",
-												"value": "true",
-												"type": "text"
-											}
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"input\": {\n        \"urn\": \"{{t7_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ],\n               \"advanced\": {\n                 \"generateMasterViews\": true\n               }\n            }\n        ]\n    }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
-											"protocol": "https",
-											"host": [
-												"developer",
-												"api",
-												"autodesk",
-												"com"
-											],
-											"path": [
-												"modelderivative",
-												"v2",
-												"designdata",
-												"job"
-											]
-										},
-										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
-									},
-									"response": []
-								},
-								{
-									"name": "Check Status of Job",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var body = JSON.parse(responseBody);",
-													"d_data=body[\"derivatives\"];",
-													"",
-													"",
-													"let progress=body[\"progress\"];",
-													"",
-													"if (progress===\"complete\") {",
-													"    let envariable='dv_urn_';",
-													"    let dv_children=d_data[0][\"children\"];",
-													"    ",
-													"        for (var i = 0; i < dv_children.length; i++)",
-													"        {",
-													"            let dv_urn=dv_children[i][\"urn\"];",
-													"            ",
-													"            envariable='dv_urn_'+i;",
-													"            postman.setEnvironmentVariable(envariable, dv_urn);",
-													"        }",
-													"}"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}"
-											}
-										],
-										"url": {
-											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
-											"protocol": "https",
-											"host": [
-												"developer",
-												"api",
-												"autodesk",
-												"com"
-											],
-											"path": [
-												"modelderivative",
-												"v2",
-												"designdata",
-												"{{t7_url_safe_urn_of_source}}",
-												"manifest"
-											]
-										},
-										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
-									},
-									"response": []
+										"type": "text/javascript"
+									}
 								}
-							]
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-ads-force",
+										"value": "true",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t7_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf2\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ],\n               \"advanced\": {\n                 \"generateMasterViews\": true\n               }\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"job"
+									]
+								},
+								"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
+							},
+							"response": []
 						},
 						{
-							"name": "Option 2 - Translate to SVF2",
-							"item": [
+							"name": "Check Status of Job",
+							"event": [
 								{
-									"name": "Start a Translation Job",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var body = JSON.parse(responseBody);",
-													"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"name": "Content-Type",
-												"type": "text",
-												"value": "application/json"
-											},
-											{
-												"key": "Authorization",
-												"type": "text",
-												"value": "Bearer {{access_token}}"
-											},
-											{
-												"key": "x-ads-force",
-												"type": "text",
-												"value": "true"
-											}
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
 										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n    \"input\": {\n        \"urn\": \"{{t7_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf2\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ],\n               \"advanced\": {\n                 \"generateMasterViews\": true\n               }\n            }\n        ]\n    }\n}",
-											"options": {
-												"raw": {
-													"language": "json"
-												}
-											}
-										},
-										"url": {
-											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
-											"protocol": "https",
-											"host": [
-												"developer",
-												"api",
-												"autodesk",
-												"com"
-											],
-											"path": [
-												"modelderivative",
-												"v2",
-												"designdata",
-												"job"
-											]
-										},
-										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
-									},
-									"response": []
-								},
-								{
-									"name": "Check Status of Job",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var body = JSON.parse(responseBody);",
-													"d_data=body[\"derivatives\"];",
-													"",
-													"",
-													"let progress=body[\"progress\"];",
-													"",
-													"if (progress===\"complete\") {",
-													"    let envariable='dv_urn_';",
-													"    let dv_children=d_data[0][\"children\"];",
-													"    ",
-													"        for (var i = 0; i < dv_children.length; i++)",
-													"        {",
-													"            let dv_urn=dv_children[i][\"urn\"];",
-													"            ",
-													"            envariable='dv_urn_'+i;",
-													"            postman.setEnvironmentVariable(envariable, dv_urn);",
-													"        }",
-													"}"
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Authorization",
-												"value": "Bearer {{access_token}}"
-											}
-										],
-										"url": {
-											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
-											"protocol": "https",
-											"host": [
-												"developer",
-												"api",
-												"autodesk",
-												"com"
-											],
-											"path": [
-												"modelderivative",
-												"v2",
-												"designdata",
-												"{{t7_url_safe_urn_of_source}}",
-												"manifest"
-											]
-										},
-										"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
-									},
-									"response": []
+										"type": "text/javascript"
+									}
 								}
-							]
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"{{t7_url_safe_urn_of_source}}",
+										"manifest"
+									]
+								},
+								"description": "[See documentation](https://aps.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
+							},
+							"response": []
 						}
 					],
 					"event": [

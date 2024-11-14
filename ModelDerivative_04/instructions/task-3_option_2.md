@@ -1,4 +1,4 @@
-# Task 3, Option 2 – Translate to SVF2
+# Task 3 – Translate to SVF2
 
 To translate a model, you must kick off a translation job. The translation job produces a manifest, which lists all the files (derivatives) that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
 
@@ -6,7 +6,7 @@ To translate a model, you must kick off a translation job. The translation job p
 
 For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this value to the variable `t4_ossEncodedSourceFileURN`, which you will use in the next request.
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Option 1 - Translate to SVF2 > Start a Translation Job**. The request loads.
+1. In the Postman sidebar, click **Task 3 - Translate to SVF2 > Start a Translation Job**. The request loads.
 
 2. Click the **Body** tab and take note of the JSON payload.
 
@@ -34,9 +34,9 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For this tutorial, you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
+1. In the Postman sidebar, click **Task 3 - Translate to SVF2 > Check Status of Job**. The request loads.
 
    ![Check Status of Job](../images/tutorial_04_task_3_check_status_of_job_01.png "Check Status of Job")
 
@@ -49,4 +49,4 @@ For this tutorial, you check the status of the translation job. For more informa
    Repeat this step until the `progress` attribute becomes `complete`, as shown in the image.
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-4.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")
