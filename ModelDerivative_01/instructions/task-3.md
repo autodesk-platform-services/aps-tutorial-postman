@@ -1,7 +1,7 @@
 # Task 3 – Translate Source File
 
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). In this walkthrough, you will translate the source file to the OBJ format.
 
@@ -20,7 +20,7 @@ For this task, you will use the Base64 encoded URN of the source file. In the pr
     The main attributes in the JSON payload are:
 
     - `urn` - The Base64 encoded URN of the source file.
-    - `region` - Optional parameter that specifies the region where the translation must be stored.
+    - `region` - The region where the translation job must store generated derivatives.
     - `type` - The file type to which the source file will be translated.
 
 3. Click the **Headers** tab. Notice that the `Content-Type`, `Authorization`, and `x-ads-force_all` headers are already defined.

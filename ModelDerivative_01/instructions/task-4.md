@@ -1,7 +1,7 @@
 # Task 4 - Download the OBJ file
 
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 Before you download the OBJ file, make sure that the translation job is complete. In the previous task, you captured the URN of the generated OBJ file in a variable named `dv_urn_0`.
 

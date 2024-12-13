@@ -1,10 +1,10 @@
 # Task 3 – Translate Source File
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
-You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). For the purpose of this walkthrough, you will translate the source file to the STL format.
+You can translate the source file to many different formats (see [Supported Translations](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/supported-translations/) for details). In this walkthrough, you will translate the source design to the STL format.
 
-To translate a file, you must kick off a translation job. The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each file listed in the manifest.
+To translate a file, you must create a translation job. The job produces a manifest that lists all generated files. It also reports the progress of the translation job as a percentage while the translation job is still in progress.
 
 ## Start a translation job
 
@@ -18,11 +18,9 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     Note the difference in the JSON payload from the same task in the previous walkthrough:
 
-    - `compressedURN` - A flag that tells the system that the source file is within a zip file.
-
-    - `rootfile` - The main source file. In this case it is the main assembly file, *Tuner.iam*, which contains references to the part files found in the zip file.
-
-    - `type` - The file type that the source file will be translated to; STL in this case.
+    - `compressedURN` - A flag that indicates the source design is inside a zip file.
+    - `rootfile` - The main source file. In this case, it is the main assembly file, *Tuner.iam*, which contains references to part files, which are also in the zip file.
+    - `type` - The file type to which the source file will be translated; STL in this case.
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
@@ -30,15 +28,14 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t2_url_safe_urn_of_source`.
 
-## Check status of translation job
+## Check Status of Translation Job
 
-When you kick off a translation job, it takes time to complete. There are two ways to check if the translation job is done:
+Translation jobs take time to complete. There are two ways to check if the translation job is done:
 
 - Periodically check the status of the translation job.
-
 - Set up a webhook to notify you when the job is done.
 
-For the purpose of this walkthrough you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
@@ -52,6 +49,6 @@ For the purpose of this walkthrough you will check the status of the translation
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 
-   A script in the **Tests** tab, saves the URN of the OBJ file to a variable named `dv_urn_0`.
+   A script in the **Tests** tab, saves the URN of the STL file to a variable named `dv_urn_0`.
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")

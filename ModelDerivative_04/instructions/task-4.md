@@ -1,6 +1,6 @@
 # Task 4 - Display the Model in the Viewer
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 There are two ways by which you can display the model in the Viewer.
 

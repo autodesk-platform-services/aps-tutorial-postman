@@ -1,6 +1,6 @@
 # Task 2 - Upload Source File to OSS
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a zip file (*Stapler.zip*) containing an Inventor Assembly and Part files to OSS. While you can use any model, we recommend that you use the model we provide. 
 
