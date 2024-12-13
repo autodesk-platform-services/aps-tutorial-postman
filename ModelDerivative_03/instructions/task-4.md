@@ -1,5 +1,7 @@
 # Task 4 - Download the STL file
 
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+
 Before you download the STL file you must make sure that the translation job is complete. In the previous task a script captured the URN of the STL file in a variable named `dv_urn_0`
 
 ## Obtain Signed Cookie

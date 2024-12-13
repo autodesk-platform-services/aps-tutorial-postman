@@ -1,5 +1,7 @@
 # Task 3, Option 1 – Translate to SVF
 
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+
 To generate zone and space information while translating, you must set a few specific options in the request header and the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information.
 
 The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.

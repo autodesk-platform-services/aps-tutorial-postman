@@ -1,5 +1,9 @@
 # Task 2 - Upload Source File to OSS
 
+
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+
+
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload the model to translate to OSS. While you can use any model for this purpose, we recommend that you use the file *box.ipt*, which is available in the [*walkthrough_data*](../walkthrough_data) folder.
 
 ## Create a Bucket

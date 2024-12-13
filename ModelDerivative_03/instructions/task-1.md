@@ -1,15 +1,22 @@
 # Task 1 - Obtain an Access Token
 
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+
+
 ## Create an App
 
-1. Follow the instructions on the walkthrough [Create an App](https://aps.autodesk.com/en/docs/oauth/v1/tutorials/create-app/).
- When specifying details of the app,  select "Model Derivative API" and "Data Management API".
+1. Follow the instructions on the walkthrough for [Create an App](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
 
-2. Jot down the *Client ID* and *Client Secret* of the app you created. You will need this in the next step.
+   When specifying details of the app:
+   
+   - Select **Traditional Web App** as the **Application Type**.
+   - Ensure that the **Model Derivative API** and **Data Management API** are selected under **API Access**.
+
+2. Note down the *Client ID* and *Client Secret* of the app you created. You will need these in the next step.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
-In the Model_Derivative environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to APS.
+In the Model_Derivative environment, set two Postman Environment Variables named `client_id` and `client_secret`. By configuring these variables, you won't need to specify values for the Client ID and Client Secret every time you send HTTP requests to APS.
 
 To set the environment variables:
 
@@ -21,15 +28,15 @@ To set the environment variables:
 
     ![Edit Environment Variable](../images/tutorial_03_task_1_model_derivative_dropdown.png "Edit Environment Variable")
 
-3. Click the Edit icon, and enter the *Client ID* you jotted down earlier.
+3. Click the Edit icon and enter the *Client ID* you noted down earlier.
 
-4. Similarly, enter the *Client Secret* you jotted down earlier, in the **CURRENT VALUE** column on the **client_secret** row.
+4. Similarly, enter the *Client Secret* you noted down earlier, in the **CURRENT VALUE** column on the **client_secret** row.
 
 5. Click the **Environment quick look** icon again to close it.
 
 ## Get an Access Token
 
-Before you request an access token, you must encode your Client ID and Client Secret to ensure the integrity of the data you send. To do this, first, concatenate your Client ID with your Client Secret using the colon character as a separator. After that, you must convert the concatenated string to a Base64 encoded string. A pre-request script in Postman handles this conversion for you when it sends the next request to APS.
+Before you request an access token, you must encode your Client ID and Client Secret to ensure the integrity of the data you send. To do this, first concatenate your Client ID with your Client Secret using the colon character as a separator. After that, convert the concatenated string to a Base64 encoded string. A pre-request script in Postman handles this conversion for you when it sends the next request to APS.
 
 To request an Access Token from APS:
 
