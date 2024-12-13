@@ -1,8 +1,11 @@
 # Before you begin...
 
+
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+
 ## Import the Postman Collection and Postman environment.
 
-Postman Collections are groups of prepopulated HTTP requests. They can also contain scripts that are executed when you send an HTTP request, and/or receive a response.
+Postman Collections are groups of pre-populated HTTP requests. They can also contain scripts that are executed when you send an HTTP request, and/or receive a response.
 
 Postman environments are named configurations that implement environment variables to store values you typically use across many HTTP requests. For example, this Postman Collection stores the Access Token, which is used across most HTTP requests, in a variable named `access_token`.
 
