@@ -6,26 +6,27 @@ The Object Storage Service (OSS) is a generic Cloud Storage Service that is part
 
 ## Create a Bucket
 
-In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
+In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), carry out step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
-    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
+    a. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
-    2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
+    b. In the **CURRENT VALUE** column, in the **ossBucketKey** row, enter a name for the Bucket that will store your files.
 
         **Notes:**  
-        - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified exists, the system returns a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
+        
+        - The Bucket name must be unique across the OSS service. If a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the variable value and try again.
 
-        - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
+        - The Bucket name can only contain lowercase letters, numbers 0-9, and underscores (_).
 
-    3. Click the **Environment quick look** icon to hide the variables.
+    c. Click the **Environment quick look** icon to hide the variables.
 
-4. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
 
-5. Click the **Body** tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
+3. Click the **Body** tab, and verify that the `bucketkey` attribute is set to the `ossBucketKey` variable.
 
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
+4. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
     ![Successful Bucket Creation](../images/tutorial_07_task_2_create_a_bucket.png "Successful Bucket Creation")
     
