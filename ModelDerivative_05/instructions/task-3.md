@@ -4,6 +4,9 @@
 
 For the server to extract metadata from a model, you must first translate the model to a viewer-friendly format. Because SVF2 handles larger models better, Autodesk recommends SVF2 over SVF.
 
+To translate a file, you must create a translation job. The job produces a manifest that lists all generated files. It also reports the progress of the translation job as a percentage while the translation job is still in progress.
+
+
 ## Start a translation job
 
 For this task, you use the Base64-encoded URN of the source file. In the previous task, Postman saved this URN to the variable `t5_ossEncodedSourceFileURN`. You use this variable to reference the model in the next request.
@@ -22,13 +25,12 @@ For this task, you use the Base64-encoded URN of the source file. In the previou
 
 ## Check status of translation job
 
-When you kick off a translation job, it takes time to complete. There are two ways to check if the translation job is done:
+Translation jobs take time to complete. There are two ways to check if the translation job is done:
 
 - Periodically check the status of the translation job.
-
 - Set up a webhook to notify you when the job is done.
 
-This walkthrough checks the status of the translation job periodically. For information using the webhooks method, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Translate to SVF2 > Check Status of Job**. The request loads.
 

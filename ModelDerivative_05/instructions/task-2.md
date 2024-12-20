@@ -2,7 +2,7 @@
 
 > **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload the source file to OSS. While you can use any model, for this walkthrough we recommend that you use the Revit model we provide (*rac_basic_sample_project.rvt*). 
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload the source file to OSS. While you can use any model, for this walkthrough we recommend that you use the Revit model we provide (*rac_basic_sample_project.rvt*), which is available in the [*walkthrough_data*](../walkthrough_data) folder. 
 
 ## Create a Bucket
 
@@ -78,7 +78,7 @@ Now that you have obtained a signed upload URL, you can go ahead and upload the 
 
 ## Finalize Upload
 
-Although you uploaded the source file in one go, it is possible to split a file into chunks and upload the file one chunk at a time. Once all the chunks are uploaded you must inform OSS that the upload operation is complete. Even though you uploaded the file in one go, you must finalize the upload by informing OSS that the upload is done. To finalize the upload:
+The upload process is designed to let you split a file into multiple chunks and upload each chunk in parallel. Once all chunks are uploaded, you must finalize the upload so that OSS can recombine the file and make it available for download. Even though you uploaded the file in one go without splitting it into chunks, you still need to finalize the upload to make the file available for download.
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 

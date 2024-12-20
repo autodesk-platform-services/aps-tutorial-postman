@@ -4,7 +4,7 @@ To display a model in the viewer, you must first translate the model to a viewer
 - The SVF format.
 - The SVF2 format.
 
-SVF is the format originally designed for the viewer. SVF2 format is an improved version of SVF. It is optimized for larger models so that they load faster at display time. However, translation to SVF2 can take longer than translation to SVF.
+SVF is the format originally designed for the viewer. SVF2 format is an improved version of SVF. It is optimized for larger models so that they load faster at display time.
 
 For details refer [Prepare Models for Online Viewing](https://aps.autodesk.com/en/docs/model-derivative/v2/developers_guide/basics/preperation/) in the Model Derivative API Developer's Guide.
 

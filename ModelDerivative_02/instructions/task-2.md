@@ -73,7 +73,7 @@ Now that you have obtained a signed upload URL, you can go ahead and upload the 
 
    ![Select file button](../images/task2_upload_file_tt2.png "Select file button")
    
-6. Click **Send** to upload the file.
+5. Click **Send** to upload the file.
 
 ## Finalize Upload
 
@@ -99,7 +99,7 @@ The upload process is designed to let you split a file into multiple chunks and 
    | t2_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
    | t2_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
 
-You should see a screen similar to the following image:
+   You should see a screen similar to the following image:
 
    ![Finalize upload](../images/tutorial_02_task2_finalize_upload.png "Finalize upload")
 

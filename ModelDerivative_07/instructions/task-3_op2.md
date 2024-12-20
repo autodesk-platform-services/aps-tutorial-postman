@@ -4,7 +4,7 @@
 
 To generate zone and space information while translating, you must set a few specific options in the request header and the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information.
 
-The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
+To translate a file, you must create a translation job. The job produces a manifest that lists all generated files. It also reports the progress of the translation job as a percentage while the translation job is still in progress.
 
 
 ## Start a translation job
@@ -31,13 +31,12 @@ The translation job produces a manifest, which lists all the files that are gene
 
 ## Check status of translation job
 
-When you kick off a translation job, it takes time to complete. There are two ways to check if the translation job is done:
+Translation jobs take time to complete. There are two ways to check if the translation job is done:
 
 - Periodically check the status of the translation job.
-
 - Set up a webhook to notify you when the job is done.
 
-For this walkthrough, check the status of the translation job, and wait for the `progress` parameter to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Task 3 - Translate to SVF2 > Check Status of Job**. The request loads.
 
