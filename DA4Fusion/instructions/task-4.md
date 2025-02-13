@@ -1,83 +1,62 @@
-# Task 4 - Upload an AppBundle to Design Automation
+# Task 4 - Create an Activity
 
-An AppBundle is a package of binaries and supporting files that make up a Fusion add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *CreateNutApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
+An Activity is an action that can be executed in Design Automation. You create and post Activities to run specific AppBundles.
 
-## Register the AppBundle
+## Create a New Activity
 
-When registering the AppBundle, you inform Design Automation that you want to name it CreateNutApp, and that it must run on Fusion latest.
+1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Create a New Activity**. The request loads.
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Register the AppBundle**. The request loads.
+2. Click the **Body** tab. Observe the body parameters.
 
-2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `CreateNutApp`, and `Autodesk.Fusion+Latest`.
+    ![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
 
-    ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body")
+**Notes**
+ - `id` is the name given to the new Activity.
+ - `engine` is the Design Automation engine that the Activity (Fusion latest in this case) runs on.
+ - `appbundles` is the fully qualified id of the AppBundle
 
-3. Click **Send**. If the request is successful, you will see a screen similar to the following image:
+1. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![AppBundel Registered](../images/task4-appbundle_registered.png "AppBundel Registered")
+    ![Successful creation of an Activity](../images/task5-activity_create_success.png "Successful creation of an Activity")
 
-    The `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Collection variables.
+## Create an Alias to the Activity
 
-## Upload the AppBundle
+Design Automation does not let you reference an Activity by its `id`. You must always reference an Activity by an alias.  Note that an alias points to a specific version of an Activity and not the Activity itself.
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Upload the AppBundle**. The request loads.
+To create an alias named `test`, which refers to version `1` of the `DeleteWallsActivity`:
 
-2. Click the **Body** tab, and scroll down such that the **file** row is visible.
+1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Create an Alias to the Activity**. The request loads.
 
-3. Move the cursor to the **VALUE** column on the **file** row.
+2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-4. Click **Select Files**, and pick *CreateNutApp.zip*, which you downloaded earlier.
+    ![Successful creation of Alias](../images/task5-activity_alias_create_success.png "Successful creation of Alias")
 
-    ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
+## Update an Existing Activity
 
-5. Click **Send**. You should see a screen similar to the following. Note that the response has only a header and no body.
+Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity,
+you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Fusion throws a `409 Conflict` error.
 
-    ![AppBundle uploaded](../images/task4-appbundle_uploaded.png "AppBundle uploaded")
+To create a new version of an Activity:
 
-## Create an Alias for the AppBundle
+1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Update an Existing Activty**. The request loads.
 
-When you registered the AppBundle earlier, it was registered as version 1 of the AppBundle. Now, you create an alias named test to reference that version.
+2. Click the **Body** tab. Observe the body parameters.
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
+3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-2. Click the **Body** tab. and note how `id` is set to `test`.
+    ![Successful update of an existing activity](../images/task5-sucessful_update_of_activity.png "Successful update of an existing activity")
 
-    ![Alias](../images/task4-appbundle_alias.png "Alias")
+## Assign an existing Alias to the updated Activity
 
-3. Click **Send**. You should see a response similar to the following image.
+Currently, the Alias `test` points to version `1` of the Activity. You send a PATCH request to assign this Alias to the new version of the Activity `DeleteWallsActivity`.
 
-    ![Alias response](../images/task4-appbundle_alias_set.png "Alias response")
+To send the PATCH request:
 
-## Update an existing AppBundle
+1. On the Postman sidebar, click **Task 5 - Create an Activity > PATCH Assign an Existing Alias to the Updated Activity**. The request loads.
 
-To update an existing AppBundle, you must register a new version of the AppBundle and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, Design Automation returns a `409 Conflict` error.
+2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-To register a new version:
+    ![Successful update of Alias](../images/task5-sucessful_update_of_alias.png "Successful update of Alias")
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Update an Existing AppBundle**. The request loads.
 
-2. Click the **Body** tab. Note that you are now specifying only the engine and description.
-
-3. Click **Send**. You should see a response similar to the following image. As with registering an AppBundle, the `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Collection variables.
-
-    ![New version sucessful](../images/task4-appbundle_new_version_successfull.png "New version successful")
-
-## Upload the updated AppBundle
-
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Upload the Updated AppBundle**. The request loads.
-
-2. Click the **Body** tab, and scroll down such that the **file** row is visible.
-
-3. Click **Select Files**, and pick *DeleteWallsApp.zip*, which you downloaded earlier.
-
-4. Click **Send**.
-
-## Assign the Alias you specified earlier to the updated AppBundle
-
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > PATCH Assign an Existing Alias to the Updated AppBundle**. The request loads.
-
-2. Click the **Body** tab. Observe how the new version is specified.
-
-3. Click **Send**.
-
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")

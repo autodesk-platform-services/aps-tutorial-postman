@@ -1,62 +1,40 @@
-# Task 5 - Create an Activity
+# Task 5 - Submit a WorkItem
 
-An Activity is an action that can be executed in Design Automation. You create and post Activities to run specific AppBundles.
+When you submit a WorkItem to Design Automation, you are instructing Design Automation to execute the Activity specified in the WorkItem.
 
-## Create a New Activity
+The relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively.
+Named parameters of the Activity have corresponding named arguments of the WorkItem.
+Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Create a New Activity**. The request loads.
+For this exercise, you will apply the CreateNut Activity on a Fusion Project, out of the Fusion Team example files.
 
-2. Click the **Body** tab. Observe the body parameters.
+## Create a WorkItem
 
-    ![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
+1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Create a WorkItem**. The request loads.
 
-**Notes**
- - `id` is the name given to the new Activity.
- - `engine` is the Design Automation engine that the Activity (Fusion latest in this case) runs on.
- - `appbundles` is the fully qualified id of the AppBundle
+2. Click the **Body** tab and observe how the Actvity ID, the input file, and the output file are specified.
 
-1. Click **Send**. If the request is successful, you should see a screen similar to the following image.
+3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-    ![Successful creation of an Activity](../images/task5-activity_create_success.png "Successful creation of an Activity")
+    ![deleteWallsResultUrl](../images/task7-result_url.png "deleteWallsResultUrl")
 
-## Create an Alias to the Activity
+    The main attributes on the JSON payload are:
 
-Design Automation does not let you reference an Activity by its `id`. You must always reference an Activity by an alias.  Note that an alias points to a specific version of an Activity and not the Activity itself.
+    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id. A fully qualified id is made up of three parts. They start with the Nickname of the app (or the Client Id of the app. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [documentation on ids](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
 
-To create an alias named `test`, which refers to version `1` of the `DeleteWallsActivity`:
+    - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 5, when you created the Activity.
 
-1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Create an Alias to the Activity**. The request loads.
-
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
-
-    ![Successful creation of Alias](../images/task5-activity_alias_create_success.png "Successful creation of Alias")
-
-## Update an Existing Activity
-
-Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity,
-you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Fusion throws a `409 Conflict` error.
-
-To create a new version of an Activity:
-
-1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Update an Existing Activty**. The request loads.
-
-2. Click the **Body** tab. Observe the body parameters.
-
-3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
-
-    ![Successful update of an existing activity](../images/task5-sucessful_update_of_activity.png "Successful update of an existing activity")
-
-## Assign an existing Alias to the updated Activity
-
-Currently, the Alias `test` points to version `1` of the Activity. You send a PATCH request to assign this Alias to the new version of the Activity `DeleteWallsActivity`.
-
-To send the PATCH request:
-
-1. On the Postman sidebar, click **Task 5 - Create an Activity > PATCH Assign an Existing Alias to the Updated Activity**. The request loads.
-
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
-
-    ![Successful update of Alias](../images/task5-sucessful_update_of_alias.png "Successful update of Alias")
+    - `result` - Specifies the URN reserved for the output of the activity, followed by the HTTP verb to use.
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")
+## Check Status of a WorkItem
+
+Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItems ran successfully or not. As such it is important for you to check the status of the WorkItem you created.
+
+1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
+
+2. Click **Send**. You should see a screen similar to the following image.
+
+    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
+
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-6.md "Previous task") [:arrow_forward:](task-8.md "Next task")

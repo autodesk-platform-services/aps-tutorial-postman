@@ -1,37 +1,85 @@
-# Task 3 - Create a Nickname
+# Task 3 - Upload an AppBundle to Design Automation
 
-APS uses the Client ID to uniquely identify an app. The Client ID can be long and cryptic, and hence a source of irritation when you reference the data you add to your app.
+An AppBundle is a package of binaries and supporting files that make up a Fusion add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *CreateNutApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
-A Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This tutotial uses the `dasNickName` Postman Environment Variable to store the Nickname.
+## Register the AppBundle
 
-**Notes:**
+When registering the AppBundle, you inform Design Automation that you want to name it CreateNutApp, and that it must run on Fusion latest.
 
-- If your app doesn't have any data, you can map the app to another nickname, and the new nickname will overwrite the old one. Once you add data to an App, you are not allowed to set a nickname for it. This is true even if you have not yet assigned a nickname for the app. The only way you can assign a nickname to an app with data is by first calling `[DELETE] /forgeapps/me`. This deletes all data associated with that app, including the nickname. The request **Extras > Delete App Data in Design Automation** in this Postman Collection calls (`[DELETE] /forgeapps/me`) and clears the app of all data.
+1. First Check in the DA4Fusion Environment that the `appBundleName` variable is set to `CreateNutApp` and the `engine` variable is set to `Autodesk.Fusion+Latest`
+   
+2. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
-    ![Delete App Data](../images/task3-delete_forge_app.png "Delete app")
+3. Click the **Body** tab, and verify that the `id`, and `engine` are set to `{{appBundleName}}`, and `{{engine}}`.
 
-- If you get stuck while working on this walkthrough, and are unable to proceed because your app has data, you can use **DEL Delete app** to clear all data from the app, and restart from Task 2.
+    ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body")
 
+4. Click **Send**. If the request is successful, you will see a screen similar to the following image:
 
-- Nicknames must be globally unique.  If the nickname is already in use, even by someone else, APS returns a `409 Conflict` error when you try to set the Nickname.
+    ![AppBundel Registered](../images/task4-appbundle_registered.png "AppBundel Registered")
 
-## Save the Nickname to a variable
+    The `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Collection variables.
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman.
+## Upload the AppBundle
 
-2. In the **CURRENT VALUE** column, in the **dasNickName** row, enter a Nickname for your app.
+1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Upload the AppBundle**. The request loads.
 
-   ![Nickname Variable](../images/task3-environment_variables_grid.png "Nickname Variable")
+2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
+3. Move the cursor to the **VALUE** column on the **file** row.
 
-3. Click the **Environment quick look** icon again, to hide the variables.
+4. Click **Select Files**, and pick *CreateNutApp.zip*, which you downloaded earlier.
 
-## Send a request to set the Nickname
+    ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
 
-1. On the Postman sidebar, click **Task 3 - Create a Nickname > PATCH Create Nickname**. The request loads.
+5. Click **Send**. You should see a screen similar to the following. Note that the response has only a header and no body.
 
-2. Click  **Send**. If the request is successful, you should see a response similar to the following image. Note that the response has only a header and no body.
+    ![AppBundle uploaded](../images/task4-appbundle_uploaded.png "AppBundle uploaded")
 
-    ![Successful nickname](../images/task3-successfull.png "Successful Nickname")
+## Create an Alias for the AppBundle
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")
+When you registered the AppBundle earlier, it was registered as version 1 of the AppBundle. Now, you create an alias named test to reference that version.
+
+1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
+
+2. Click the **Body** tab. and note how `id` is set to `{{CreateNutAppBundleVersion}}`. This is because in the earlier request we already extracted the version number for your convenience
+
+    ![Alias](../images/task4-appbundle_alias.png "Alias")
+
+3. Click **Send**. You should see a response similar to the following image.
+
+    ![Alias response](../images/task4-appbundle_alias_set.png "Alias response")
+
+## Update an existing AppBundle
+
+To update an existing AppBundle, you must register a new version of the AppBundle and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, Design Automation returns a `409 Conflict` error.
+
+To register a new version:
+
+1. On the Postman sidebar, click **Extras > Update AppBundle > Register New AppBundle Version**. The request loads.
+
+2. Click the **Body** tab. Note that you are now specifying only the engine and description.
+
+3. Click **Send**. You should see a response similar to the following image. As with registering an AppBundle, the `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Collection variables.
+
+    ![New version sucessful](../images/task4-appbundle_new_version_successfull.png "New version successful")
+
+## Upload the updated AppBundle
+
+1. On the Postman sidebar, click **Extras > Update AppBundle > Upload New Appbundle**. The request loads.
+
+2. Click the **Body** tab, and scroll down such that the **file** row is visible.
+
+3. Click **Select Files**, and pick *CreateNutApp.zip*, which you downloaded earlier.
+
+4. Click **Send**.
+
+## Assign the Alias you specified earlier to the updated AppBundle
+
+1. On the Postman sidebar, click **Extras > Update AppBundle > Patch Appbundle Alias**. The request loads.
+
+2. Click the **Body** tab. Observe how the new version is specified.
+
+3. Click **Send**.
+
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")

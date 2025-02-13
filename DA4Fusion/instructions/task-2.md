@@ -1,44 +1,37 @@
-# Task 2 - Obtain an Access Token
+# Task 2 - Create a Nickname
 
-## Create an App
+APS uses the Client ID to uniquely identify an app. The Client ID can be long and cryptic, and hence a source of irritation when you reference the data you add to your app.
 
-1. Follow the instructions on the walkthrough [Create an App](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/).
- When specifying **API Access**, ensure that "Design Automation API" and "Data Management API" are selected.
+A Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This tutotial uses the `dasNickName` Postman Environment Variable to store the Nickname.
 
-2. Note down the Client ID and Client Secret of the app you created.
+**Notes:**
 
-## Save Client ID and Client Secret to Postman Environment Variables
+- If your app doesn't have any data, you can map the app to another nickname, and the new nickname will overwrite the old one. Once you add data to an App, you are not allowed to set a nickname for it. This is true even if you have not yet assigned a nickname for the app. The only way you can assign a nickname to an app with data is by first calling `[DELETE] /forgeapps/me`. This deletes all data associated with that app, including the nickname. The request **Extras > Delete App Data in Design Automation** in this Postman Collection calls (`[DELETE] /forgeapps/me`) and clears the app of all data.
 
-In the DA4Fusion environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you won't need to specify their values when you send HTTP requests to APS.
+    ![Delete App Data](../images/task3-delete_forge_app.png "Delete app")
 
-To set the environment variables:
+- If you get stuck while working on this walkthrough, and are unable to proceed because your app has data, you can use **DEL Delete app** to clear all data from the app, and restart from Task 2.
+
+
+- Nicknames must be globally unique.  If the nickname is already in use, even by someone else, APS returns a `409 Conflict` error when you try to set the Nickname.
+
+## Save the Nickname to a variable
 
 1. Click the **Environment quick look** icon on the upper right corner of Postman.
-   ![Environment quick look icon](../images/task2-environment_quick_look_icon.png "Environment quick look icon")
 
-2. Click in the **CURRENT VALUE** column on the **client_id** row. The Edit icon displays.
+2. In the **CURRENT VALUE** column, in the **dasNickName** row, enter a Nickname for your app.
 
-    ![Edit Environment Variable](../images/task2-environment_edit_variable.png "Edit Environment Variable")
-
-3. Click the Edit icon, and enter the Client ID you jotted down earlier.
-
-4. Similarly, enter the Client Secret you jotted down earlier in the **CURRENT VALUE** column on the **client_secret** row.
-
-5. Click the **Environment quick look** icon again.
-
-## Get an Access Token
-
-To get an Access Token, you must send an `authenticate` request to APS. The Postman collection has a pre-populated authenticate request that you can send. To send the request to APS:
-
-1. On the Postman sidebar, click **Task 2 - Obtain an Access Token > POST Get an Access Token**. The request loads.
-
-2. Click the **Pre-request Script** tab. Notice how a script (written in JavaScript) takes the Client ID and Client Secret, concatenates them, converts to a Base64 encoded string, and saves it back to a Postman Collection Variable named `client_auth_keys`.
-   ![Preview Client Id and Client Secret](../images/task2-preview_environment_variables.png "Preview Client Id and Client Secret")
-
-4. Click **Send**. The request is sent to APS. If your request authenticates successfully, you should see a response similar to the following:
-![Successful authentication](../images/task2-authenticate_successfull.png "Successful authentication")
-
-Postman saves the Access Token in the Postman Collection Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests. This variable eliminates the need for you to repeatedly specify the value of the token for subsequent requests.
+   ![Nickname Variable](../images/task3-environment_variables_grid.png "Nickname Variable")
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task" ) [:arrow_forward:](task-3.md "Next task")
+3. Click the **Environment quick look** icon again, to hide the variables.
+
+## Send a request to set the Nickname
+
+1. On the Postman sidebar, click **Task 3 - Create a Nickname > PATCH Create Nickname**. The request loads.
+
+2. Click  **Send**. If the request is successful, you should see a response similar to the following image. Note that the response has only a header and no body.
+
+    ![Successful nickname](../images/task3-successfull.png "Successful Nickname")
+
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")

@@ -1,40 +1,27 @@
-# Task 7 - Submit a WorkItem
+# Task 6 - Download the results
 
-When you submit a WorkItem to Design Automation, you are instructing Design Automation to execute the Activity specified in the WorkItem.
-
-The relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively.
-Named parameters of the Activity have corresponding named arguments of the WorkItem.
-Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
-
-For this exercise, you will apply the CreateNut Activity on a Fusion Project, out of the Fusion Team example files.
-
-## Create a WorkItem
-
-1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Create a WorkItem**. The request loads.
-
-2. Click the **Body** tab and observe how the Actvity ID, the input file, and the output file are specified.
-
-3. Click **Send**. If the request is successful you should see a screen similar to the following image.
-
-    ![deleteWallsResultUrl](../images/task7-result_url.png "deleteWallsResultUrl")
-
-    The main attributes on the JSON payload are:
-
-    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id. A fully qualified id is made up of three parts. They start with the Nickname of the app (or the Client Id of the app. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [documentation on ids](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
-
-    - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 5, when you created the Activity.
-
-    - `result` - Specifies the URN reserved for the output of the activity, followed by the HTTP verb to use.
+Once the WorkItem has completed executing the Activity, Design Automation uploads the resulting file to OSS. You use the Data Management API to download the file to your local machine.
 
 
-## Check Status of a WorkItem
+## Get temporary download URL of the resulting RVT file
 
-Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItems ran successfully or not. As such it is important for you to check the status of the WorkItem you created.
-
-1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
+1. On the Postman sidebar, click **Task 7 - Download the Result > GET Get S3 Download URL for result**. The request loads.
 
 2. Click **Send**. You should see a screen similar to the following image.
 
-    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
+    ![Download Result](../images/task7-download_step_1.png "Download Result")
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-6.md "Previous task") [:arrow_forward:](task-8.md "Next task")
+## Download the resulting RVT file
+
+1. On the Postman sidebar, click **Task 7 - Download the Result > Download Resulting RVT File**. The request loads.
+
+2. Click **Send**. You should see a screen similar to the following image.
+
+    ![Download Result](../images/task7-download_step_2.png "Download Result")
+
+3. In the response area, click **Save response to file**. The output file downloads. Save the file as a *.rvt* file.
+
+    ![Save Result](../images/task7-download_step_2b.png "Save Result")
+
+
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-7.md "Previous task")
