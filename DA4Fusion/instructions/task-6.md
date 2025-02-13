@@ -11,7 +11,7 @@ Once the WorkItem has completed executing the Activity, Design Automation upload
 
     ![Download Result](../images/task7-download_step_2.png "Download Result")
 
-3. Open the Folder. There should be two designs: `Nut` and `Nut v1 modify parameters` 
+3. Open the Folder. There should be two designs: `Nut` and `Nut v1 modify parameters`
 
     ![Save Result](../images/task7-download_step_2b.png "Save Result")
 
