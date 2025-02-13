@@ -34,7 +34,7 @@ To create an alias named `test`, which refers to version `1` of the `DeleteWalls
 ## Update an Existing Activity
 
 Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity,
-you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Revit throws a `409 Conflict` error.
+you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Fusion throws a `409 Conflict` error.
 
 To create a new version of an Activity:
 

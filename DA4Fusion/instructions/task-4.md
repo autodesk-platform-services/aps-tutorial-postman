@@ -1,6 +1,6 @@
 # Task 4 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *DeleteWallsApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data). The file *DeleteWalls.dll* that is contained within this AppBundle runs on Revit 2024.
+An AppBundle is a package of binaries and supporting files that make up a Fusion add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *CreateNutApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 ## Register the AppBundle
 
@@ -8,7 +8,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
-2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `CreateNutApp`, and `Autodesk.Revit+Latest`.
+2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `CreateNutApp`, and `Autodesk.Fusion+Latest`.
 
     ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body")
 
@@ -26,7 +26,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 3. Move the cursor to the **VALUE** column on the **file** row.
 
-4. Click **Select Files**, and pick *DeleteWallsApp.zip*, which you downloaded earlier.
+4. Click **Select Files**, and pick *CreateNutApp.zip*, which you downloaded earlier.
 
     ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
 
