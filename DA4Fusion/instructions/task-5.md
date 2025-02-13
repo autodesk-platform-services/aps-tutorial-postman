@@ -8,6 +8,17 @@ Like in function calls, optional parameters of the Activity can be skipped and l
 
 For this exercise, you will apply the CreateNut Activity on a Fusion Project, out of the Fusion Team example files.
 
+## Generate a Personal Access Token
+
+To get a personal access token (PAT), simply access your autodesk profile via the following link: [Autodesk Security](https://profile.autodesk.com/security) and follow the instructions. The PAT should be of the project "Alpine"
+
+The table below describes the different options for authentication and authorization for submitting WorkItems to DA4F.
+
+| Option                                                        | OAuth Type | Required Body Content                   | Notes                                                                                    | Use Case                                                                                        |
+|---------------------------------------------------------------|------------|-----------------------------------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
+| Submit for your activity on behalf of yourself as Fusion user | 2LO        | PAT of Fusion user                      | The owner of the app of the 2LO token must be same as the user that has created the PAT. | Access is needed for a "service user's" data that is aggregated from customers into one account |
+| Submit for your activity on behalf of a different Fusion user	| 3LO        | PAT of Fusion user + Signed Activity ID | 3LO token must be for the same user as the PAT                                           | Access is needed for direct customer data that logs in and allows it                            |
+
 ## Create a WorkItem
 
 1. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Create a WorkItem**. The request loads.
@@ -22,10 +33,7 @@ For this exercise, you will apply the CreateNut Activity on a Fusion Project, ou
 
     - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id. A fully qualified id is made up of three parts. They start with the Nickname of the app (or the Client Id of the app. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [documentation on ids](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
 
-    - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 5, when you created the Activity.
-
-    - `result` - Specifies the URN reserved for the output of the activity, followed by the HTTP verb to use.
-
+    - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 5, when you created the Activity. In this case we send over the PAT so DA4Fusion can access files on Fusion teams, aswell as `"d3": "40mm"` as parameters to change the height of the nut to 40mm.
 
 ## Check Status of a WorkItem
 
