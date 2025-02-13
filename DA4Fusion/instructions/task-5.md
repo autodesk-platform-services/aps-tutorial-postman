@@ -10,7 +10,7 @@ For this exercise, you will apply the CreateNut Activity on a Fusion Project, ou
 
 ## Create a WorkItem
 
-1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Create a WorkItem**. The request loads.
+1. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Create a WorkItem**. The request loads.
 
 2. Click the **Body** tab and observe how the Actvity ID, the input file, and the output file are specified.
 
@@ -31,7 +31,7 @@ For this exercise, you will apply the CreateNut Activity on a Fusion Project, ou
 
 Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItems ran successfully or not. As such it is important for you to check the status of the WorkItem you created.
 
-1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
+1. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
 
 2. Click **Send**. You should see a screen similar to the following image.
 

@@ -28,7 +28,7 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 
 ## Send a request to set the Nickname
 
-1. On the Postman sidebar, click **Task 3 - Create a Nickname > PATCH Create Nickname**. The request loads.
+1. On the Postman sidebar, click **Task 2 - Create a Nickname > PATCH Create Nickname**. The request loads.
 
 2. Click  **Send**. If the request is successful, you should see a response similar to the following image. Note that the response has only a header and no body.
 

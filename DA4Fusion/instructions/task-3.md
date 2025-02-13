@@ -8,7 +8,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 1. First Check in the DA4Fusion Environment that the `appBundleName` variable is set to `CreateNutApp` and the `engine` variable is set to `Autodesk.Fusion+Latest`
    
-2. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Register the AppBundle**. The request loads.
+2. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
 3. Click the **Body** tab, and verify that the `id`, and `engine` are set to `{{appBundleName}}`, and `{{engine}}`.
 
@@ -22,7 +22,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 ## Upload the AppBundle
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Upload the AppBundle**. The request loads.
+1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Upload the AppBundle**. The request loads.
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
@@ -40,7 +40,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 When you registered the AppBundle earlier, it was registered as version 1 of the AppBundle. Now, you create an alias named test to reference that version.
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
+1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
 
 2. Click the **Body** tab. and note how `id` is set to `{{CreateNutAppBundleVersion}}`. This is because in the earlier request we already extracted the version number for your convenience
 
