@@ -18,4 +18,4 @@ Once the WorkItem has completed executing the Activity, Design Automation upload
 4. Open both of them and check the change in the `Distance` of the Feature `Extrude 1`
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-7.md "Previous task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task")

@@ -41,4 +41,4 @@ To get an Access Token, you must send an `authenticate` request to APS. The Post
 Postman saves the Access Token in the Postman Collection Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests. This variable eliminates the need for you to repeatedly specify the value of the token for subsequent requests.
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task" ) [:arrow_forward:](task-3.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task" ) [:arrow_forward:](task-2.md "Next task")

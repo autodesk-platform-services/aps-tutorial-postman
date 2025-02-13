@@ -24,12 +24,12 @@ Individual requests in Postman have the same names as the corresponding step in 
 Instructions to run the Postman walkthrough are as below:
 
 - [Before you begin](instructions/before_you_begin.md)
-- [Task 2 - Obtain an Access Token](instructions/task-2.md)
-- [Task 3 - Create a Nickname](instructions/task-3.md)
-- [Task 4 - Upload an AppBundle to Design Automation](instructions/task-4.md)
-- [Task 5 - Publish an Activity](instructions/task-5.md)
-- [Task 6 - Prepare cloud storage](instructions/task-6.md)
-- [Task 7 - Submit a WorkItem](instructions/task-7.md)
+- [Task 1 - Obtain an Access Token](instructions/task-1.md)
+- [Task 2 - Create a Nickname](instructions/task-2.md)
+- [Task 3 - Upload an AppBundle to Design Automation](instructions/task-3.md)
+- [Task 4 - Publish an Activity](instructions/task-4.md)
+- [Task 5 - Submit a WorkItem](instructions/task-5.md)
+- [Task 6 - Open Result in Fusion](instructions/task-6.md)
 
 
 
