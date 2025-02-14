@@ -97,7 +97,7 @@ function getDocument(
   if (!file) throw Error(`File not found ${fileURN}.`);
   let destinationFolder = defaultFolder(
         app,
-        "Fusion Automation Service",
+        "Design Automation for Fusion",
       );
   let newfile = file.copy(destinationFolder);
   newfile.name = 'Nut'
@@ -119,11 +119,11 @@ function saveDocument(
       destinationFolder.parentProject;
     } catch (e) {
       adsk.log(
-        "Destination folder is not in a project, setting folder to Fusion Automation Service project.",
+        "Destination folder is not in a project, setting folder to Design Automation for Fusion project.",
       );
       destinationFolder = defaultFolder(
         doc.parent,
-        "Fusion Automation Service",
+        "Design Automation for Fusion",
       );
     }
     if (

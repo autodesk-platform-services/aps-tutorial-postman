@@ -6,11 +6,11 @@ The relationship between an Activity and a WorkItem can be thought of as a “fu
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-For this exercise, you will apply the ConfigureDesign Activity on a Fusion Project, out of the Fusion Team example files.
+For this exercise, you will apply the ConfigureDesign Activity on a Fusion Design, out of the Fusion Team example files.
 
 ## Generate a Personal Access Token
 
-To get a personal access token (PAT), simply access your autodesk profile via the following link: [Autodesk Security](https://profile.autodesk.com/security) and follow the instructions. The PAT should be of the project "Alpine"
+To get a personal access token (PAT), simply access your autodesk profile via the following link: [Autodesk Security](https://profile.autodesk.com/security) and follow the instructions. Generate a PAT for product scope “Design Automation for Fusion” or “Project Alpine”. Either product scope will work.
 
 The table below describes the different options for authentication and authorization for submitting WorkItems to DA4F.
 

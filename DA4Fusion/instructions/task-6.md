@@ -1,6 +1,6 @@
 # Task 6 - Open Result in Fusion
 
-Once the WorkItem has completed executing the Activity, Design Automation uploads the resulting file to Fusion Teams. You use Fusion on or machine to check the Result
+Once the WorkItem has completed executing the Activity, Design Automation uploads the resulting file to Fusion Teams. You can use the Fusion desktop client on you local machine to check the result of the WorkItem.
 
 ## Open Result in Fusion
 
@@ -10,7 +10,7 @@ Once the WorkItem has completed executing the Activity, Design Automation upload
 
     ![Fusion Automation Service Project](../images/task6-fusion_fusion_automation_service_project.png "Fusion Automation Service Project")
 
-3. Open the Folder. There should be two designs: `Nut` and `Nut v1 modify parameters`
+3. Open the project. There should be two designs: `Nut` and `Nut v1 modify parameters`
 
     ![Two Designs](../images/task6-fusion_two_desings.png "Two Designs")
 
