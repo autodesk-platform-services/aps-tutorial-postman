@@ -36,7 +36,7 @@ To get an Access Token, you must send an `authenticate` request to APS. The Post
    ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret")
 
 3. Click **Send**. The request is sent to APS. If your request authenticates successfully, you should see a response similar to the following:
-![Successful authentication](../images/task2-authenticate_successfull.png "Successful authentication")
+![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication")
 
 Postman saves the Access Token in the Postman Collection Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests. This variable eliminates the need for you to repeatedly specify the value of the token for subsequent requests.
 
