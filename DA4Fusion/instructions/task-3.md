@@ -32,11 +32,11 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 4. Click **Select Files**, and pick *ConfigureDesign.zip*, which you downloaded earlier.
 
-    ![File drop-down](../images/task5-appbundle_file_dropdown.png "File drop-down")
+    ![File drop-down](../images/task3-appbundle_file_dropdown.png "File drop-down")
 
 5. Click **Send**. You should see a screen similar to the following. Note that the response has only a header and no body.
 
-    ![AppBundle uploaded](../images/task5-appbundle_uploaded.png "AppBundle uploaded")
+    ![AppBundle uploaded](../images/task3-appbundle_uploaded.png "AppBundle uploaded")
 
 ## Create an Alias for the AppBundle
 
@@ -46,11 +46,11 @@ When you registered the AppBundle earlier, it was registered as version 1 of the
 
 2. Click the **Body** tab. and note how `id` is set to `{{ConfigureDesignVersion}}`. This is because in the earlier request we already extracted the version number for your convenience
 
-    ![Alias](../images/task5-appbundle_alias.png "Alias")
+    ![Alias](../images/task3-appbundle_alias.png "Alias")
 
 3. Click **Send**. You should see a response similar to the following image.
 
-    ![Alias response](../images/task5-appbundle_alias_set.png "Alias response")
+    ![Alias response](../images/task3-appbundle_alias_set.png "Alias response")
 
 ## Update an existing AppBundle
 
@@ -64,7 +64,7 @@ To register a new version:
 
 3. Click **Send**. You should see a response similar to the following image. As with registering an AppBundle, the `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Collection variables.
 
-    ![New version sucessful](../images/task5-appbundle_new_version_successfull.png "New version successful")
+    ![New version sucessful](../images/task3-appbundle_new_version_successfull.png "New version successful")
 
 ## Upload the updated AppBundle
 

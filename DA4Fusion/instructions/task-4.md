@@ -11,9 +11,10 @@ An Activity is an action that can be executed in Design Automation. You create a
     ![Body tab of Create Activity](../images/task4-create_activity.png "Body tab of Create Activity")
 
 **Notes**
- - `id` is the name given to the new Activity.
- - `engine` is the Design Automation engine that the Activity (Fusion latest in this case) runs on.
- - `appbundles` is the fully qualified id of the AppBundle
+
+- `id` is the name given to the new Activity.
+- `engine` is the Design Automation engine that the Activity (Fusion latest in this case) runs on.
+- `appbundles` is the fully qualified id of the AppBundle
 
 1. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
@@ -57,6 +58,5 @@ To send the PATCH request:
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
     ![Successful update of Alias](../images/task4-sucessful_update_of_alias.png "Successful update of Alias")
-
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")

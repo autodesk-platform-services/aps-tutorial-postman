@@ -17,18 +17,18 @@ The table below describes the different options for authentication and authoriza
 | Option                                                        | OAuth Type | Required Body Content                   | Notes                                                                                    | Use Case                                                                                        |
 |---------------------------------------------------------------|------------|-----------------------------------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
 | Submit for your activity on behalf of yourself as Fusion user | 2LO        | PAT of Fusion user                      | The owner of the app of the 2LO token must be same as the user that has created the PAT. | Access is needed for a "service user's" data that is aggregated from customers into one account |
-| Submit for your activity on behalf of a different Fusion user	| 3LO        | PAT of Fusion user + Signed Activity ID | 3LO token must be for the same user as the PAT                                           | Access is needed for direct customer data that logs in and allows it                            |
+| Submit for your activity on behalf of a different Fusion user | 3LO        | PAT of Fusion user + Signed Activity ID | 3LO token must be for the same user as the PAT                                           | Access is needed for direct customer data that logs in and allows it                            |
 
 ## Create a WorkItem
 
 1. Click the **Environment quick look** icon on the upper right corner of Postman.
-   
+
 2. Click in the **CURRENT VALUE** column on the **personalAccessToken** row. The Edit icon displays.
 
     ![Edit PAT](../images/task5-edit_pat.png "Edit PAT")
-   
-3.  Click the Edit icon, and enter the PAT you generated earlier.
-   
+
+3. Click the Edit icon, and enter the PAT you generated earlier.
+
 4. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Create a WorkItem**. The request loads.
 
 5. Click the **Body** tab and observe how the Actvity ID, the input file, and the output file are specified.
