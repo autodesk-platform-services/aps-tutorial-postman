@@ -8,7 +8,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 2. Click the **Body** tab. Observe the body parameters.
 
-    ![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
+    ![Body tab of Create Activity](../images/task4-create_activity.png "Body tab of Create Activity")
 
 **Notes**
  - `id` is the name given to the new Activity.
@@ -17,7 +17,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 1. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful creation of an Activity](../images/task5-activity_create_success.png "Successful creation of an Activity")
+    ![Successful creation of an Activity](../images/task4-activity_create_success.png "Successful creation of an Activity")
 
 ## Create an Alias to the Activity
 
@@ -29,7 +29,7 @@ To create an alias named `my_current_version`, which refers to version `1` of th
 
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful creation of Alias](../images/task5-activity_alias_create_success.png "Successful creation of Alias")
+    ![Successful creation of Alias](../images/task4-activity_alias_create_success.png "Successful creation of Alias")
 
 ## Update an Existing Activity
 
@@ -44,7 +44,7 @@ To create a new version of an Activity:
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful update of an existing activity](../images/task5-sucessful_update_of_activity.png "Successful update of an existing activity")
+    ![Successful update of an existing activity](../images/task4-sucessful_update_of_activity.png "Successful update of an existing activity")
 
 ## Assign an existing Alias to the updated Activity
 
@@ -56,7 +56,7 @@ To send the PATCH request:
 
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful update of Alias](../images/task5-sucessful_update_of_alias.png "Successful update of Alias")
+    ![Successful update of Alias](../images/task4-sucessful_update_of_alias.png "Successful update of Alias")
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")

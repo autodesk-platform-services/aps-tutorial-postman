@@ -156,15 +156,15 @@
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.collectionVariables.set(\"dasAppBundleId\",body[\"id\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleVersion\", body[\"version\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
+									"pm.collectionVariables.set(\"ConfigureDesignUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -187,7 +187,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": \"{{appBundleName}}\",\n  \"engine\": \"{{engine}}\",\n  \"description\": \"MyFirstFusionAppBundle based on Fusion 2024\"\n}"
+							"raw": "{\n  \"id\": \"{{appBundleName}}\",\n  \"engine\": \"{{engine}}\",\n  \"description\": \"My first Fusion AppBundle based on Fusion 2025\"\n}"
 						},
 						"url": {
 							"raw": "{{daApiRoot}}/appbundles",
@@ -234,7 +234,7 @@
 							"formdata": [
 								{
 									"key": "key",
-									"value": "{{MyFirstFusionAppBundleFormDataKey}}",
+									"value": "{{ConfigureDesignFormDataKey}}",
 									"type": "text"
 								},
 								{
@@ -244,7 +244,7 @@
 								},
 								{
 									"key": "policy",
-									"value": "{{MyFirstFusionAppBundleFormDataPolicy}}",
+									"value": "{{ConfigureDesignFormDataPolicy}}",
 									"type": "text"
 								},
 								{
@@ -254,12 +254,12 @@
 								},
 								{
 									"key": "x-amz-signature",
-									"value": "{{MyFirstFusionAppBundleFormDataSignature}}",
+									"value": "{{ConfigureDesignFormDataSignature}}",
 									"type": "text"
 								},
 								{
 									"key": "x-amz-credential",
-									"value": "{{MyFirstFusionAppBundleFormDataCredential}}",
+									"value": "{{ConfigureDesignFormDataCredential}}",
 									"type": "text"
 								},
 								{
@@ -269,7 +269,7 @@
 								},
 								{
 									"key": "x-amz-date",
-									"value": "{{MyFirstFusionAppBundleFormDataDate}}",
+									"value": "{{ConfigureDesignFormDataDate}}",
 									"type": "text"
 								},
 								{
@@ -279,12 +279,12 @@
 								},
 								{
 									"key": "x-amz-security-token",
-									"value": "{{MyFirstFusionAppBundleFormDataToken}}",
+									"value": "{{ConfigureDesignFormDataToken}}",
 									"type": "text"
 								},
 								{
 									"key": "success_action_redirect",
-									"value": "{{MyFirstFusionAppBundleFormRedirect}}",
+									"value": "{{ConfigureDesignFormRedirect}}",
 									"type": "text"
 								},
 								{
@@ -295,9 +295,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{ConfigureDesignAppBundleUrl}}",
+							"raw": "{{ConfigureDesignUrl}}",
 							"host": [
-								"{{ConfigureDesignAppBundleUrl}}"
+								"{{ConfigureDesignUrl}}"
 							]
 						},
 						"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *samplePlugin.bundle.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://fas-playground.fas-p-ue1.cloudos.autodesk.com/fas-docu/helloFusion.zi).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *helloFusion.zip*, which you downloaded in step 1."
@@ -338,7 +338,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{ConfigureDesignAppBundleVersion}},\r\n  \"id\": \"my_working_version\"\r\n}"
+							"raw": "{\r\n  \"version\": {{ConfigureDesignVersion}},\r\n  \"id\": \"my_working_version\"\r\n}"
 						},
 						"url": {
 							"raw": "{{daApiRoot}}/appbundles/{{appBundleName}}/aliases",
@@ -515,7 +515,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"activityId\":\"{{dasActivityName}}+my_current_version\",\n    \"arguments\": {\n        \"PersonalAccessToken\": \"{{personalAccessToken}}\"\n    }\n}"
+							"raw": "{\n   \"activityId\":\"{{dasActivityName}}+my_current_version\",\n    \"arguments\": {\n        \"PersonalAccessToken\": \"{{personalAccessToken}}\",\n        \"TaskParameters\": \"{\\n  \\\"fileURN\\\": \\\"urn:adsk.wipprod:dm.lineage:shuH8zKvThW_4Tdu-m22sw\\\",\\n  \\\"parameters\\\": {\\n    \\\"d3\\\": \\\"40mm\\\"\\n  }\\n}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{daApiRoot}}/workitems",
@@ -595,15 +595,15 @@
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.collectionVariables.set(\"dasAppBundleId\",body[\"id\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleVersion\", body[\"version\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-											"pm.collectionVariables.set(\"MyFirstFusionAppBundleFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
+											"pm.collectionVariables.set(\"ConfigureDesignUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignVersion\", body[\"version\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+											"pm.collectionVariables.set(\"ConfigureDesignFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -626,7 +626,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"engine\": \"{{engine}}\",\n  \"description\": \"MyFirstFusionAppBundle based on Fusion 2024\"\n}"
+									"raw": "{\n  \"engine\": \"{{engine}}\",\n  \"description\": \"ConfigureDesign based on Fusion 2024\"\n}"
 								},
 								"url": {
 									"raw": "{{daApiRoot}}/appbundles/{{appBundleName}}/versions",
@@ -673,7 +673,7 @@
 									"formdata": [
 										{
 											"key": "key",
-											"value": "{{MyFirstFusionAppBundleFormDataKey}}",
+											"value": "{{ConfigureDesignFormDataKey}}",
 											"type": "text"
 										},
 										{
@@ -683,7 +683,7 @@
 										},
 										{
 											"key": "policy",
-											"value": "{{MyFirstFusionAppBundleFormDataPolicy}}",
+											"value": "{{ConfigureDesignFormDataPolicy}}",
 											"type": "text"
 										},
 										{
@@ -693,12 +693,12 @@
 										},
 										{
 											"key": "x-amz-signature",
-											"value": "{{MyFirstFusionAppBundleFormDataSignature}}",
+											"value": "{{ConfigureDesignFormDataSignature}}",
 											"type": "text"
 										},
 										{
 											"key": "x-amz-credential",
-											"value": "{{MyFirstFusionAppBundleFormDataCredential}}",
+											"value": "{{ConfigureDesignFormDataCredential}}",
 											"type": "text"
 										},
 										{
@@ -708,7 +708,7 @@
 										},
 										{
 											"key": "x-amz-date",
-											"value": "{{MyFirstFusionAppBundleFormDataDate}}",
+											"value": "{{ConfigureDesignFormDataDate}}",
 											"type": "text"
 										},
 										{
@@ -718,12 +718,12 @@
 										},
 										{
 											"key": "x-amz-security-token",
-											"value": "{{MyFirstFusionAppBundleFormDataToken}}",
+											"value": "{{ConfigureDesignFormDataToken}}",
 											"type": "text"
 										},
 										{
 											"key": "success_action_redirect",
-											"value": "{{MyFirstFusionAppBundleFormRedirect}}",
+											"value": "{{ConfigureDesignFormRedirect}}",
 											"type": "text"
 										},
 										{
@@ -734,12 +734,12 @@
 									]
 								},
 								"url": {
-									"raw": "{{MyFirstFusionAppBundleUrl}}",
+									"raw": "{{ConfigureDesignUrl}}",
 									"host": [
-										"{{MyFirstFusionAppBundleUrl}}"
+										"{{ConfigureDesignUrl}}"
 									]
 								},
-								"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *samplePlugin.bundle.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://fas-playground.fas-p-ue1.cloudos.autodesk.com/fas-docu/helloFusion.zi).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *helloFusion.zip*, which you downloaded in step 1."
+								"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *ConfigureDesign.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://github.com/autodesk-platform-services/aps-tutorial-postman/blob/master/DA4Fusion/walkthrough_data/ConfigureDesign.zip).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *ConfigureDesign.zip*, which you downloaded in step 1."
 							},
 							"response": []
 						},
@@ -760,7 +760,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n        \"version\": {{MyFirstFusionAppBundleVersion}}\r\n}",
+									"raw": "{\r\n        \"version\": {{ConfigureDesignVersion}}\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1202,39 +1202,39 @@
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleUrl",
+			"key": "ConfigureDesignUrl",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleVersion",
+			"key": "ConfigureDesignVersion",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormDataKey",
+			"key": "ConfigureDesignFormDataKey",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormDataPolicy",
+			"key": "ConfigureDesignFormDataPolicy",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormDataSignature",
+			"key": "ConfigureDesignFormDataSignature",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormDataCredential",
+			"key": "ConfigureDesignFormDataCredential",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormDataDate",
+			"key": "ConfigureDesignFormDataDate",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormDataToken",
+			"key": "ConfigureDesignFormDataToken",
 			"value": ""
 		},
 		{
-			"key": "MyFirstFusionAppBundleFormRedirect",
+			"key": "ConfigureDesignFormRedirect",
 			"value": ""
 		},
 		{

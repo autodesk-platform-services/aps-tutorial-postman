@@ -21,13 +21,21 @@ The table below describes the different options for authentication and authoriza
 
 ## Create a WorkItem
 
-1. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Create a WorkItem**. The request loads.
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
+   
+2. Click in the **CURRENT VALUE** column on the **personalAccessToken** row. The Edit icon displays.
 
-2. Click the **Body** tab and observe how the Actvity ID, the input file, and the output file are specified.
+    ![Edit PAT](../images/task5-edit_pat.png "Edit PAT")
+   
+3.  Click the Edit icon, and enter the PAT you generated earlier.
+   
+4. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Create a WorkItem**. The request loads.
 
-3. Click **Send**. If the request is successful you should see a screen similar to the following image.
+5. Click the **Body** tab and observe how the Actvity ID, the input file, and the output file are specified.
 
-    ![deleteWallsResultUrl](../images/task7-result_url.png "deleteWallsResultUrl")
+6. Click **Send**. If the request is successful you should see a screen similar to the following image.
+
+    ![Workitem Result](../images/task5-result_url.png "Workitem Result")
 
     The main attributes on the JSON payload are:
 
@@ -43,6 +51,6 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
 2. Click **Send**. You should see a screen similar to the following image.
 
-    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
+    ![WorkItem Status check result](../images/task5-check_status.png "WorkItem Status check result")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")

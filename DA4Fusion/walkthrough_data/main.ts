@@ -15,6 +15,9 @@ function run() {
   const app = adsk.core.Application.get();
   if (!app) throw Error("No asdk.core.Application.");
 
+  adsk.log(`Running script with parameters: ${JSON.stringify(scriptParameters)}`);
+
+  adsk.log(`Opening document: ${scriptParameters.fileURN}`);
   const doc = getDocument(
     app,
     false,
