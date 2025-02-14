@@ -6,7 +6,7 @@ The relationship between an Activity and a WorkItem can be thought of as a “fu
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-For this exercise, you will apply the CreateNut Activity on a Fusion Project, out of the Fusion Team example files.
+For this exercise, you will apply the ConfigureDesign Activity on a Fusion Project, out of the Fusion Team example files.
 
 ## Generate a Personal Access Token
 

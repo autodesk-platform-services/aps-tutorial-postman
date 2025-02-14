@@ -156,15 +156,15 @@
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.collectionVariables.set(\"dasAppBundleId\",body[\"id\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleVersion\", body[\"version\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-									"pm.collectionVariables.set(\"CreateNutAppBundleFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleVersion\", body[\"version\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+									"pm.collectionVariables.set(\"ConfigureDesignAppBundleFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
 								],
 								"type": "text/javascript",
 								"packages": {}
@@ -295,9 +295,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{CreateNutAppBundleUrl}}",
+							"raw": "{{ConfigureDesignAppBundleUrl}}",
 							"host": [
-								"{{CreateNutAppBundleUrl}}"
+								"{{ConfigureDesignAppBundleUrl}}"
 							]
 						},
 						"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *samplePlugin.bundle.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://fas-playground.fas-p-ue1.cloudos.autodesk.com/fas-docu/helloFusion.zi).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *helloFusion.zip*, which you downloaded in step 1."
@@ -338,7 +338,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{CreateNutAppBundleVersion}},\r\n  \"id\": \"my_working_version\"\r\n}"
+							"raw": "{\r\n  \"version\": {{ConfigureDesignAppBundleVersion}},\r\n  \"id\": \"my_working_version\"\r\n}"
 						},
 						"url": {
 							"raw": "{{daApiRoot}}/appbundles/{{appBundleName}}/aliases",

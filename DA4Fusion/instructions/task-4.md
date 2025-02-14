@@ -23,7 +23,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 Design Automation does not let you reference an Activity by its `id`. You must always reference an Activity by an alias.  Note that an alias points to a specific version of an Activity and not the Activity itself.
 
-To create an alias named `my_current_version`, which refers to version `1` of the `CreateNutActivity`:
+To create an alias named `my_current_version`, which refers to version `1` of the `ConfigureDesignActivity`:
 
 1. On the Postman sidebar, click **Task 4 - Create an Activity > POST Create an Alias to the Activity**. The request loads.
 
@@ -48,7 +48,7 @@ To create a new version of an Activity:
 
 ## Assign an existing Alias to the updated Activity
 
-Currently, the Alias `my_current_version` points to version `1` of the Activity. You send a PATCH request to assign this Alias to the new version of the Activity `CreateNutActivity`.
+Currently, the Alias `my_current_version` points to version `1` of the Activity. You send a PATCH request to assign this Alias to the new version of the Activity `ConfigureDesignActivity`.
 
 To send the PATCH request:
 

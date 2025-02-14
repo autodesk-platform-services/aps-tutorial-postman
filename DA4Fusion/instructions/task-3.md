@@ -1,12 +1,12 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that make up a Fusion add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *CreateNutApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
+An AppBundle is a package of binaries and supporting files that make up a Fusion add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *ConfigureDesignApp.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 ## Register the AppBundle
 
-When registering the AppBundle, you inform Design Automation that you want to name it CreateNutApp, and that it must run on Fusion latest.
+When registering the AppBundle, you inform Design Automation that you want to name it ConfigureDesignApp, and that it must run on Fusion latest.
 
-1. First Check in the DA4Fusion Environment that the `appBundleName` variable is set to `CreateNutApp` and the `engine` variable is set to `Autodesk.Fusion+Latest`
+1. First Check in the DA4Fusion Environment that the `appBundleName` variable is set to `ConfigureDesignApp` and the `engine` variable is set to `Autodesk.Fusion+Latest`
    
 2. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
@@ -28,7 +28,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 3. Move the cursor to the **VALUE** column on the **file** row.
 
-4. Click **Select Files**, and pick *CreateNutApp.zip*, which you downloaded earlier.
+4. Click **Select Files**, and pick *ConfigureDesignApp.zip*, which you downloaded earlier.
 
     ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
 
@@ -42,7 +42,7 @@ When you registered the AppBundle earlier, it was registered as version 1 of the
 
 1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
 
-2. Click the **Body** tab. and note how `id` is set to `{{CreateNutAppBundleVersion}}`. This is because in the earlier request we already extracted the version number for your convenience
+2. Click the **Body** tab. and note how `id` is set to `{{ConfigureDesignAppBundleVersion}}`. This is because in the earlier request we already extracted the version number for your convenience
 
     ![Alias](../images/task4-appbundle_alias.png "Alias")
 
@@ -70,7 +70,7 @@ To register a new version:
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-3. Click **Select Files**, and pick *CreateNutApp.zip*, which you downloaded earlier.
+3. Click **Select Files**, and pick *ConfigureDesignApp.zip*, which you downloaded earlier.
 
 4. Click **Send**.
 
