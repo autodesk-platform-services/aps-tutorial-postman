@@ -1,4 +1,4 @@
-# Execute a Fusion Add-in
+# Execute a Fusion Script
 
 ![Platforms](https://img.shields.io/badge/Web-Windows|MacOS-lightgray.svg)
 [![oAuth2](https://img.shields.io/badge/Authentication-v2-green.svg)](http://developer.autodesk.com/)
@@ -12,7 +12,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the [Execute a Fusion Add-in walkthrough](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/) on the APS developer portal. 
+This folder contains a Postman Collection that contains the requests used in the [Execute a Fusion Script walkthrough](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/) on the APS developer portal. 
 
 On the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the APS developer portal.
 ![APS developer portal menu to Postman](images/aps_portal_menu_2_postman_menu.png "APS developer portal task to Postman mapping")
