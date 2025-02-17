@@ -1,6 +1,6 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that make up a Fusion add-in. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *ConfigureDesign.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
+An AppBundle is a package of binaries and supporting files that make up a Fusion script. See the corresponding [task in the How-to Guide on the APS developer portal](https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/step4-publish-appbundle/) for an explanation of AppBundles and learn how to create an AppBundle. For the purpose of this Postman walkthrough,  download *ConfigureDesign.zip*, which is stored in the [*walkthrough_data* folder of this repository](../walkthrough_data).
 
 ## Register the AppBundle
 
