@@ -6,9 +6,9 @@ Once the WorkItem has completed executing the Activity, Design Automation upload
 
 1. Start an instance of Fusion
 
-2. Open the Fusion Teams Panel and locate the `Fusion Automation Service` project
+2. Open the Fusion Teams Panel and locate the `Design Automation for Fusion` project
 
-    ![Fusion Automation Service Project](../images/task6-fusion_fusion_automation_service_project.png "Fusion Automation Service Project")
+    ![Design Automation for Fusion](../images/task6-fusion_fusion_automation_service_project.png "Design Automation for Fusion")
 
 3. Open the project. There should be two designs: `Nut` and `Nut v1 modify parameters`
 
