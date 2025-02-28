@@ -1,4 +1,4 @@
-# Desing Automation for Fusion Add-In
+# Design Automation for Fusion Add-In
 
 ## Installation
 
