@@ -18,7 +18,7 @@
 								"exec": [
 									"const clientId =  pm.environment.get(\"client_id\");",
 									"const clientSecret =  pm.environment.get(\"client_secret\");",
-									"var clientAuthKeys =  btoa(clientId +\":\"+clientSecret);",
+									"const clientAuthKeys= Buffer.from(clientId + \":\" + clientSecret, 'utf8').toString('base64');",,
 									"pm.collectionVariables.set(\"client_auth_keys\", clientAuthKeys);"
 								],
 								"type": "text/javascript",
