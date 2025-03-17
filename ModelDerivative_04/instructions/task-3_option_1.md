@@ -1,8 +1,8 @@
 # Task 3, Option 1 – Translate to SVF
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
-To translate a model, you must kick off a translation job. The translation job produces a manifest, which lists all the files (derivatives) that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
+To translate a file, you must create a translation job. The job produces a manifest that lists all generated files. It also reports the progress of the translation job as a percentage while the translation job is still in progress.
 
 ## Start a translation job
 
@@ -17,9 +17,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
     Note the following:
 
     - `compressedURN` - A flag that tells the system that the source file is within a zip file.
-
     - `rootfile` - The main source file. In this case, it is the main assembly file, *suspension.iam*, that contains references to the part files found in the zip file.
-
     - `type` - The file type that the source file must be translated to; SVF in this case.
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
@@ -30,13 +28,13 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 ## Check status of translation job
 
-When you kick off a translation job, it takes time to complete. There are two ways to check if the translation job is done:
+Translation jobs take time to complete. There are two ways to check if the translation job is done:
 
 - Periodically check the status of the translation job.
-
 - Set up a webhook to notify you when the job is done.
 
-For this walkthrough you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 

@@ -1,31 +1,32 @@
 # Task 2 - Upload Source File to OSS
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Data Management API. In this task, you upload a Revit file (*rme_advanced_sample_project.rvt*) to OSS. This file is an MEP file that contains space and zone information. This file is available in the [*walkthrough_data*](../walkthrough_data) folder.
 
 ## Create a Bucket
 
-In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
+In this walkthrough, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous walkthrough), carry out step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
-    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
+    a. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
-    2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
+    b. In the **CURRENT VALUE** column, in the **ossBucketKey** row, enter a name for the Bucket that will store your files.
 
         **Notes:**  
-        - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified exists, the system returns a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
+        
+        - The Bucket name must be unique across the OSS service. If a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the variable value and try again.
 
-        - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
+        - The Bucket name can only contain lowercase letters, numbers 0-9, and underscores (_).
 
-    3. Click the **Environment quick look** icon to hide the variables.
+    c. Click the **Environment quick look** icon to hide the variables.
 
-4. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
 
-5. Click the **Body** tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
+3. Click the **Body** tab, and verify that the `bucketkey` attribute is set to the `ossBucketKey` variable.
 
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
+4. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
     ![Successful Bucket Creation](../images/tutorial_07_task_2_create_a_bucket.png "Successful Bucket Creation")
     
@@ -77,7 +78,7 @@ Now that you have obtained a signed upload URL, you can go ahead and upload the 
 
 ## Finalize Upload
 
-Although you uploaded the source file in one go, it is possible to split a file into chunks and upload the file one chunk at a time. Once all the chunks are uploaded you must inform OSS that the upload operation is complete. Even though you uploaded the file in one go, you must finalize the upload by informing OSS that the upload is done. To finalize the upload:
+The upload process is designed to let you split a file into multiple chunks and upload each chunk in parallel. Once all chunks are uploaded, you must finalize the upload so that OSS can recombine the file and make it available for download. Even though you uploaded the file in one go without splitting it into chunks, you still need to finalize the upload to make the file available for download.
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 

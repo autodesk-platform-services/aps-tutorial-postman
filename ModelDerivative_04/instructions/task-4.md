@@ -1,6 +1,6 @@
 # Task 4 - Display the Model in the Viewer
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 There are two ways by which you can display the model in the Viewer.
 
@@ -14,7 +14,7 @@ There are two ways by which you can display the model in the Viewer.
 
     **Note:**
 
-    See the following table for the values to use for this tutorial:
+    See the following table for the values to use:
 
 
     | Parameter       | SVF2                   |
@@ -27,7 +27,7 @@ There are two ways by which you can display the model in the Viewer.
 
 2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
 
-Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
+Note: You must add ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
 
 ![URN in Viewer](../images/tutorial_4_urn_in_viewer.png "URN in Viewer")
 
@@ -54,5 +54,6 @@ We have created a web page based on the instructions provided in Option 1. You c
    You should see a screen similar to the following image.
 
    ![Default Viewable](../images/task4_default_viewable.png "Default Viewable")
+
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3_option_2.md "Previous task")

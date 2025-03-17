@@ -1,8 +1,10 @@
 # Task 3 – Translate to SVF2
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 For the server to extract metadata from a model, you must first translate the model to a viewer-friendly format. Because SVF2 handles larger models better, Autodesk recommends SVF2 over SVF.
+
+To translate a file, you must create a translation job. The job produces a manifest that lists all generated files. It also reports the progress of the translation job as a percentage while the translation job is still in progress.
 
 ## Start a translation job
 
@@ -22,15 +24,14 @@ For this task, you use the Base64-encoded URN of the source file. In the previou
 
     Note the `urn` parameter in the JSON response. The value of this parameter is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t6_url_safe_urn_of_source`.
 
-## Check status of translation job
+## Check Status of Translation Job
 
-When you kick off a translation job, it takes time to complete. There are two ways to check if the translation job is done:
+Translation jobs take time to complete. There are two ways to check if the translation job is done:
 
 - Periodically check the status of the translation job.
-
 - Set up a webhook to notify you when the job is done.
 
-For this walkthrough, you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this walkthrough, you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://aps.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Translate to SVF2 > Check Status of Job**. The request loads.
 

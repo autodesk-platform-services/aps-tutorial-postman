@@ -1,6 +1,6 @@
 # Task 5 - Extract Geometry
 
-> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps, but the basic procedure should remain similar.
+> **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 Once the object tree has been retrieved, you can pick objects by their ID, and translate them into the OBJ format. Note that when you translate specific objects, you can only translate to the OBJ format.
 
@@ -24,9 +24,9 @@ Once the object tree has been retrieved, you can pick objects by their ID, and t
 
    ![list objects](../images/tutorial_06_task_5_check_status_of_job_01.png "list objects")
 
-   Note the similarity of the request that you sent when you orginally translated the file to SVF2.
+   Note the similarity of the request that you sent when you originally translated the file to SVF2.
 
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image. 
+2. Click **Send**. If the request is successful, you will see a screen similar to the following image. 
 
    ![translation success](../images/tutorial_06_task_5_check_status_of_job_02.png "translation success")
 
@@ -36,7 +36,7 @@ Once the object tree has been retrieved, you can pick objects by their ID, and t
    
 ## Obtain signed cookie
 
-Signed cookies give you the ability to securely download the generated file for a short period of time. To obtain the download URL and signed cookies for the extracted geometry:
+To securely download the generated file, you must obtain a download link and a signed cookie. The link and cookie will be valid only for a limited amount of time. To request these:
 
 1. In the Postman sidebar, click  **Task 5 - Extract Geometry > GET Obtain Signed Cookie to Download Extracted Geometry**. The request loads.
 
@@ -58,7 +58,7 @@ Signed cookies give you the ability to securely download the generated file for 
     
 ## Download extracted geometry
 
-Now you have obtained the download URL and signed cookie, you can download the extracted geometry. To download the extracted geometry:
+Now that you have obtained the download link and signed cookie, you can download the extracted geometry. To download the extracted geometry:
 
 1. In the Postman sidebar, click **Task 5 - Extract Geometry > GET Download Extracted Geometry**. The request loads.
 
