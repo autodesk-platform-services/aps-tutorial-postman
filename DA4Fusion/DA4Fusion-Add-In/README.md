@@ -4,19 +4,13 @@
 
 Install and setup the Design Automation for Fusion Add-In:
 
-### Installer
-* On Windows run the `DesignAutomationForFusionAddIn-win64.msi` installer
-* On Mac run the `DesignAutomationForFusionAddIn-macos.pkg` installer
+* On Windows run the `DesignAutomationForFusionAddIn-win64-[version].msi` installer
+* On Mac run the `DesignAutomationForFusionAddIn-macos-[version].pkg` installer
 * The Add-In should now be installed and set to run on startup in Fusion
-
-### Manual Installation
-* Download the zip package and unpack it to `%APPDATA%/Autodesk/Autodesk Fusion 360/API/AddIns` for windows or `'Users/USERNAME/Library/Application Support/Autodesk/Autodesk Fusion 360/API/AddIns` for Mac
-* Open Fusion and navigate to the Scripts and Add-Ins command under Utilities -> Add-Ins
-* Find and run the "Design Automation for Fusion Add-in", ideally check "Run on Startup"
 
 ## Run Typescript Script Locally
 
-* Run the command “Design -> Utilities > Add-ins > Design Automation for Fusion”
+* Run the command “Design > Utilities > Add-ins > Design Automation for Fusion”
 * Press `Create Script`
 * Insert name
 * Select the new add-in from the dropdown
