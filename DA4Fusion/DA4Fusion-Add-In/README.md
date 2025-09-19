@@ -28,7 +28,7 @@ Install and setup the Fusion Automation API Add-In:
 * Select Settings > Extensions > Fusion Automation API
   * Activity ID refers to the engine version. Using “Fusion.ScriptJob+Latest” is recommended
   * Environment should be “prd”
-* Open the VS Code command dialog (top middle bar, or ctrl+p on Windows). Typing ">secrets" will display available commands for inputting secrets
+* Open the VS Code command dialog (top middle bar, or ctrl+p on Windows, cmd+p on Mac). Typing ">secrets" will display available commands for inputting secrets
   * For information on how to obtain a Personal Access Token see this tutorial (<https://aps.autodesk.com/en/docs/design-automation/v3/tutorials/fusion/task5-post-workitem/>)
   * For information on where to get a Client ID and a Client Secret, see this tutorial (<https://aps.autodesk.com/en/docs/oauth/v2/tutorials/create-app/>)
 * Return to the script and press the “Run Remotely” button
