@@ -6,11 +6,7 @@ There are two ways by which you can display the model in the Viewer.
 
 ## Option 1: Embed the source file URN in an HTML page you create
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following Viewer documentation topics on the APS developer portal:
-
-    a. [Add Viewer to an HTML Page](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
-
-    b. [Intialize Viewer](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the [Viewer Basics -> Getting Started](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html) topic in the Viewer documentation.
 
     **Note:**
 
@@ -25,7 +21,7 @@ There are two ways by which you can display the model in the Viewer.
 
 
 
-2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
+2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html#id3)
 
 Note: You must add ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
 
