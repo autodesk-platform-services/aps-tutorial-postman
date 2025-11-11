@@ -62,7 +62,7 @@
 
             var options = {
                 env: 'AutodeskProduction2',
-                api: 'streamingV2', // for models uploadeded to EMEA change this option to 'streamingV2_EU'
+                api: 'streamingV2', 
                 getAccessToken: function(onTokenReady) {
                     var x = document.getElementById("access_token")
                     var token = x.value;
@@ -70,6 +70,8 @@
                     onTokenReady(token, timeInSeconds);
                 }
             }
+
+            Autodesk.Viewing.FeatureFlags.set('DS_ENDPOINTS', true); // Feature flag to enable automatic routing to region specific endpoints
 
             <!-- This is called when the page is loaded-->
             Autodesk.Viewing.Initializer(options, function() {
