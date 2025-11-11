@@ -3,7 +3,7 @@
 > **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the [Viewer BAsics -> Getting Started](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/) topic in the Viewer documentation.
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the [Viewer Basics -> Getting Started](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/) topic in the Viewer documentation.
    
     **Note:**
 
