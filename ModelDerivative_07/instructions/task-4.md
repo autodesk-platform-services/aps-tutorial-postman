@@ -3,12 +3,8 @@
 > **Important:** These instructions are specific to Postman V10. If you are using a newer version of Postman, you may notice slight differences in the interface or steps. However, the process should remain similar.
 
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following Viewer documentation topics on the APS developer portal:
-
-    a. [Add Viewer to an HTML Page](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
-
-    b. [Intialize Viewer](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
-
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the [Viewer BAsics -> Getting Started](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/) topic in the Viewer documentation.
+   
     **Note:**
 
     SVF and SVF2 require different settings for the `api` and `env` parameters at initialization. 
@@ -23,7 +19,7 @@
 
 
 
-2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
+3. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://aps.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/#id3)
 
 Note: You must add ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
 
