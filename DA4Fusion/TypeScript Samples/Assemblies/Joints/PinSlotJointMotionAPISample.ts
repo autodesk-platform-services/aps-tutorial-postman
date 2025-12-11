@@ -1,0 +1,76 @@
+import { adsk } from "@adsk/fas";
+
+function run() {
+
+  // Get the Fusion API's application object
+  const app = adsk.core.Application.get();
+  if (!app) throw Error("No adsk.core.Application.");
+
+  // Create a document.
+  const doc = app.documents.add(adsk.core.DocumentTypes.FusionDesignDocumentType)
+
+  const design = app.activeProduct as adsk.fusion.Design;
+
+  // Get the root component of the active design.
+  const rootComp = design.rootComponent
+
+  // Create sketch in root component
+  const sketches = rootComp.sketches
+  const sketch = sketches.add(rootComp.xZConstructionPlane)
+  const sketchPts = sketch.sketchPoints
+  const point = adsk.core.Point3D.create(1, 0, 1)
+  const sketchPt = sketchPts.add(point)
+  const sketchCircles = sketch.sketchCurves.sketchCircles
+  const centerPoint = adsk.core.Point3D.create(0, 0, 0)
+  const circle = sketchCircles.addByCenterRadius(centerPoint, 5.0)
+
+  // Get the profile defined by the circle
+  const prof = sketch.profiles.item(0)
+
+  // Create an extrusion input and make sure it's in a new component
+  const extrudes = rootComp.features.extrudeFeatures
+  const extInput = extrudes.createInput(prof, adsk.fusion.FeatureOperations.NewComponentFeatureOperation)
+
+  // Set the extrusion input
+  const distance = adsk.core.ValueInput.createByReal(5)
+  extInput.setSymmetricExtent(distance, false)
+  extInput.isSolid = true
+
+  // Create the extrusion
+  const ext = extrudes.add(extInput)
+
+  // Get the end face of the created extrusion body
+  const endFace = ext.endFaces.item(0)
+  // Get the occurrence of the new component
+
+  const occ = rootComp.occurrences.item(0)
+
+  // Create a new sketch in the occurrence
+  const sketchInOcc = sketches.add(endFace, occ)
+
+  // Get the sketch curve projected to the sketch
+  const curve = sketchInOcc.sketchCurves.item(0)
+  // Create the first joint geometry with the sketch curve
+  const geo0 = adsk.fusion.JointGeometry.createByCurve(curve, adsk.fusion.JointKeyPointTypes.CenterKeyPoint)
+  // Create the second joint geometry with sketch point
+  const geo1 = adsk.fusion.JointGeometry.createByPoint(sketchPt)
+
+  // Unground component from parent
+  occ.isGroundToParent = false
+
+  // Create joint input
+  const joints = rootComp.joints
+  const jointInput = joints.createInput(geo0, geo1)
+
+  // Set the joint input
+  jointInput.setAsPinSlotJointMotion(adsk.fusion.JointDirections.ZAxisJointDirection, adsk.fusion.JointDirections.XAxisJointDirection)
+
+  // Create the joint
+  const joint = joints.add(jointInput)
+  const pinSlotMotion = joint.jointMotion as adsk.fusion.PinSlotJointMotion
+  const limits = pinSlotMotion.rotationLimits
+  limits.isRestValueEnabled = true
+  limits.restValue = 1.0
+}
+
+run();
