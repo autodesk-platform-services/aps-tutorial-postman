@@ -32,7 +32,7 @@ This collection includes a 3-legged OAuth helper so you can obtain the token dir
 
 Alternatively, you can obtain a 3LO token by following the [Get a 3-Legged Token](https://aps.autodesk.com/en/docs/oauth/v2/tutorials/get-3-legged-token/) tutorial in the APS Authentication documentation.
 
-The table below describes the different options for authentication and authorization for submitting WorkItems to DA4F. This tutorial uses the second option — a 2-legged token submits the WorkItem while a 3LO token in the body identifies the Fusion user.
+The table below is a reference of all the options for authentication and authorization when submitting WorkItems to DA4F — it is not a list of steps to follow. This tutorial uses the second option — a 2-legged token submits the WorkItem while a 3LO token in the body identifies the Fusion user, so no PAT is required. The PAT-based rows describe alternative scenarios you might use in your own integrations.
 
 | Option                                                        | OAuth Type | Required Body Content                   | Notes                                                                                    | Use Case                                                                                        |
 |---------------------------------------------------------------|------------|-----------------------------------------|------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
@@ -51,7 +51,7 @@ The table below describes the different options for authentication and authoriza
 
 3. Click the Edit icon, and enter the 3LO token you obtained earlier.
 
-4. In the same way, set the **hubId** variable to the id of the Fusion Team hub that contains your design. The script uses this value to set the active hub before opening the file, so it must match the hub the 3LO user has access to. (If you leave it empty, the script falls back to the user's default active hub.)
+4. In the same way, set the **hubId** variable to the id of the Fusion Team hub that contains your design. You can find it in the URL when you open your hub in Fusion Team: it is the subdomain at the start of the address. For example, if your Fusion Team URL is `https://autodesk5682.autodesk360.com/g/all_projects/active`, the hubId is `autodesk5682`. The script uses this value to set the active hub before opening the file, so it must match a hub the 3LO user has access to. (If you leave it empty, the script falls back to the user's default active hub.)
 
 5. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Create a WorkItem**. The request loads.
 
