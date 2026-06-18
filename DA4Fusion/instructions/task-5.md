@@ -24,7 +24,7 @@ This collection includes a 3-legged OAuth helper so you can obtain the token dir
 
 1. Make sure `client_id` and `client_secret` are set in the environment (from [Task 2](task-2.md)). The `daAuthUrl` variable is already set to the authorization endpoint.
 
-2. Select the **DA4Fusion** collection in the sidebar and open the **Authorization** tab. The type is set to **OAuth 2.0** with the scopes listed above.
+2. Select the **Execute a Fusion Script** collection in the sidebar and open the **Authorization** tab. The type is set to **OAuth 2.0** with the scopes listed above.
 
 3. Click **Get New Access Token**, sign in with the Autodesk account whose Fusion Team data you want to access, and approve the requested scopes.
 
