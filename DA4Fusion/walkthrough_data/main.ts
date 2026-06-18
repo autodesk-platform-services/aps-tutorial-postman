@@ -21,7 +21,7 @@ function run() {
   const doc = getDocument(
     app,
     false,
-    "",
+    scriptParameters.hubId ?? "",
     scriptParameters.fileURN,
   );
   if (!doc) throw Error("Invalid document.");
