@@ -76,6 +76,9 @@
 							"host": [
 								"{{daAuthTokenUrl}}"
 							]
+						},
+						"auth": {
+							"type": "noauth"
 						}
 					},
 					"response": []
@@ -198,7 +201,10 @@
 								"appbundles"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -300,7 +306,10 @@
 								"{{ConfigureDesignUrl}}"
 							]
 						},
-						"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *samplePlugin.bundle.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://fas-playground.fas-p-ue1.cloudos.autodesk.com/fas-docu/helloFusion.zi).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *helloFusion.zip*, which you downloaded in step 1."
+						"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *samplePlugin.bundle.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://fas-playground.fas-p-ue1.cloudos.autodesk.com/fas-docu/helloFusion.zi).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *helloFusion.zip*, which you downloaded in step 1.",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -351,7 +360,10 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				}
@@ -410,7 +422,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"{{activityName}}\", \n    \"engine\": \"{{engine}}\",\n    \"commandline\": [],\n    \"parameters\": {\n          \"TaskParameters\": {\n            \"verb\": \"read\",\n            \"description\": \"the parameters for the script\",\n            \"required\": false\n          },\n          \"PersonalAccessToken\": {\n            \"verb\": \"read\",\n            \"description\": \"the personal access token to use\",\n            \"required\": true\n          }\n    }, \n    \"appbundles\": [ \n    \"{{dasAppBundleId}}+my_working_version\" \n    ], \n    \"settings\": {}, \n    \"description\": \"\" \n}"
+							"raw": "{\n    \"id\": \"{{activityName}}\", \n    \"engine\": \"{{engine}}\",\n    \"commandline\": [],\n    \"parameters\": {\n          \"TaskParameters\": {\n            \"verb\": \"read\",\n            \"description\": \"the parameters for the script\",\n            \"required\": false\n          }\n    },\n    \"appbundles\": [ \n    \"{{dasAppBundleId}}+my_working_version\" \n    ], \n    \"settings\": {}, \n    \"description\": \"\" \n}"
 						},
 						"url": {
 							"raw": "{{daApiRoot}}/activities",
@@ -421,7 +433,10 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -467,7 +482,10 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				}
@@ -515,7 +533,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"activityId\":\"{{dasActivityName}}+my_current_version\",\n    \"arguments\": {\n        \"PersonalAccessToken\": \"{{personalAccessToken}}\",\n        \"TaskParameters\": \"{\\n  \\\"fileURN\\\": \\\"urn:adsk.wipprod:dm.lineage:shuH8zKvThW_4Tdu-m22sw\\\",\\n  \\\"parameters\\\": {\\n    \\\"d3\\\": \\\"40mm\\\"\\n  }\\n}\"\n    }\n}"
+							"raw": "{\n   \"activityId\":\"{{dasActivityName}}+my_current_version\",\n    \"arguments\": {\n        \"adsk3LeggedToken\": \"{{adsk3LeggedToken}}\",\n        \"TaskParameters\": \"{\\n  \\\"hubId\\\": \\\"{{hubId}}\\\",\\n  \\\"fileURN\\\": \\\"urn:adsk.wipprod:dm.lineage:shuH8zKvThW_4Tdu-m22sw\\\",\\n  \\\"parameters\\\": {\\n    \\\"d3\\\": \\\"40mm\\\"\\n  }\\n}\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{daApiRoot}}/workitems",
@@ -526,7 +544,10 @@
 								"workitems"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -554,7 +575,10 @@
 								"{{dasWorkItemId}}"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				}
@@ -639,7 +663,10 @@
 										"versions"
 									]
 								},
-								"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
+								"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)",
+								"auth": {
+									"type": "noauth"
+								}
 							},
 							"response": []
 						},
@@ -739,7 +766,10 @@
 										"{{ConfigureDesignUrl}}"
 									]
 								},
-								"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *ConfigureDesign.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://github.com/autodesk-platform-services/aps-tutorial-postman/blob/master/DA4Fusion/walkthrough_data/ConfigureDesign.zip).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *ConfigureDesign.zip*, which you downloaded in step 1."
+								"description": "This request to the Design Automation API uploads an AppBundle to APS.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *ConfigureDesign.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://github.com/autodesk-platform-services/aps-tutorial-postman/blob/master/DA4Fusion/walkthrough_data/ConfigureDesign.zip).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *ConfigureDesign.zip*, which you downloaded in step 1.",
+								"auth": {
+									"type": "noauth"
+								}
 							},
 							"response": []
 						},
@@ -817,7 +847,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"engine\": \"{{engine}}\",\n    \"commandline\": [],\n    \"parameters\": {\n          \"TaskParameters\": {\n            \"verb\": \"read\",\n            \"description\": \"the parameters for the script\",\n            \"required\": false\n          },\n          \"PersonalAccessToken\": {\n            \"verb\": \"read\",\n            \"description\": \"the personal access token to use\",\n            \"required\": true\n          }\n    }, \n    \"appbundles\": [ \n    \"{{dasAppBundleId}}+my_working_version\" \n    ], \n    \"settings\": {}, \n    \"description\": \"\" \n}"
+									"raw": "{\n    \"engine\": \"{{engine}}\",\n    \"commandline\": [],\n    \"parameters\": {\n          \"TaskParameters\": {\n            \"verb\": \"read\",\n            \"description\": \"the parameters for the script\",\n            \"required\": false\n          }\n    },\n    \"appbundles\": [ \n    \"{{dasAppBundleId}}+my_working_version\" \n    ], \n    \"settings\": {}, \n    \"description\": \"\" \n}"
 								},
 								"url": {
 									"raw": "{{daApiRoot}}/activities/{{activityName}}/versions",
@@ -830,7 +860,10 @@
 										"versions"
 									]
 								},
-								"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
+								"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)",
+								"auth": {
+									"type": "noauth"
+								}
 							},
 							"response": []
 						},
@@ -895,6 +928,9 @@
 								"forgeapps",
 								"me"
 							]
+						},
+						"auth": {
+							"type": "noauth"
 						}
 					},
 					"response": []
@@ -927,7 +963,10 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -970,7 +1009,10 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -1011,7 +1053,10 @@
 								"engines"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/engines-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/engines-GET/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -1035,7 +1080,10 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -1060,7 +1108,10 @@
 								"objects"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -1081,7 +1132,10 @@
 								"{{bucketURL}}"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -1106,7 +1160,10 @@
 								"details"
 							]
 						},
-						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
+						"description": "[See documentation](https://aps.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)",
+						"auth": {
+							"type": "noauth"
+						}
 					},
 					"response": []
 				},
@@ -1188,6 +1245,46 @@
 			]
 		}
 	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "scope",
+				"value": "code:all data:read data:write data:create data:search account:read profapi:core-all-profile:read openid",
+				"type": "string"
+			},
+			{
+				"key": "clientSecret",
+				"value": "{{client_secret}}",
+				"type": "string"
+			},
+			{
+				"key": "clientId",
+				"value": "{{client_id}}",
+				"type": "string"
+			},
+			{
+				"key": "accessTokenUrl",
+				"value": "{{daAuthTokenUrl}}",
+				"type": "string"
+			},
+			{
+				"key": "authUrl",
+				"value": "{{daAuthUrl}}",
+				"type": "string"
+			},
+			{
+				"key": "redirect_uri",
+				"value": "http://localhost:8080/",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
 	"variable": [
 		{
 			"key": "client_auth_keys",

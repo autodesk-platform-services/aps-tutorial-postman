@@ -72,7 +72,7 @@ To register a new version:
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-3. Click **Select Files**, and pick *ConfigureDesignApp.zip*, which you downloaded earlier.
+3. Click **Select Files**, and pick *ConfigureDesign.zip*, which you downloaded earlier.
 
 4. Click **Send**.
 
