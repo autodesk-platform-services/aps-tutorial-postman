@@ -1,0 +1,437 @@
+{
+  "info": {
+    "name": "Team Admin API walkthrough",
+    "description": "Companion collection for the Team Admin API [Get started walkthrough](https://aps.autodesk.com/en/docs/team_admin/v1/tutorials/get-started/). Follow the walkthrough for step-by-step instructions on using these requests.\n\n## Set up\n1. Import this collection into Postman.\n2. Set `client_id` and `client_secret` to the credentials of your APS app.\n3. On the collection's Authorization tab, choose **Get New Access Token** and sign in as a team administrator (3-legged OAuth).\n\n## Scopes\nThe collection requests these scopes by default:\n- `tmadmapi:team:read`: team discovery and all read requests.\n- `tmadmapi:team-users:write`: invitations.\n- `tmadmapi:team-products:write`: creating and deleting assignments.\n\nWrite scopes do not grant read access, so the read scope is included.\n\n## Variables\nThe `url` variable is already set. Run the team discovery request, then copy the returned IDs into `team_id`, `user_id`, and `product_id`. Set `lookup_email` for the exact member lookup and `invite_email` for invitations.\n\n## Before you run write requests\nInvitation and assignment requests change the team. Invitations send email to the invitee.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "List administered teams",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams?limit=50",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "50"
+            }
+          ]
+        },
+        "description": "Returns a page of teams you administer. Copy a returned id to team_id. To retrieve every page, keep limit unchanged and pass pagination.cursor until hasMore is false."
+      },
+      "response": []
+    },
+    {
+      "name": "List team users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/users?limit=50",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "50"
+            }
+          ]
+        },
+        "description": "Returns a page of members of team_id. Copy a returned id to user_id. Follow pagination.cursor with the same limit to retrieve additional pages."
+      },
+      "response": []
+    },
+    {
+      "name": "Get one team user",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/users/{{user_id}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "users",
+            "{{user_id}}"
+          ]
+        },
+        "description": "Returns the member selected by team_id and user_id. An unknown user or a user outside the team returns 404."
+      },
+      "response": []
+    },
+    {
+      "name": "Find a team user by exact email",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/users?email={{lookup_email}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "users"
+          ],
+          "query": [
+            {
+              "key": "email",
+              "value": "{{lookup_email}}"
+            }
+          ]
+        },
+        "description": "Set lookup_email to the exact member email. No matching membership returns an empty data array. Follow pagination if hasMore is true."
+      },
+      "response": []
+    },
+    {
+      "name": "List product pools",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/product-pools?limit=50",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "product-pools"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "50"
+            }
+          ]
+        },
+        "description": "Returns supported product pools for team_id. Copy a productId to product_id. Unlimited pools have null seat quantities; check startDate and endDate before assigning."
+      },
+      "response": []
+    },
+    {
+      "name": "List team assignments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/assignments",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "assignments"
+          ]
+        },
+        "description": "Returns effective assignments for team_id. Types are DIRECT, GROUP, and TEAM. All matching assignments are returned in data without pagination. Team-wide results can take time to reflect changes."
+      },
+      "response": []
+    },
+    {
+      "name": "List one user's assignments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/assignments?userId={{user_id}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "assignments"
+          ],
+          "query": [
+            {
+              "key": "userId",
+              "value": "{{user_id}}"
+            }
+          ]
+        },
+        "description": "Set user_id to a member ID. Returns effective assignments for that member; a user outside the team returns an empty list."
+      },
+      "response": []
+    },
+    {
+      "name": "Find one user/product assignment",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/assignments?userId={{user_id}}&productId={{product_id}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "assignments"
+          ],
+          "query": [
+            {
+              "key": "userId",
+              "value": "{{user_id}}"
+            },
+            {
+              "key": "productId",
+              "value": "{{product_id}}"
+            }
+          ]
+        },
+        "description": "Set user_id and product_id from discovery responses. Returns that effective assignment if present, otherwise an empty list."
+      },
+      "response": []
+    },
+    {
+      "name": "Create direct team assignment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"userId\":\"{{user_id}}\",\"productId\":\"{{product_id}}\"}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/assignments",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "assignments"
+          ]
+        },
+        "description": "Creates a DIRECT assignment. Returns 201 for a new assignment or 200 for an existing direct assignment. Use tmadmapi:team-products:write; user_id and product_id are required."
+      },
+      "response": []
+    },
+    {
+      "name": "Delete direct team assignment",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/assignments?userId={{user_id}}&productId={{product_id}}",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "assignments"
+          ],
+          "query": [
+            {
+              "key": "userId",
+              "value": "{{user_id}}"
+            },
+            {
+              "key": "productId",
+              "value": "{{product_id}}"
+            }
+          ]
+        },
+        "description": "Sends userId and productId as query parameters with no body. Returns 204 when removed or absent, or 422 when only inherited access remains. Inherited access is preserved. Requires tmadmapi:team-products:write."
+      },
+      "response": []
+    },
+    {
+      "name": "Invite team user - sends invitation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"{{invite_email}}\",\"firstName\":\"Test\",\"lastName\":\"Member\"}",
+          "options": {
+            "raw": {
+              "language": "text"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{url}}/team-admin/v1/teams/{{team_id}}/users",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "team-admin",
+            "v1",
+            "teams",
+            "{{team_id}}",
+            "users"
+          ]
+        },
+        "description": "Invites invite_email and returns the member: 201 for a new membership or 200 without another invitation for an existing member. Names are optional and used for a new account. Requires tmadmapi:team-users:write or tmadmapi:team:write."
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "tokenType",
+        "value": "Bearer",
+        "type": "string"
+      },
+      {
+        "key": "token_id",
+        "value": "",
+        "type": "string"
+      },
+      {
+        "key": "accessToken",
+        "value": "",
+        "type": "string"
+      },
+      {
+        "key": "expires_in",
+        "value": 3599,
+        "type": "number"
+      },
+      {
+        "key": "timestamp",
+        "value": 1792678841571,
+        "type": "number"
+      },
+      {
+        "key": "clientId",
+        "value": "{{client_id}}",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "{{url}}/authentication/v2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "{{url}}/authentication/v2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "string"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{client_secret}}",
+        "type": "string"
+      },
+      {
+        "key": "scope",
+        "value": "tmadmapi:team:read tmadmapi:team-users:write tmadmapi:team-products:write",
+        "type": "string"
+      },
+      {
+        "key": "client_authentication",
+        "value": "header",
+        "type": "string"
+      },
+      {
+        "key": "useBrowser",
+        "value": true,
+        "type": "boolean"
+      },
+      {
+        "key": "id",
+        "value": "",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "url",
+      "value": "https://developer.api.autodesk.com"
+    },
+    {
+      "key": "team_id",
+      "value": "REPLACE_WITH_YOUR_TEAM_ID"
+    },
+    {
+      "key": "user_id",
+      "value": "REPLACE_WITH_YOUR_USER_ID"
+    },
+    {
+      "key": "product_id",
+      "value": "REPLACE_WITH_PUBLIC_PRODUCT_ID"
+    },
+    {
+      "key": "lookup_email",
+      "value": "REPLACE_WITH_YOUR_EMAIL_ADDRESS"
+    },
+    {
+      "key": "invite_email",
+      "value": "REPLACE_WITH_CONTROLLED_TEST_EMAIL"
+    },
+    {
+      "key": "client_id",
+      "value": "REPLACE_WITH_YOUR_CLIENT_ID"
+    },
+    {
+      "key": "client_secret",
+      "value": "REPLACE_WITH_YOUR_CLIENT_SECRET"
+    }
+  ]
+}
