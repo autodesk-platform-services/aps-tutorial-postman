@@ -1,3 +1,6 @@
+<!-- archived-notice -->
+> **This repository is archived.** Archived repositories are not maintained or supported.
+
 # Postman collections for tutorials on APS Developer Portal
 
 The repository provides Postman collections for example workflows available with the API documentation on the [Autodesk Platform Services (APS) Portal](https://aps.autodesk.com/). The collections offer a user-friendly alternative to the cURL commands used in the tutorials, simplifying the workflow and enabling easy experimentation.
