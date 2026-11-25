@@ -6,7 +6,7 @@ The relationship between an Activity and a WorkItem can be thought of as a “fu
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-For this exercise, you will apply the ConfigureDesign Activity on a Fusion Design, out of the Fusion Team example files.
+For this exercise, you will apply the ConfigureDesign Activity on a Fusion Design, out of the Fusion Team example files. The `fileURN` in the WorkItem body points to that sample design, a nut, so you don't need to upload a file. To run the script on your own design, replace the `fileURN` with the URN of a design in your hub. See **Accessing Files** in the [Fusion Team Integration](https://aps.autodesk.com/en/docs/design-automation/v3/developers_guide/fusion_specific/fusion-team-integration/) documentation for how to find a URN.
 
 ## Get a 3LO Token
 
