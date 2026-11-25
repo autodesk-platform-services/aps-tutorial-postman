@@ -41,7 +41,7 @@ function run() {
     const par: adsk.fusion.Parameter | null = pars.itemByName(name);
     if (par == null) {
       adsk.log(`Parameter "${name}" not found, skipping`);
-      delete parameters.par;
+      delete parameters[name];
       continue;
     }
     par.expression = parameters[name];
